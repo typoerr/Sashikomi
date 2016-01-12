@@ -19,25 +19,19 @@
   "options_page": "src/options/index.html",
   "browser_action": {
     "default_icon": "icons/icon19.png",
-    "default_title": "Sashikomi",
-    "default_popup": "src/browser_action/browser_action.html"
+    "default_title": "Sashikomi"
   },
   "permissions": [
     "contextMenus",
     "tabs",
     "http://*/*",
-    " https://*/*"
+    "https://*/*"
   ],
   "content_scripts": [
     {
-      "css": [
-        "src/inject/inject.css"
-      ]
-    },
-    {
-      "js": [
-        "src/dist/inject.bundle.js"
-      ]
+      "matches": ["http://*/*", "https://*/*"],
+      "css": ["src/inject/inject.css"],
+      "js": [ "src/dist/inject.bundle.js"]
     }
   ]
 }

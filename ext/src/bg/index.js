@@ -1,13 +1,48 @@
-// if you checked "fancy-settings" in extensionizr.com, uncomment this lines
+import Dexie from 'dexie'
 
-// var settings = new Store("settings", {
-//     "sample_setting": "This is how you use Store.js to remember values"
-// });
+/* ==========================================
+ * indexedDBのsetup
+ * ===========================================*/
+/* ---------------------------------------
+ * Schema
+
+ id: 1 // auto increment // index
+ url: '', // index
+ contents: [
+  { node: 'element', content: 'text or markdown'},
+ ]
+
+ * id, またはurlで検索をするため、contentsにindexは貼っていない
+ * -------------------------------------------*/
+
+/* ------------------------------------------
+ * Operation Sample
+
+ db.transaction('rw', db.memos, function () {
+   db.memos.add({ url: 'http://example.com',
+      contents: [{ node: 'element', content: 'text or markdown' }]
+   });
+   db.memos.where('url').equals('http://example.com').each((item) => console.log(item));
+ });
+
+ *---------------------------------------------- */
+let db = new Dexie('SashikomiDB');
+db.version(1).stores({
+  memos: "++id, url"
+});
+
+db.open();
 
 
-//example of using a message handler from the inject scripts
-chrome.extension.onMessage.addListener(
-  function(request, sender, sendResponse) {
-  	chrome.pageAction.show(sender.tab.id);
-    sendResponse();
-  });
+/* =============================================
+ * browserAction#onClick
+ * ==============================================*/
+chrome.browserAction.onClicked.addListener(function () {
+
+  /*
+   * TODO: inject.jsにmessageを送る(選択nodeを取得、editor挿入等をさせる)
+   */
+});
+
+
+// TODO: inject.jsからのMessageをlistenして、DBのCRUD処理

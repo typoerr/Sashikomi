@@ -1,13 +1,20 @@
-chrome.extension.sendMessage({}, function(response) {
-	var readyStateCheckInterval = setInterval(function() {
-	if (document.readyState === "complete") {
-		clearInterval(readyStateCheckInterval);
+//TODO: URLでStorageを検索
+//TODO: VueComponentを作成
+//TODO: Vueインスタンスを保存されたelm数生成、append
 
-		// ----------------------------------------------------------
-		// This part of the script triggers when page is done loading
-		console.log("Hello. This message was sent from scripts/index.js");
-		// ----------------------------------------------------------
+/* ------------------------------
+  Sample Message Passing(send)
+* --------------------------------
+chrome.runtime.sendMessage({
+    type: "ADD",
+    text: "sample text"
+  },
+  function (response) {
+    if (response) {
+      alert(response);
+    }
+  }
+);
 
-	}
-	}, 10);
-});
+* これをVueのイベントハンドラで叩けば良さそう
+*/

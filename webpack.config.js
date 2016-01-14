@@ -10,21 +10,20 @@ module.exports = {
     path: "./ext/src/dist",
     filename: "[name].bundle.js"
   },
-
-  resolve: {
-    extensions: ['', '.js']
-  },
   module: {
     loaders: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: "babel-loader",
+        loader: 'babel-loader',
         query: {
-          presets: ['es2015']
+          presets: ['es2015', 'react']
         }
       }
     ]
+  },
+  resolve: {
+    extensions: ['', '.js', '.jsx']
   },
   plugins: [
     new WebpackNotifierPlugin({title: 'Webpack'})

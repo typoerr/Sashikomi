@@ -3,18 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "webpack --progress --config ./webpack_config.js",
-    "watch": "webpack --watch --progress --config ./webpack_config.js"
+    "build": "webpack --progress --config ./webpack.config.js",
+    "watch": "webpack --watch --progress --config ./webpack.config.js"
   },
   "devDependencies": {
     "babel-core": "^6.3.17",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
     "webpack": "^1.12.9",
     "webpack-notifier": "^1.2.1"
   },
   "dependencies": {
-    "dexie": "^1.2.0",
-    "vue": "^1.0.14"
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "dexie": "^1.2.0"
   }
 }

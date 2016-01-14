@@ -1,6 +1,6 @@
 //TODO: URLでStorageを検索
-//TODO: VueComponentを作成
-//TODO: Vueインスタンスを保存されたelm数生成、append
+//TODO: ReactComponentを作成
+//TODO: data数だけReactComponentの挿入する処理
 
 /* ------------------------------
   Sample Message Passing(send)
@@ -16,5 +16,5 @@ chrome.runtime.sendMessage({
   }
 );
 
-* これをVueのイベントハンドラで叩けば良さそう
+* これをReactのイベントハンドラで叩けば良さそう
 */

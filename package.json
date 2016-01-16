@@ -4,13 +4,17 @@
   "description": "",
   "scripts": {
     "build": "webpack --progress --config ./webpack.config.js",
-    "watch": "webpack --watch --progress --config ./webpack.config.js"
+    "watch": "webpack --watch --progress --config ./webpack.config.js",
+    "server": "lite-server --verbose",
+    "dev": "concurrent \"npm run watch\" \"npm run server\""
   },
   "devDependencies": {
     "babel-core": "^6.3.17",
     "babel-loader": "^6.2.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
+    "concurrently": "^1.0.0",
+    "lite-server": "^1.3.2",
     "webpack": "^1.12.9",
     "webpack-notifier": "^1.2.1"
   },

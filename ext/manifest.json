@@ -12,7 +12,7 @@
   "default_locale": "en",
   "background": {
     "scripts": [
-      "src/dist/background.bundle.js"
+      "dist/background.bundle.js"
     ],
     "persistent": false
   },
@@ -31,7 +31,9 @@
     {
       "matches": ["http://*/*", "https://*/*"],
       "css": ["src/inject/inject.css"],
-      "js": [ "src/dist/inject.bundle.js"]
+      "js": [
+        "dist/inject.bundle.js"
+      ]
     }
   ]
 }

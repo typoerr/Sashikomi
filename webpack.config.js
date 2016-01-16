@@ -7,7 +7,7 @@ module.exports = {
     inject: "./ext/src/inject/index.js"
   },
   output: {
-    path: "./ext/src/dist",
+    path: "./ext/dist",
     filename: "[name].bundle.js"
   },
   module: {

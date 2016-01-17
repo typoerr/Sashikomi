@@ -1,6 +1,12 @@
+/*
+* TODO: EditorのStyle
+* TODO: submit処理
+* TODO: keybind submit
+* */
 import React from 'react'
+import Base from './Base'
 
-export default class Editor extends React.Component {
+export default class Editor extends Base {
   constructor(props) {
     super(props);
     this.state = {
@@ -8,34 +14,45 @@ export default class Editor extends React.Component {
       hasChange: false
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleChange = this.handleChange.bind(this);
-    this.handleClose = this.handleClose.bind(this);
+    this._bind('handleSubmit', 'handleChange', 'handleClose');
   }
+
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state.inputContent)
+    //todo: this.props.onSubmit(this.state.inputContent)
+    this.closeEditor();
   }
 
   handleChange(e) {
     this.setState({
       inputContent: e.target.value,
       hasChange: true
-    });
+    })
   }
 
   handleClose() {
     if (this.state.hasChange) {
       if (confirm('入力内容が変更されています。閉じてもよろしいですか？')) {
-        //todo: editorを閉じる
+        this.closeEditor();
       }
     } else {
-      //todo: editorを閉じる
+      this.closeEditor()
     }
   }
 
+  closeEditor() {
+    this.setState({
+      inputContent: '',
+      hasChange: false
+    });
+
+    this.props.onClose()
+  }
+
+
   render() {
+
     return (
       <div className="sashikomi__editor">
         <div className="sashikomi__editor__header">
@@ -61,5 +78,7 @@ export default class Editor extends React.Component {
 }
 
 Editor.propTypes = {
-  content: React.PropTypes.string
+  content: React.PropTypes.string,
+  onClose: React.PropTypes.func.isRequired,
+  //onSubmit: React.PropTypes.func.isRequired
 };

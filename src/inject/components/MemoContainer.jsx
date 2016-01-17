@@ -45,7 +45,7 @@ export default class MemoContainer extends Base {
 
   render() {
     return (
-      <div className={'memo-container__' + this.props.id}>
+      <div className='chrome__sashikomi__container'>
         {this.rendererChild()}
       </div>
     )

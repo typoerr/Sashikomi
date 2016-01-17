@@ -16,7 +16,7 @@
     ],
     "persistent": false
   },
-  "options_page": "src/options/index.html",
+  "options_page": "options.html",
   "browser_action": {
     "default_icon": "icons/icon19.png",
     "default_title": "Sashikomi"
@@ -30,7 +30,9 @@
   "content_scripts": [
     {
       "matches": ["http://*/*", "https://*/*"],
-      "css": ["src/inject/inject.css"],
+      "css": [
+        "dist/inject.bundle.css"
+      ],
       "js": [
         "dist/inject.bundle.js"
       ]

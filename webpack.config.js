@@ -4,8 +4,8 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
   devtool: 'inline-source-map',
   entry: {
-    background: "./ext/src/bg/index.js",
-    inject: "./ext/src/inject/index.js"
+    background: "./src/bg/index.js",
+    inject: "./src/inject/index.js"
   },
   output: {
     path: "./ext/dist",

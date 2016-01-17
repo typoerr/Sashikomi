@@ -2,7 +2,8 @@
 //TODO: ReactComponentを作成
 //TODO: data数だけReactComponentの挿入する処理
 
-require('./inject.scss');
+require('../css/inject.scss');
+
 import MemoContainer from './components/MemoContainer'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -25,7 +26,7 @@ chrome.runtime.sendMessage({
 */
 
 // dbg
-let content = require('../../sample.md');
+let content = require('../../../sample.md');
 
 
 ReactDOM.render(

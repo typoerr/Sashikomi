@@ -5,7 +5,7 @@ module.exports = {
   devtool: 'inline-source-map',
   entry: {
     background: "./src/bg/index.js",
-    inject: "./src/inject/index.js"
+    inject: "./src/inject/js/index.js"
   },
   output: {
     path: "./ext/dist",

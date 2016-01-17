@@ -1,4 +1,5 @@
 var WebpackNotifierPlugin = require('webpack-notifier');
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   devtool: 'inline-source-map',
@@ -19,13 +20,22 @@ module.exports = {
         query: {
           presets: ['es2015', 'react']
         }
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader?minimize")
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract("style-loader", "css-loader?minimize!sass-loader")
       }
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx']
+    extensions: ['', '.js', '.jsx', '.css', '.scss']
   },
   plugins: [
-    new WebpackNotifierPlugin({title: 'Webpack'})
+    new WebpackNotifierPlugin({ title: 'Webpack' }),
+    new ExtractTextPlugin("inject.bundle.css")
   ]
 };

@@ -1,5 +1,4 @@
 /*
-* TODO: EditorのStyle
 * TODO: keybind submit
 * */
 import React from 'react'
@@ -17,9 +16,6 @@ export default class Editor extends Base {
   }
 
   handleBlur(e) {
-    //todo: inputContentが空ならば、Componentの挿入自体を削除する
-    // つまりinsertしているの親NODEを削除する
-
     e.preventDefault();
     this.props.onSubmit(this.state.inputContent);
     this.props.onClose()

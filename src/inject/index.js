@@ -1,6 +1,8 @@
 //TODO: URLでStorageを検索
 //TODO: ReactComponentを作成
 //TODO: data数だけReactComponentの挿入する処理
+
+require('./inject.scss');
 import MemoContainer from './components/MemoContainer'
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -24,6 +26,9 @@ chrome.runtime.sendMessage({
 
 
 ReactDOM.render(
-  <MemoContainer id={1} content="this is react"/>,
-  document.getElementById("baz")
+  <MemoContainer
+    id={1}
+    content="hello react"
+  />,
+  document.getElementById("foo")
 );

@@ -39,7 +39,10 @@ export default class MemoContainer extends Base {
         />
       )
     } else {
-      return <Memo content={this.props.content}/>
+      return <Memo
+        content={this.props.content}
+        onClose={this.handleToggleChild}
+      />
     }
   }
 

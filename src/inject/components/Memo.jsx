@@ -21,7 +21,13 @@ export default class Memo extends Base {
   rawMarkup() {
     let md = marked(
       this.props.children.toString(),
-      { sanitize: true, breaks: true }
+      {
+        sanitize: true,
+        breaks: true,
+        highlight: function (code) {
+          return require('highlight.js').highlightAuto(code).value;
+        }
+      }
     );
     return { __html: md };
   }

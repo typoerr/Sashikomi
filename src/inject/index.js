@@ -24,11 +24,14 @@ chrome.runtime.sendMessage({
 * これをReactのイベントハンドラで叩けば良さそう
 */
 
+// dbg
+//let content = require('../../sample.md');
+
 
 ReactDOM.render(
   <MemoContainer
     id={1}
-    content="hello react"
+    content={"# hello react"}
   />,
   document.getElementById("foo")
 );

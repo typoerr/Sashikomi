@@ -23,7 +23,6 @@ export default class MemoContainer extends Base {
 
   handleSubmit(content) {
     console.log(content);
-
     // propsとしてReactDOM.renderからpropsを渡す
     // FIXME: 引数を修正
     //this.props.onSubmit()
@@ -39,10 +38,9 @@ export default class MemoContainer extends Base {
         />
       )
     } else {
-      return <Memo
-        content={this.props.content}
-        onClose={this.handleToggleChild}
-      />
+      return <Memo onClose={this.handleToggleChild}>
+        {this.props.content}
+      </Memo>
     }
   }
 

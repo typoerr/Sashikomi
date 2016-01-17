@@ -28,6 +28,10 @@ module.exports = {
       {
         test: /\.scss$/,
         loader: ExtractTextPlugin.extract("style-loader", "css-loader?minimize!sass-loader")
+      },
+      {
+        test: /\.md$/,
+        loader: "raw"
       }
     ]
   },

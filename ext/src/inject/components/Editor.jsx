@@ -1,6 +1,5 @@
 /*
 * TODO: EditorのStyle
-* TODO: submit処理
 * TODO: keybind submit
 * */
 import React from 'react'
@@ -20,7 +19,7 @@ export default class Editor extends Base {
 
   handleSubmit(e) {
     e.preventDefault();
-    //todo: this.props.onSubmit(this.state.inputContent)
+    this.props.onSubmit(this.state.inputContent);
     this.closeEditor();
   }
 
@@ -80,5 +79,5 @@ export default class Editor extends Base {
 Editor.propTypes = {
   content: React.PropTypes.string,
   onClose: React.PropTypes.func.isRequired,
-  //onSubmit: React.PropTypes.func.isRequired
+  onSubmit: React.PropTypes.func.isRequired
 };

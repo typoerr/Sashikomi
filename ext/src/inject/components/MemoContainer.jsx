@@ -11,18 +11,31 @@ export default class MemoContainer extends Base {
   constructor(props) {
     super(props);
     this.state = {
-      isEditing: true
+      isEditing: this.props.edit
     };
 
-    this._bind('renderer', 'handleToggle');
+    this._bind('rendererChild', 'handleToggleChild', 'handleSubmit');
   }
 
-  renderer() {
+  handleToggleChild() {
+    this.setState({ isEditing: !this.state.isEditing })
+  }
+
+  handleSubmit(content) {
+    console.log(content);
+
+    // propsとしてReactDOM.renderからpropsを渡す
+    // FIXME: 引数を修正
+    //this.props.onSubmit()
+  }
+
+  rendererChild() {
     if (this.state.isEditing) {
       return (
         <Editor
           content={this.props.content}
-          onClose={this.handleToggleChildren()}
+          onClose={this.handleToggleChild}
+          onSubmit={this.handleSubmit}
         />
       )
     } else {
@@ -30,15 +43,10 @@ export default class MemoContainer extends Base {
     }
   }
 
-  handleToggleChildren() {
-    this.setState({ isEditing: !this.state.isEditing })
-  }
-
-
   render() {
     return (
       <div className={'memo-container__' + this.props.id}>
-        {this.renderer()}
+        {this.rendererChild()}
       </div>
     )
   }
@@ -48,5 +56,6 @@ MemoContainer.propTypes = {
   id: React.PropTypes.number.isRequired,
   content: React.PropTypes.string.isRequired,
   edit: React.PropTypes.bool
-
+  // TODO: FuncPropsをつけとる
+  //onSubmit: React.PropTypes.func.isRequired
 };

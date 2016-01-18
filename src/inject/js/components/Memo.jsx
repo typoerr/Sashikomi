@@ -1,8 +1,3 @@
-/*
-* TODO: this.props.contentが空ならば、Componentの自体を削除する
-        つまりinsertしているの親NODEを削除する
-*/
-
 import React from 'react'
 import Base from './Base'
 import marked from 'marked'
@@ -11,6 +6,12 @@ export default class Memo extends Base {
   constructor(props) {
     super(props);
     this._bind('handleClose', 'handleDelete', 'rawMarkup');
+  }
+
+  componentDidMount() {
+    if (!this.props.children.trim()) {
+      this.props.onDelete()
+    }
   }
 
   handleClose() {

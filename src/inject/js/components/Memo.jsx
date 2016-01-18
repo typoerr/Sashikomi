@@ -19,7 +19,7 @@ export default class Memo extends Base {
   }
 
   handleDelete() {
-    if (confirm("[Sashikomi] Memoを1件削除します")) {
+    if (confirm("Sashikomi: Memoを1件削除します")) {
       this.props.onDelete();
     }
   }

@@ -22,7 +22,7 @@ export default class MemoContainer extends Base {
   }
 
   handleSubmit(content) {
-    console.log(content);
+    console.log('handleSubmit');
     // propsとしてReactDOM.renderからpropsを渡す
     // FIXME: 引数を修正
     //this.props.onSubmit()

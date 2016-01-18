@@ -26,8 +26,8 @@ chrome.runtime.sendMessage({
 */
 
 // dbg
-let content = require('../../../sample.md');
-
+//let content = require('../../../sample.md');
+let content = require('../../../sample2.md');
 
 ReactDOM.render(
   <MemoContainer

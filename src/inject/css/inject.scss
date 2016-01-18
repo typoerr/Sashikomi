@@ -7,7 +7,7 @@
 $white : #fff;
 $dark-white : #f8f8f8;
 $accent-color : #7D3C98;
-$default-font-color : #333;
+$default-font-color : #444;
 
 /* =======================================
   Module
@@ -54,10 +54,12 @@ $default-font-color : #333;
 
 .chrome__sashikomi__editor__body {
   textarea {
+    font-family : "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;
     display     : block !important;
-    font-size   : 16px;
+    font-size   : 15px;
     line-height : 1.6;
     border      : none;
+    //background: $dark-white;
     width       : 100%;
     height      : 300px;
     box-sizing  : border-box;
@@ -88,7 +90,6 @@ $default-font-color : #333;
 
 
 .chrome__sashikomi__memo__btn-group {
-  z-index  : 1;
   display  : none;
   position : absolute;
   top      : 0;

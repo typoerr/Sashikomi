@@ -5,6 +5,7 @@ import Memo from './Memo'
 import Editor from './Editor'
 
 /*
+* TODO: Submit, Deleteで、bg_pageで更新に必要なdataを定義
 * TODO: Delete
 * TODO: Submit
 * */
@@ -23,7 +24,7 @@ chrome.runtime.sendMessage({
   }
 );
 
-* DELETE, SUBMIT処理でbackground.jsにmessageを送信
+* TODO: DELETE, SUBMIT処理でbackground.jsにmessageを送信
 * responseでstateを更新
 */
 

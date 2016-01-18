@@ -7,14 +7,16 @@ import Dexie from 'dexie'
 /* -----------------------------------
   Schema
 * ------------------------------------
- id: 1 // auto increment // index
+ id: 1 // auto increment, index
  url: '', // index
  contents: [
-  { node: 'element', content: 'text or markdown'},
+    {
+      contentId: 1, // auto increment, index
+      targetElm: 'element',
+      contentText: 'text or markdown'
+    },
  ]
-
- * id, またはurlで検索をするため、contentsにindexは貼っていない
-*/
+* */
 
 /*-----------------------------------
   Operation Sample
@@ -28,6 +30,7 @@ import Dexie from 'dexie'
 
 */
 
+// TODO: Schemaを変更
 let db = new Dexie('SashikomiDB');
 db.version(1).stores({
   memos: "++id, url"
@@ -37,38 +40,84 @@ db.open();
 
 
 /* =============================================
- * browserAction#onClick
- * ==============================================*/
-// TODO: inject.jsにmessageを送る(選択nodeを取得、editor挿入等をさせる)
-chrome.browserAction.onClicked.addListener(function () {
-
-});
-
-
-/* =============================================
  * Message Passing(onMessage)
- * ==============================================*/
-// TODO: inject.jsからのMessageをlistenして、DBのCRUD処理
+ * ==============================================
+
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
-    //  switch (request.type) {
-    //    case "hello":
-    //      hello(request.text, sendResponse);
-    //      break;
-    //    case "night":
-    //      night(request.text, sendResponse);
-    //      break;
-    //    default:
-    //      console.log("Error: Unkown request.");
-    //      console.log(request);
-    //  }
+
+    console.log(request);
+    console.log(request.url);
+
+    sendResponse({url: request.url});
+
+    // 実際はtypeを受け取って、以下のような感じでswitch分岐
+    switch (request.type) {
+      case "hello":
+        hello(request.text, sendResponse);
+        break;
+      case "night":
+        night(request.text, sendResponse);
+        break;
+      default:
+        console.log("Error: Unkown request.");
+        console.log(request);
+    }
   }
 );
 
-//function hello(name, callback) {
-//  callback("Hello, " + name);
-//}
+
+function hello(name, callback) {
+  callback("Hello, " + name);
+}
+
+function night(name, callback) {
+  callback("Good night, " + name);
+}
+ * */
+// TODO: inject.jsからのMessageをlistenして、DBのCRUD処理
+
+/* =============================================
+ * Message Passing(send)
+ * ==============================================
+
+ * content_scripsへのmessage_sendはchrome.tabs.sendMessageでtabIdを
+ 指定して送信する必要がある。以下の例は、tab eventと組み合わせて、
+ tabIdを取得し、sendMessageしている。
+
+  * chrome.tabs.sendMessageでsendしているが、
+ content_scrips側では、chrome.runtime.onMessageに発火する
+
+ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+  chrome.tabs.sendMessage(tabId, tab.url,  function(res) {
+    if (res) {
+      console.log(res)
+    }
+  });
+});
+
+ 1. ContextMenuから新規Component追加の命令をContentScriptsに司令
+
+* */
+
+
+
+
+/* =============================================
+ * browserAction
+ * ==============================================*/
+
+/* #onClick
+* TODO: popup.htmlを開く
+* 挿入できなかったcontent(error)をpopup.htmlで表示
+* errorがなければなにも表示しない
+* -------------------------------*/
+//chrome.browserAction.onClicked.addListener(function () {
 //
-//function night(name, callback) {
-//  callback("Good night, " + name);
-//}
+//});
+
+/* #setBadgeText
+* TODO: 挿入errorがあればBadgeTextで通知
+* chrome.browserAction.setBadgeText(object details)
+* https://developer.chrome.com/extensions/browserAction
+*/

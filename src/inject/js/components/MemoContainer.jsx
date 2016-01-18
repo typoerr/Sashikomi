@@ -4,6 +4,7 @@ import Memo from './Memo'
 import Editor from './Editor'
 
 /*
+* TODO: Delete
 * TODO: Submit
 * */
 

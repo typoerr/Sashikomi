@@ -1,5 +1,4 @@
 /*
-* TODO: Delete
 * TODO: this.props.contentが空ならば、Componentの自体を削除する
         つまりinsertしているの親NODEを削除する
 */
@@ -18,8 +17,10 @@ export default class Memo extends Base {
     this.props.onClose();
   }
 
-  handleDelete(e) {
-    this.props.onDelete(e.target);
+  handleDelete() {
+    if (confirm("[Sashikomi] Memoを1件削除します")) {
+      this.props.onDelete();
+    }
   }
 
   rawMarkup() {

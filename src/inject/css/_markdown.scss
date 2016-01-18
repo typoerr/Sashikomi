@@ -1,14 +1,12 @@
-.chrome__sashikomi__memo {
-  .chrome__sashikomi__memo__body {
-    font-family : "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;
-    font-size   : 15px;
-    line-height : 1.6;
-  }
+.chrome__sashikomi__memo__body {
+  font-family : "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+  font-size   : 15px;
+  line-height : 1.6;
 
-  .chrome__sashikomi__memo__body > *:first-child {
+  > *:first-child {
     margin-top : 0 !important; }
 
-  .chrome__sashikomi__memo__body > *:last-child {
+  > *:last-child {
     margin-bottom : 0 !important; }
 
   a {

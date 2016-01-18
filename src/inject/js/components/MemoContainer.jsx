@@ -14,7 +14,12 @@ export default class MemoContainer extends Base {
       isEditing: this.props.edit
     };
 
-    this._bind('rendererChild', 'handleToggleChild', 'handleSubmit');
+    this._bind(
+      'rendererChild',
+      'handleToggleChild',
+      'handleSubmit',
+      'handleDelete'
+    );
   }
 
   handleToggleChild() {
@@ -28,6 +33,11 @@ export default class MemoContainer extends Base {
     //this.props.onSubmit()
   }
 
+  handleDelete(memo) {
+    console.log(memo)
+
+  }
+
   rendererChild() {
     if (this.state.isEditing) {
       return (
@@ -38,9 +48,14 @@ export default class MemoContainer extends Base {
         />
       )
     } else {
-      return <Memo onClose={this.handleToggleChild}>
-        {this.props.content}
-      </Memo>
+      return (
+        <Memo
+          onClose={this.handleToggleChild}
+          onDelete={this.handleDelete}
+        >
+          {this.props.content}
+        </Memo>
+      )
     }
   }
 

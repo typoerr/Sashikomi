@@ -11,11 +11,15 @@ import marked from 'marked'
 export default class Memo extends Base {
   constructor(props) {
     super(props);
-    this._bind('handleDoubleClick', 'rawMarkup');
+    this._bind('handleClose', 'handleDelete', 'rawMarkup');
   }
 
-  handleDoubleClick() {
+  handleClose() {
     this.props.onClose();
+  }
+
+  handleDelete(e) {
+    this.props.onDelete(e.target);
   }
 
   rawMarkup() {
@@ -37,8 +41,17 @@ export default class Memo extends Base {
     return (
       <div
         className="chrome__sashikomi__memo"
-        onDoubleClick={this.handleDoubleClick}
       >
+        <div className="chrome__sashikomi__memo__btn-group">
+          <button type="button" onClick={this.handleClose}>
+            EDIT
+          </button>
+
+          <button type="button" onClick={this.handleDelete}>
+            DELETE
+          </button>
+        </div>
+
         <div className="chrome__sashikomi__memo__body"
           dangerouslySetInnerHTML={this.rawMarkup()}
         ></div>
@@ -49,5 +62,6 @@ export default class Memo extends Base {
 
 Memo.propTypes = {
   //content: React.PropTypes.string.isRequired,
-  onClose: React.PropTypes.func.isRequired
+  onClose: React.PropTypes.func.isRequired,
+  onDelete: React.PropTypes.func.isRequired
 };

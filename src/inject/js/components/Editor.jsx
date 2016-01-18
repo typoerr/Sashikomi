@@ -1,6 +1,3 @@
-/*
-* TODO: keybind submit
-* */
 import React from 'react'
 import Base from './Base'
 

@@ -32,7 +32,7 @@ export default class MemoContainer extends Base {
     super(props);
     this.state = {
       contentText: this.props.contentText,
-      isEditing: this.props.CREATE
+      isEditing: false
     };
 
     this._bind(
@@ -41,6 +41,12 @@ export default class MemoContainer extends Base {
       'handleSubmit',
       'handleDelete'
     );
+  }
+
+  componentWillMount() {
+    if (!this.props.contentText.trim()) {
+      this.setState({ isEditing: true })
+    }
   }
 
   componentWillUnmount() {
@@ -97,6 +103,5 @@ MemoContainer.propTypes = {
   id: React.PropTypes.number,
   contentId: React.PropTypes.number,
   containerElmId: React.PropTypes.string.isRequired,
-  contentText: React.PropTypes.string,
-  CREATE: React.PropTypes.bool
+  contentText: React.PropTypes.string
 };

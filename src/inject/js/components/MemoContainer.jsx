@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import Base from './Base'
 import Memo from './Memo'
 import Editor from './Editor'
@@ -8,11 +9,30 @@ import Editor from './Editor'
 * TODO: Submit
 * */
 
+/* ------------------------------
+  Sample Message Passing(send)
+* --------------------------------
+chrome.runtime.sendMessage({
+    type: "SUBMIT",
+    text: "sample text"
+  },
+  function (response) {
+    if (response) {
+      alert(response);
+    }
+  }
+);
+
+* DELETE, SUBMIT処理でbackground.jsにmessageを送信
+* responseでstateを更新
+*/
+
 export default class MemoContainer extends Base {
   constructor(props) {
     super(props);
     this.state = {
-      isEditing: this.props.edit
+      contentText: this.props.contentText,
+      isEditing: this.props.CREATE
     };
 
     this._bind(
@@ -23,27 +43,31 @@ export default class MemoContainer extends Base {
     );
   }
 
+  componentWillUnmount() {
+    // TODO: DBに削除リクエストを送る
+  }
+
   handleToggleChild() {
     this.setState({ isEditing: !this.state.isEditing })
   }
 
-  handleSubmit(content) {
-    console.log('handleSubmit');
-    // propsとしてReactDOM.renderからpropsを渡す
-    // FIXME: 引数を修正
-    //this.props.onSubmit()
+  handleSubmit(text) {
+    // TODO: background.jsにmessage passingしてDBを更新
+    this.setState({ contentText: text });
   }
 
-  handleDelete(memo) {
-    console.log(memo)
-
+  handleDelete() {
+    // TODO: background.jsにmessage passingしてDBを更新
+    let elm = document.getElementById(this.props.containerElmId);
+    ReactDOM.unmountComponentAtNode(elm); // -> componentWillUnmount()が呼ばれる
+    elm.parentNode.removeChild(elm);
   }
 
   rendererChild() {
     if (this.state.isEditing) {
       return (
         <Editor
-          content={this.props.content}
+          content={this.state.contentText}
           onClose={this.handleToggleChild}
           onSubmit={this.handleSubmit}
         />
@@ -54,7 +78,7 @@ export default class MemoContainer extends Base {
           onClose={this.handleToggleChild}
           onDelete={this.handleDelete}
         >
-          {this.props.content}
+          {this.state.contentText}
         </Memo>
       )
     }
@@ -70,9 +94,9 @@ export default class MemoContainer extends Base {
 }
 
 MemoContainer.propTypes = {
-  id: React.PropTypes.number.isRequired,
-  content: React.PropTypes.string.isRequired,
-  edit: React.PropTypes.bool
-  // TODO: FuncPropsをつけとる
-  //onSubmit: React.PropTypes.func.isRequired
+  id: React.PropTypes.number,
+  contentId: React.PropTypes.number,
+  containerElmId: React.PropTypes.string.isRequired,
+  contentText: React.PropTypes.string,
+  CREATE: React.PropTypes.bool
 };

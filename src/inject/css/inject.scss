@@ -7,6 +7,7 @@
 $white : #fff;
 $dark-white : #f8f8f8;
 $accent-color : #7D3C98;
+$accent-color--rgba : rgba(125, 60, 152, 0.20);
 $default-font-color : #444;
 
 /* =======================================
@@ -52,7 +53,7 @@ $default-font-color : #444;
     cursor     : pointer;
     display    : block;
     float      : right;
-    background : rgba(125, 60, 152, 0.41);
+    background : $accent-color--rgba;
     border     : 0;
     padding    : 5px 15px;
     color      : $white;
@@ -89,7 +90,6 @@ $default-font-color : #444;
 }
 
 .chrome__sashikomi__editor__body {
-  padding-top : 10px;
   textarea {
     font-family : "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;
     display     : block !important;

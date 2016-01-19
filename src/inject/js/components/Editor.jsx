@@ -14,15 +14,17 @@ export default class Editor extends Base {
   }
 
   componentDidMount() {
-    // react-liteを使った場合にeditorのrenderが2回目以降からautoFocusが当たらないため
-    // 直接DOMを参照してfocusを当てる
+    // react-liteを使った場合にeditorのrenderが2回目以降からautoFocusが何故か当たらないため
+    // 直接DOMを参照してfocusを当ててる
     this.refs._textarea.focus();
   }
 
   handleCancel() {
-    //if (this.state.hasChanged) {
-    //}
-    this.props.onClose()
+    if (this.state.hasChanged) {
+      confirm('Sashikomi: 変更内容が破棄されます。') && this.props.onClose();
+    } else {
+      this.props.onClose()
+    }
   }
 
   handleSubmit(e) {
@@ -57,7 +59,6 @@ export default class Editor extends Base {
         <div className="chrome__sashikomi__editor__body">
           <textarea
             ref="_textarea"
-            autoFocus="true"
             value={this.state.inputContent}
             onChange={this.handleChange}
           />

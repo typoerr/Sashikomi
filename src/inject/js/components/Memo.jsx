@@ -41,10 +41,9 @@ export default class Memo extends Base {
 
   render() {
     return (
-      <div
-        className="chrome__sashikomi__memo"
-      >
-        <div className="chrome__sashikomi__memo__btn-group">
+      <div className="chrome__sashikomi__memo">
+
+        <div className="chrome__sashikomi__btn-group">
           <button type="button" onClick={this.handleClose}>
             EDIT
           </button>
@@ -55,8 +54,7 @@ export default class Memo extends Base {
         </div>
 
         <div className="chrome__sashikomi__memo__body"
-          dangerouslySetInnerHTML={this.rawMarkup()}
-        ></div>
+          dangerouslySetInnerHTML={this.rawMarkup()}></div>
       </div>
     )
   }

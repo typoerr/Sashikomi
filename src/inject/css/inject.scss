@@ -12,9 +12,6 @@ $default-font-color : #444;
 /* =======================================
   Module
 ==========================================*/
-.chrome__sashikomi__container {
-}
-
 
 /* =======================================
   Component
@@ -23,73 +20,27 @@ $default-font-color : #444;
 /* MemoContainerComponent
 -------------------------------------------*/
 .chrome__sashikomi__container {
-  display   : block !important;
-  margin    : 15px 0;
-  width     : 100%;
-  min-width : 200px;
-  max-width : 700px;
-  font-size : 15px;
-  color     : $default-font-color;
-}
-
-
-/* EditorComponent
--------------------------------------------*/
-
-.chrome__sashikomi__editor {
-  border      : 1px solid $accent-color;
-  border-left : 5px solid $accent-color;
-  width       : 100%;
-  overflow    : hidden;
-  background  : $accent-color;
-  padding     : 0;
-  margin      : 0;
-}
-
-
-//
-//.chrome__sashikomi__editor__header {
-//  background: $accent-color;
-//}
-
-.chrome__sashikomi__editor__body {
-  textarea {
-    font-family : "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;
-    display     : block !important;
-    font-size   : 15px;
-    line-height : 1.6;
-    border      : none;
-    //background: $dark-white;
-    width       : 100%;
-    height      : 300px;
-    box-sizing  : border-box;
-    resize      : vertical;
-    overflow    : auto;
-    padding     : 15px;
-
-    &:focus {
-      outline : none;
-    }
-  }
-}
-
-
-/* MemoComponent
--------------------------------------------*/
-.chrome__sashikomi__memo {
   position    : relative;
-  background  : $dark-white;
-  border-left : 5px solid $accent-color;
+  display     : block !important;
+  margin      : 15px 0;
+  width       : 100%;
+  min-width   : 200px;
+  max-width   : 700px;
+  font-size   : 15px;
+  color       : $default-font-color;
+  border-left : 7px solid $accent-color;
 
   &:hover {
-    .chrome__sashikomi__memo__btn-group {
+    .chrome__sashikomi__btn-group {
       display : block;
     }
   }
 }
 
 
-.chrome__sashikomi__memo__btn-group {
+/* Shared Class
+----------------------------------*/
+.chrome__sashikomi__btn-group {
   display  : none;
   position : absolute;
   top      : 0;
@@ -128,10 +79,45 @@ $default-font-color : #444;
 }
 
 
+/* EditorComponent
+-------------------------------------------*/
+.chrome__sashikomi__editor {
+  border      : 1px solid $accent-color;
+  overflow    : hidden;
+  padding     : 0;
+  margin      : 0;
+}
+
+.chrome__sashikomi__editor__body {
+  padding-top : 10px;
+  textarea {
+    font-family : "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;
+    display     : block !important;
+    font-size   : 15px;
+    line-height : 1.6;
+    border      : none;
+    width       : 100%;
+    height      : 300px;
+    box-sizing  : border-box;
+    resize      : vertical;
+    overflow    : auto;
+    padding     : 15px;
+
+    &:focus {
+      outline : none;
+    }
+  }
+}
+
+/* MemoComponent
+-------------------------------------------*/
+.chrome__sashikomi__memo {
+  background  : $dark-white;
+}
+
 .chrome__sashikomi__memo__body {
   padding : 15px;
 }
-
 
 @import "markdown";
 @import "tomorrow-night-eighties";

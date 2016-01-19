@@ -13,526 +13,361 @@
 /* MemoContainerComponent
 -------------------------------------------*/
 .chrome__sashikomi__container {
-  display   : block !important;
-  margin    : 15px 0;
-  width     : 100%;
-  min-width : 200px;
-  max-width : 700px;
-  font-size : 15px;
-  color     : #444; }
+  position: relative;
+  display: block !important;
+  margin: 15px 0;
+  width: 100%;
+  min-width: 200px;
+  max-width: 700px;
+  font-size: 15px;
+  color: #444;
+  border-left: 7px solid #7D3C98; }
+  .chrome__sashikomi__container:hover .chrome__sashikomi__btn-group {
+    display: block; }
 
+/* Shared Class
+----------------------------------*/
+.chrome__sashikomi__btn-group {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100%; }
+  .chrome__sashikomi__btn-group button {
+    cursor: pointer;
+    display: block;
+    float: right;
+    background: rgba(125, 60, 152, 0.41);
+    border: 0;
+    padding: 5px 15px;
+    color: #fff;
+    font-size: 14px; }
+    .chrome__sashikomi__btn-group button:hover {
+      background-color: #7D3C98; }
+    .chrome__sashikomi__btn-group button:active {
+      position: relative;
+      top: 1px;
+      right: -1px; }
+    .chrome__sashikomi__btn-group button:focus {
+      outline: none; }
+  .chrome__sashikomi__btn-group button + button {
+    border-right: 1px solid #f8f8f8; }
 
 /* EditorComponent
 -------------------------------------------*/
 .chrome__sashikomi__editor {
-  border      : 1px solid #7D3C98;
-  border-left : 5px solid #7D3C98;
-  width       : 100%;
-  overflow    : hidden;
-  background  : #7D3C98;
-  padding     : 0;
-  margin      : 0; }
+  border: 1px solid #7D3C98;
+  overflow: hidden;
+  padding: 0;
+  margin: 0; }
 
-
-.chrome__sashikomi__editor__body textarea {
-  font-family : "\30D2\30E9\30AE\30CE\89D2\30B4   Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", sans-serif;
-  display     : block !important;
-  font-size   : 15px;
-  line-height : 1.6;
-  border      : none;
-  width       : 100%;
-  height      : 300px;
-  box-sizing  : border-box;
-  resize      : vertical;
-  overflow    : auto;
-  padding     : 15px; }
-
-
-.chrome__sashikomi__editor__body textarea:focus {
-  outline : none; }
-
+.chrome__sashikomi__editor__body {
+  padding-top: 10px; }
+  .chrome__sashikomi__editor__body textarea {
+    font-family: "\30D2\30E9\30AE\30CE\89D2\30B4   Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", sans-serif;
+    display: block !important;
+    font-size: 15px;
+    line-height: 1.6;
+    border: none;
+    width: 100%;
+    height: 300px;
+    box-sizing: border-box;
+    resize: vertical;
+    overflow: auto;
+    padding: 15px; }
+    .chrome__sashikomi__editor__body textarea:focus {
+      outline: none; }
 
 /* MemoComponent
 -------------------------------------------*/
 .chrome__sashikomi__memo {
-  position    : relative;
-  background  : #f8f8f8;
-  border-left : 5px solid #7D3C98; }
-
-
-.chrome__sashikomi__memo:hover .chrome__sashikomi__memo__btn-group {
-  display : block; }
-
-
-.chrome__sashikomi__memo__btn-group {
-  display  : none;
-  position : absolute;
-  top      : 0;
-  right    : 0;
-  overflow : hidden;
-  width    : 100%; }
-
-
-.chrome__sashikomi__memo__btn-group button {
-  cursor     : pointer;
-  display    : block;
-  float      : right;
-  background : rgba(125, 60, 152, 0.41);
-  border     : 0;
-  padding    : 5px 15px;
-  color      : #fff;
-  font-size  : 14px; }
-
-
-.chrome__sashikomi__memo__btn-group button:hover {
-  background-color : #7D3C98; }
-
-
-.chrome__sashikomi__memo__btn-group button:active {
-  position : relative;
-  top      : 1px;
-  right    : -1px; }
-
-
-.chrome__sashikomi__memo__btn-group button:focus {
-  outline : none; }
-
-
-.chrome__sashikomi__memo__btn-group button + button {
-  border-right : 1px solid #f8f8f8; }
-
+  background: #f8f8f8; }
 
 .chrome__sashikomi__memo__body {
-  padding : 15px; }
-
+  padding: 15px; }
 
 .chrome__sashikomi__memo__body {
-  font-family : "\30D2\30E9\30AE\30CE\89D2\30B4   Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", sans-serif;
-  font-size   : 15px;
-  line-height : 1.6; }
-
-
-.chrome__sashikomi__memo__body > *:first-child {
-  margin-top : 0 !important; }
-
-
-.chrome__sashikomi__memo__body > *:last-child {
-  margin-bottom : 0 !important; }
-
-
-.chrome__sashikomi__memo__body a {
-  color : #4183C4; }
-
-
-.chrome__sashikomi__memo__body a.absent {
-  color : #cc0000; }
-
-
-.chrome__sashikomi__memo__body a.anchor {
-  display      : block;
-  padding-left : 30px;
-  margin-left  : -30px;
-  cursor       : pointer;
-  position     : absolute;
-  top          : 0;
-  left         : 0;
-  bottom       : 0; }
-
-
-.chrome__sashikomi__memo__body h1, .chrome__sashikomi__memo__body h2, .chrome__sashikomi__memo__body h3, .chrome__sashikomi__memo__body h4, .chrome__sashikomi__memo__body h5, .chrome__sashikomi__memo__body h6 {
-  margin                 : 20px 0 10px;
-  padding                : 0;
-  font-weight            : bold;
-  -webkit-font-smoothing : antialiased;
-  position               : relative; }
-
-
-.chrome__sashikomi__memo__body h1 tt, .chrome__sashikomi__memo__body h1 code {
-  font-size : inherit; }
-
-
-.chrome__sashikomi__memo__body h2 tt, .chrome__sashikomi__memo__body h2 code {
-  font-size : inherit; }
-
-
-.chrome__sashikomi__memo__body h3 tt, .chrome__sashikomi__memo__body h3 code {
-  font-size : inherit; }
-
-
-.chrome__sashikomi__memo__body h4 tt, .chrome__sashikomi__memo__body h4 code {
-  font-size : inherit; }
-
-
-.chrome__sashikomi__memo__body h5 tt, .chrome__sashikomi__memo__body h5 code {
-  font-size : inherit; }
-
-
-.chrome__sashikomi__memo__body h6 tt, .chrome__sashikomi__memo__body h6 code {
-  font-size : inherit; }
-
-
-.chrome__sashikomi__memo__body h1 {
-  font-size     : 18px;
-  border-bottom : 1px solid #e4e4e4;
-  color         : #333; }
-
-
-.chrome__sashikomi__memo__body h2 {
-  font-size : 18px;
-  color     : #333; }
-
-
-.chrome__sashikomi__memo__body h3 {
-  font-size     : 16px;
-  border-bottom : 1px dashed #ccc;
-  color         : #333; }
-
-
-.chrome__sashikomi__memo__body h4 {
-  font-size : 16px;
-  color     : #333; }
-
-
-.chrome__sashikomi__memo__body h5 {
-  font-size : 14px;
-  color     : #333; }
-
-
-.chrome__sashikomi__memo__body h6 {
-  color     : #777777;
-  font-size : 14px; }
-
-
-.chrome__sashikomi__memo__body p, .chrome__sashikomi__memo__body blockquote, .chrome__sashikomi__memo__body ul, .chrome__sashikomi__memo__body ol, .chrome__sashikomi__memo__body dl, .chrome__sashikomi__memo__body li, .chrome__sashikomi__memo__body table, .chrome__sashikomi__memo__body pre {
-  margin : 15px 0; }
-
-
-.chrome__sashikomi__memo__body hr {
-  border        : 0;
-  border-top    : 1px solid #bbb;
-  border-bottom : 1px solid #fff; }
-
-
-.chrome__sashikomi__memo__body a:first-child h1, .chrome__sashikomi__memo__body a:first-child h2, .chrome__sashikomi__memo__body a:first-child h3, .chrome__sashikomi__memo__body a:first-child h4, .chrome__sashikomi__memo__body a:first-child h5, .chrome__sashikomi__memo__body a:first-child h6 {
-  margin-top  : 0;
-  padding-top : 0; }
-
-
-.chrome__sashikomi__memo__body h1 p, .chrome__sashikomi__memo__body h2 p, .chrome__sashikomi__memo__body h3 p, .chrome__sashikomi__memo__body h4 p, .chrome__sashikomi__memo__body h5 p, .chrome__sashikomi__memo__body h6 p {
-  margin-top : 0; }
-
-
-.chrome__sashikomi__memo__body ul, .chrome__sashikomi__memo__body ol, .chrome__sashikomi__memo__body li {
-  margin : 0; }
-
-
-.chrome__sashikomi__memo__body ul, .chrome__sashikomi__memo__body ol {
-  padding-left : 30px; }
-
-
-.chrome__sashikomi__memo__body ul :first-child, .chrome__sashikomi__memo__body ol :first-child {
-  margin-top : 0; }
-
-
-.chrome__sashikomi__memo__body dl {
-  padding : 0; }
-
-
-.chrome__sashikomi__memo__body dl dt {
-  font-size   : 14px;
-  font-weight : bold;
-  font-style  : italic;
-  padding     : 0;
-  margin      : 15px 0 5px; }
-
-
-.chrome__sashikomi__memo__body dl dt:first-child {
-  padding : 0; }
-
-
-.chrome__sashikomi__memo__body dl dt > :first-child {
-  margin-top : 0; }
-
-
-.chrome__sashikomi__memo__body dl dt > :last-child {
-  margin-bottom : 0; }
-
-
-.chrome__sashikomi__memo__body dl dd {
-  margin  : 0 0 15px;
-  padding : 0 15px; }
-
-
-.chrome__sashikomi__memo__body dl dd > :first-child {
-  margin-top : 0; }
-
-
-.chrome__sashikomi__memo__body dl dd > :last-child {
-  margin-bottom : 0; }
-
-
-.chrome__sashikomi__memo__body blockquote {
-  border-left : 4px solid #dddddd;
-  padding     : 0 15px;
-  color       : #777777; }
-
-
-.chrome__sashikomi__memo__body blockquote > :first-child {
-  margin-top : 0; }
-
-
-.chrome__sashikomi__memo__body blockquote > :last-child {
-  margin-bottom : 0; }
-
-
-.chrome__sashikomi__memo__body table {
-  padding         : 0;
-  border-collapse : collapse; }
-
-
-.chrome__sashikomi__memo__body table tr {
-  border-top       : 1px solid #cccccc;
-  background-color : white;
-  margin           : 0;
-  padding          : 0; }
-
-
-.chrome__sashikomi__memo__body table tr:nth-child(2n) {
-  background-color : #f8f8f8; }
-
-
-.chrome__sashikomi__memo__body table tr th {
-  font-weight : bold;
-  border      : 1px solid #cccccc;
-  margin      : 0;
-  padding     : 6px 13px; }
-
-
-.chrome__sashikomi__memo__body table tr td {
-  border  : 1px solid #cccccc;
-  margin  : 0;
-  padding : 6px 13px; }
-
-
-.chrome__sashikomi__memo__body table tr th :first-child, .chrome__sashikomi__memo__body table tr td :first-child {
-  margin-top : 0; }
-
-
-.chrome__sashikomi__memo__body table tr th :last-child, .chrome__sashikomi__memo__body table tr td :last-child {
-  margin-bottom : 0; }
-
-
-.chrome__sashikomi__memo__body img {
-  max-width : 100%;
-  margin    : 0 auto;
-  display   : block; }
-
-
-.chrome__sashikomi__memo__body span.frame {
-  display  : block;
-  overflow : hidden; }
-
-
-.chrome__sashikomi__memo__body span.frame > span {
-  border   : 1px solid #dddddd;
-  display  : block;
-  float    : left;
-  overflow : hidden;
-  margin   : 13px 0 0;
-  padding  : 7px;
-  width    : auto; }
-
-
-.chrome__sashikomi__memo__body span.frame span img {
-  display : block;
-  float   : left; }
-
-
-.chrome__sashikomi__memo__body span.frame span span {
-  clear   : both;
-  color   : #333333;
-  display : block;
-  padding : 5px 0 0; }
-
-
-.chrome__sashikomi__memo__body span.align-center {
-  display  : block;
-  overflow : hidden;
-  clear    : both; }
-
-
-.chrome__sashikomi__memo__body span.align-center > span {
-  display    : block;
-  overflow   : hidden;
-  margin     : 13px auto 0;
-  text-align : center; }
-
-
-.chrome__sashikomi__memo__body span.align-center span img {
-  margin     : 0 auto;
-  text-align : center; }
-
-
-.chrome__sashikomi__memo__body span.align-right {
-  display  : block;
-  overflow : hidden;
-  clear    : both; }
-
-
-.chrome__sashikomi__memo__body span.align-right > span {
-  display    : block;
-  overflow   : hidden;
-  margin     : 13px 0 0;
-  text-align : right; }
-
-
-.chrome__sashikomi__memo__body span.align-right span img {
-  margin     : 0;
-  text-align : right; }
-
-
-.chrome__sashikomi__memo__body span.float-left {
-  display      : block;
-  margin-right : 13px;
-  overflow     : hidden;
-  float        : left; }
-
-
-.chrome__sashikomi__memo__body span.float-left span {
-  margin : 13px 0 0; }
-
-
-.chrome__sashikomi__memo__body span.float-right {
-  display     : block;
-  margin-left : 13px;
-  overflow    : hidden;
-  float       : right; }
-
-
-.chrome__sashikomi__memo__body span.float-right > span {
-  display    : block;
-  overflow   : hidden;
-  margin     : 13px auto 0;
-  text-align : right; }
-
-
-.chrome__sashikomi__memo__body code, .chrome__sashikomi__memo__body tt {
-  margin           : 0 2px;
-  padding          : 0 5px;
-  white-space      : nowrap;
-  border           : 1px solid #eaeaea;
-  background-color : #f8f8f8;
-  border-radius    : 3px; }
-
-
-.chrome__sashikomi__memo__body pre code {
-  margin      : 0;
-  padding     : 0;
-  white-space : pre;
-  border      : none;
-  background  : transparent; }
-
-
-.chrome__sashikomi__memo__body .highlight pre {
-  background-color : #444;
-  border           : 1px solid #cccccc;
-  font-size        : 13px;
-  line-height      : 19px;
-  overflow         : auto;
-  padding          : 6px 10px;
-  border-radius    : 3px; }
-
-
-.chrome__sashikomi__memo__body pre {
-  background-color : #2D2D2D;
-  border           : 1px solid #cccccc;
-  font-size        : 13px;
-  line-height      : 19px;
-  overflow         : auto;
-  padding          : 6px 10px;
-  border-radius    : 3px; }
-
-
-.chrome__sashikomi__memo__body pre code, .chrome__sashikomi__memo__body pre tt {
-  color            : #f8f8f8;
-  background-color : transparent;
-  border           : none; }
-
-
-.chrome__sashikomi__memo__body sup {
-  font-size      : 0.83px;
-  vertical-align : super;
-  line-height    : 0; }
-
-
-.chrome__sashikomi__memo__body code {
-  -webkit-border-radius : 3px;
-  -moz-border-radius    : 3px;
-  border-radius         : 3px;
-  padding               : 0 2px;
-  border                : solid 1px #CCC;
-  background-color      : #f6f6f6;
-  font-size             : .9em;
-  font-family           : "Monaco", monospace, "Courier", "Inconsolata", "Bitstream Vera Sans Mono"; }
-
-
-.chrome__sashikomi__memo__body .code-frame {
-  -webkit-border-radius : 3px;
-  -moz-border-radius    : 3px;
-  border-radius         : 3px;
-  margin                : 1em 0;
-  border                : solid 1px #CCC;
-  background-color      : #f6f6f6;
-  line-height           : 0; }
-
-
-.chrome__sashikomi__memo__body .code-frame .code-lang {
-  -webkit-border-bottom-right-radius : 3px;
-  -moz-border-radius-bottomright     : 3px;
-  border-bottom-right-radius         : 3px;
-  color                              : #4A4A4A;
-  display                            : inline-block;
-  padding                            : 3px 6px;
-  margin                             : 0;
-  line-height                        : .85em;
-  background-color                   : #e6e6e6;
-  font-size                          : .85em;
-  font-weight                        : 400;
-  border-right                       : solid 1px #CCC;
-  border-bottom                      : solid 1px #CCC; }
-
-
-.chrome__sashikomi__memo__body .code-frame pre {
-  overflow         : auto;
-  border           : none;
-  padding          : .5em 1em;
-  margin           : 0;
-  background-color : transparent; }
-
-
-.chrome__sashikomi__memo__body .code-frame pre code {
-  border           : none;
-  padding          : 0;
-  margin           : 0;
-  background-color : transparent;
-  line-height      : 1.44em;
-  font-size        : 0.9em;
-  font-family      : "Monaco", monospace, "Courier", "Inconsolata", "Bitstream Vera Sans Mono"; }
-
-
-.chrome__sashikomi__memo__body * {
-  -webkit-print-color-adjust : exact; }
-
-
-@media print {
-  .chrome__sashikomi__memo__body table, .chrome__sashikomi__memo__body pre {
-    page-break-inside : avoid; }
-
-
+  font-family: "\30D2\30E9\30AE\30CE\89D2\30B4   Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", sans-serif;
+  font-size: 15px;
+  line-height: 1.6; }
+  .chrome__sashikomi__memo__body > *:first-child {
+    margin-top: 0 !important; }
+  .chrome__sashikomi__memo__body > *:last-child {
+    margin-bottom: 0 !important; }
+  .chrome__sashikomi__memo__body a {
+    color: #4183C4; }
+  .chrome__sashikomi__memo__body a.absent {
+    color: #cc0000; }
+  .chrome__sashikomi__memo__body a.anchor {
+    display: block;
+    padding-left: 30px;
+    margin-left: -30px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0; }
+  .chrome__sashikomi__memo__body h1, .chrome__sashikomi__memo__body h2, .chrome__sashikomi__memo__body h3, .chrome__sashikomi__memo__body h4, .chrome__sashikomi__memo__body h5, .chrome__sashikomi__memo__body h6 {
+    margin: 20px 0 10px;
+    padding: 0;
+    font-weight: bold;
+    -webkit-font-smoothing: antialiased;
+    position: relative; }
+  .chrome__sashikomi__memo__body h1 tt, .chrome__sashikomi__memo__body h1 code {
+    font-size: inherit; }
+  .chrome__sashikomi__memo__body h2 tt, .chrome__sashikomi__memo__body h2 code {
+    font-size: inherit; }
+  .chrome__sashikomi__memo__body h3 tt, .chrome__sashikomi__memo__body h3 code {
+    font-size: inherit; }
+  .chrome__sashikomi__memo__body h4 tt, .chrome__sashikomi__memo__body h4 code {
+    font-size: inherit; }
+  .chrome__sashikomi__memo__body h5 tt, .chrome__sashikomi__memo__body h5 code {
+    font-size: inherit; }
+  .chrome__sashikomi__memo__body h6 tt, .chrome__sashikomi__memo__body h6 code {
+    font-size: inherit; }
+  .chrome__sashikomi__memo__body h1 {
+    font-size: 18px;
+    border-bottom: 1px solid #e4e4e4;
+    color: #333; }
+  .chrome__sashikomi__memo__body h2 {
+    font-size: 18px;
+    color: #333; }
+  .chrome__sashikomi__memo__body h3 {
+    font-size: 16px;
+    border-bottom: 1px dashed #ccc;
+    color: #333; }
+  .chrome__sashikomi__memo__body h4 {
+    font-size: 16px;
+    color: #333; }
+  .chrome__sashikomi__memo__body h5 {
+    font-size: 14px;
+    color: #333; }
+  .chrome__sashikomi__memo__body h6 {
+    color: #777777;
+    font-size: 14px; }
+  .chrome__sashikomi__memo__body p, .chrome__sashikomi__memo__body blockquote, .chrome__sashikomi__memo__body ul, .chrome__sashikomi__memo__body ol, .chrome__sashikomi__memo__body dl, .chrome__sashikomi__memo__body li, .chrome__sashikomi__memo__body table, .chrome__sashikomi__memo__body pre {
+    margin: 15px 0; }
+  .chrome__sashikomi__memo__body hr {
+    border: 0;
+    border-top: 1px solid #bbb;
+    border-bottom: 1px solid #fff; }
+  .chrome__sashikomi__memo__body a:first-child h1, .chrome__sashikomi__memo__body a:first-child h2, .chrome__sashikomi__memo__body a:first-child h3, .chrome__sashikomi__memo__body a:first-child h4, .chrome__sashikomi__memo__body a:first-child h5, .chrome__sashikomi__memo__body a:first-child h6 {
+    margin-top: 0;
+    padding-top: 0; }
+  .chrome__sashikomi__memo__body h1 p, .chrome__sashikomi__memo__body h2 p, .chrome__sashikomi__memo__body h3 p, .chrome__sashikomi__memo__body h4 p, .chrome__sashikomi__memo__body h5 p, .chrome__sashikomi__memo__body h6 p {
+    margin-top: 0; }
+  .chrome__sashikomi__memo__body ul, .chrome__sashikomi__memo__body ol, .chrome__sashikomi__memo__body li {
+    margin: 0; }
+  .chrome__sashikomi__memo__body ul, .chrome__sashikomi__memo__body ol {
+    padding-left: 30px; }
+  .chrome__sashikomi__memo__body ul :first-child, .chrome__sashikomi__memo__body ol :first-child {
+    margin-top: 0; }
+  .chrome__sashikomi__memo__body dl {
+    padding: 0; }
+  .chrome__sashikomi__memo__body dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+  .chrome__sashikomi__memo__body dl dt:first-child {
+    padding: 0; }
+  .chrome__sashikomi__memo__body dl dt > :first-child {
+    margin-top: 0; }
+  .chrome__sashikomi__memo__body dl dt > :last-child {
+    margin-bottom: 0; }
+  .chrome__sashikomi__memo__body dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+  .chrome__sashikomi__memo__body dl dd > :first-child {
+    margin-top: 0; }
+  .chrome__sashikomi__memo__body dl dd > :last-child {
+    margin-bottom: 0; }
+  .chrome__sashikomi__memo__body blockquote {
+    border-left: 4px solid #dddddd;
+    padding: 0 15px;
+    color: #777777; }
+  .chrome__sashikomi__memo__body blockquote > :first-child {
+    margin-top: 0; }
+  .chrome__sashikomi__memo__body blockquote > :last-child {
+    margin-bottom: 0; }
+  .chrome__sashikomi__memo__body table {
+    padding: 0;
+    border-collapse: collapse; }
+  .chrome__sashikomi__memo__body table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+  .chrome__sashikomi__memo__body table tr:nth-child(2n) {
+    background-color: #f8f8f8; }
+  .chrome__sashikomi__memo__body table tr th {
+    font-weight: bold;
+    border: 1px solid #cccccc;
+    margin: 0;
+    padding: 6px 13px; }
+  .chrome__sashikomi__memo__body table tr td {
+    border: 1px solid #cccccc;
+    margin: 0;
+    padding: 6px 13px; }
+  .chrome__sashikomi__memo__body table tr th :first-child, .chrome__sashikomi__memo__body table tr td :first-child {
+    margin-top: 0; }
+  .chrome__sashikomi__memo__body table tr th :last-child, .chrome__sashikomi__memo__body table tr td :last-child {
+    margin-bottom: 0; }
+  .chrome__sashikomi__memo__body img {
+    max-width: 100%;
+    margin: 0 auto;
+    display: block; }
+  .chrome__sashikomi__memo__body span.frame {
+    display: block;
+    overflow: hidden; }
+  .chrome__sashikomi__memo__body span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  .chrome__sashikomi__memo__body span.frame span img {
+    display: block;
+    float: left; }
+  .chrome__sashikomi__memo__body span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+  .chrome__sashikomi__memo__body span.align-center {
+    display: block;
+    overflow: hidden;
+    clear: both; }
+  .chrome__sashikomi__memo__body span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  .chrome__sashikomi__memo__body span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+  .chrome__sashikomi__memo__body span.align-right {
+    display: block;
+    overflow: hidden;
+    clear: both; }
+  .chrome__sashikomi__memo__body span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  .chrome__sashikomi__memo__body span.align-right span img {
+    margin: 0;
+    text-align: right; }
+  .chrome__sashikomi__memo__body span.float-left {
+    display: block;
+    margin-right: 13px;
+    overflow: hidden;
+    float: left; }
+  .chrome__sashikomi__memo__body span.float-left span {
+    margin: 13px 0 0; }
+  .chrome__sashikomi__memo__body span.float-right {
+    display: block;
+    margin-left: 13px;
+    overflow: hidden;
+    float: right; }
+  .chrome__sashikomi__memo__body span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+  .chrome__sashikomi__memo__body code, .chrome__sashikomi__memo__body tt {
+    margin: 0 2px;
+    padding: 0 5px;
+    white-space: nowrap;
+    border: 1px solid #eaeaea;
+    background-color: #f8f8f8;
+    border-radius: 3px; }
+  .chrome__sashikomi__memo__body pre code {
+    margin: 0;
+    padding: 0;
+    white-space: pre;
+    border: none;
+    background: transparent; }
+  .chrome__sashikomi__memo__body .highlight pre {
+    background-color: #444;
+    border: 1px solid #cccccc;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+    border-radius: 3px; }
   .chrome__sashikomi__memo__body pre {
-    word-wrap : break-word; }
-}
-
+    background-color: #2D2D2D;
+    border: 1px solid #cccccc;
+    font-size: 13px;
+    line-height: 19px;
+    overflow: auto;
+    padding: 6px 10px;
+    border-radius: 3px; }
+  .chrome__sashikomi__memo__body pre code, .chrome__sashikomi__memo__body pre tt {
+    color: #f8f8f8;
+    background-color: transparent;
+    border: none; }
+  .chrome__sashikomi__memo__body sup {
+    font-size: 0.83px;
+    vertical-align: super;
+    line-height: 0; }
+  .chrome__sashikomi__memo__body code {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 0 2px;
+    border: solid 1px #CCC;
+    background-color: #f6f6f6;
+    font-size: .9em;
+    font-family: "Monaco", monospace, "Courier", "Inconsolata", "Bitstream Vera Sans Mono"; }
+  .chrome__sashikomi__memo__body .code-frame {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin: 1em 0;
+    border: solid 1px #CCC;
+    background-color: #f6f6f6;
+    line-height: 0; }
+  .chrome__sashikomi__memo__body .code-frame .code-lang {
+    -webkit-border-bottom-right-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    border-bottom-right-radius: 3px;
+    color: #4A4A4A;
+    display: inline-block;
+    padding: 3px 6px;
+    margin: 0;
+    line-height: .85em;
+    background-color: #e6e6e6;
+    font-size: .85em;
+    font-weight: 400;
+    border-right: solid 1px #CCC;
+    border-bottom: solid 1px #CCC; }
+  .chrome__sashikomi__memo__body .code-frame pre {
+    overflow: auto;
+    border: none;
+    padding: .5em 1em;
+    margin: 0;
+    background-color: transparent; }
+  .chrome__sashikomi__memo__body .code-frame pre code {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    line-height: 1.44em;
+    font-size: 0.9em;
+    font-family: "Monaco", monospace, "Courier", "Inconsolata", "Bitstream Vera Sans Mono"; }
+  .chrome__sashikomi__memo__body * {
+    -webkit-print-color-adjust: exact; }
+  @media print {
+    .chrome__sashikomi__memo__body table, .chrome__sashikomi__memo__body pre {
+      page-break-inside: avoid; }
+    .chrome__sashikomi__memo__body pre {
+      word-wrap: break-word; } }
 
 /* Tomorrow Night Eighties Theme */
 /* Original theme - https://github.com/chriskempson/tomorrow-theme */
@@ -540,8 +375,7 @@
 /* Tomorrow Comment */
 .hljs-comment,
 .hljs-quote {
-  color : #999999; }
-
+  color: #999999; }
 
 /* Tomorrow Red */
 .hljs-variable,
@@ -552,8 +386,7 @@
 .hljs-selector-class,
 .hljs-regexp,
 .hljs-deletion {
-  color : #f2777a; }
-
+  color: #f2777a; }
 
 /* Tomorrow Orange */
 .hljs-number,
@@ -564,47 +397,40 @@
 .hljs-params,
 .hljs-meta,
 .hljs-link {
-  color : #f99157; }
-
+  color: #f99157; }
 
 /* Tomorrow Yellow */
 .hljs-attribute {
-  color : #ffcc66; }
-
+  color: #ffcc66; }
 
 /* Tomorrow Green */
 .hljs-string,
 .hljs-symbol,
 .hljs-bullet,
 .hljs-addition {
-  color : #99cc99; }
-
+  color: #99cc99; }
 
 /* Tomorrow Blue */
 .hljs-title,
 .hljs-section {
-  color : #6699cc; }
-
+  color: #6699cc; }
 
 /* Tomorrow Purple */
 .hljs-keyword,
 .hljs-selector-tag {
-  color : #cc99cc; }
-
+  color: #cc99cc; }
 
 .hljs {
-  display    : block;
-  overflow-x : auto;
-  background : #2d2d2d;
-  color      : #cccccc;
-  padding    : 0.5em; }
-
+  display: block;
+  overflow-x: auto;
+  background: #2d2d2d;
+  color: #cccccc;
+  padding: 0.5em; }
 
 .hljs-emphasis {
-  font-style : italic; }
-
+  font-style: italic; }
 
 .hljs-strong {
-  font-weight : bold; }
+  font-weight: bold; }
 
 /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJpbmplY3QuYnVuZGxlLmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/

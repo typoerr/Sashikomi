@@ -10,7 +10,7 @@ export default class Editor extends Base {
       hasChanged: false
     };
 
-    this._bind('handleBlur', 'handleChange');
+    this._bind('handleChange', 'handleCancel', 'handleSubmit');
   }
 
   componentDidMount() {
@@ -19,11 +19,18 @@ export default class Editor extends Base {
     this.refs._textarea.focus();
   }
 
-  handleBlur(e) {
+  handleCancel() {
+    //if (this.state.hasChanged) {
+    //}
+    this.props.onClose()
+  }
+
+  handleSubmit(e) {
     e.preventDefault();
     this.props.onSubmit(this.state.inputContent);
     this.props.onClose()
   }
+
 
   handleChange(e) {
     this.setState({
@@ -36,13 +43,23 @@ export default class Editor extends Base {
 
     return (
       <div className="chrome__sashikomi__editor">
+
+        <div className="chrome__sashikomi__btn-group">
+          <button type="button" onClick={this.handleSubmit}>
+            SUBMIT
+          </button>
+
+          <button type="button" onClick={this.handleCancel}>
+            CANCEL
+          </button>
+        </div>
+
         <div className="chrome__sashikomi__editor__body">
           <textarea
             ref="_textarea"
             autoFocus="true"
             value={this.state.inputContent}
             onChange={this.handleChange}
-            onBlur={this.handleBlur}
           />
         </div>
       </div>

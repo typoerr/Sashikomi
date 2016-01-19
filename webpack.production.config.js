@@ -1,8 +1,13 @@
+/* === webpack.production.config ===
+* inline-source-mapを排除
+* cssの圧縮
+* react-lite
+* */
+
 var WebpackNotifierPlugin = require('webpack-notifier');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  devtool: 'inline-source-map',
   entry: {
     background: "./src/bg/index.js",
     inject: "./src/inject/js/index.js"

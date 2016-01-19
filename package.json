@@ -3,10 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "webpack --progress --config ./webpack.config.js",
-    "watch": "webpack --watch --progress --config ./webpack.config.js",
+    "build": "webpack --progress --config ./webpack.dev.config.js",
+    "watch": "webpack --watch --progress --config ./webpack.dev.config.js",
     "server": "lite-server --verbose",
-    "dev": "concurrent \"npm run watch\" \"npm run server\""
+    "dev": "concurrent \"npm run watch\" \"npm run server\"",
+    "release": "webpack -p --progress --config ./webpack.production.config.js"
   },
   "devDependencies": {
     "babel-core": "^6.3.17",

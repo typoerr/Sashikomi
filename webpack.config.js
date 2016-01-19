@@ -36,7 +36,11 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.css', '.scss']
+    extensions: ['', '.js', '.jsx', '.css', '.scss'],
+    alias: {
+      'react': 'react-lite',
+      'react-dom': 'react-lite'
+    }
   },
   plugins: [
     new WebpackNotifierPlugin({ title: 'Webpack' }),

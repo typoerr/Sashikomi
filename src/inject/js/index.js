@@ -78,19 +78,19 @@ chrome.runtime.onMessage.addListener(
 * Component
 * ==============================================*/
 // dbg
-//let content = require('../../../sample.md');
-//let contentText = require('../../../sample2.md');
+//let contentText = require('../../../sample.md');
+let contentText = require('../../../sample2.md');
 
 // TODO: ComponentでもURLをPropで受取る(新規登録用)
-//ReactDOM.render(
-//  <MemoContainer
-//    id={1}
-//    contentId={1}
-//    containerElmId={"foo"}
-//    contentText={contentText}
-//    //contentText=""
-//  />,
-//  document.getElementById("foo")
-//);
+ReactDOM.render(
+  <MemoContainer
+    id={1}
+    contentId={1}
+    containerElmId={"foo"}
+    contentText={contentText}
+    //contentText=""
+  />,
+  document.getElementById("foo")
+);
 
 

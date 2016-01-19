@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import Base from './Base'
 
 export default class Editor extends Base {
@@ -10,6 +11,12 @@ export default class Editor extends Base {
     };
 
     this._bind('handleBlur', 'handleChange');
+  }
+
+  componentDidMount() {
+    // react-liteを使った場合にeditorのrenderが2回目以降からautoFocusが当たらないため
+    // 直接DOMを参照してfocusを当てる
+    this.refs._textarea.focus();
   }
 
   handleBlur(e) {
@@ -31,6 +38,7 @@ export default class Editor extends Base {
       <div className="chrome__sashikomi__editor">
         <div className="chrome__sashikomi__editor__body">
           <textarea
+            ref="_textarea"
             autoFocus="true"
             value={this.state.inputContent}
             onChange={this.handleChange}

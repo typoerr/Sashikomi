@@ -7,7 +7,7 @@ import Dexie from 'dexie'
 /* -----------------------------------
   Schema
 * ------------------------------------
- id: 1 // auto increment, index
+ locationId: 1 // auto increment, index
  url: '', // index
  contents: [
     {
@@ -42,6 +42,24 @@ db.open();
 /* =============================================
  * Message Passing(onMessage)
  * ==============================================
+// TODO: inject.jsからのMessageをlistenして、DBのCRUD処理
+* request:
+  { type: 'ActionType', data: {MemoContainerComponentのstate}}
+
+  * type: {
+      PUT: Memoの新規作成、更新,
+      DELETE: MemoのDelete
+    }
+
+
+* response:
+  {
+    status: 'error or success',
+    data: {MemoContainerComponentのstateに合わせたオブジェクトフォーマットを返す}
+  }
+
+
+// 以下、Sample
 
 chrome.runtime.onMessage.addListener(
   function (request, sender, sendResponse) {
@@ -75,7 +93,8 @@ function night(name, callback) {
   callback("Good night, " + name);
 }
  * */
-// TODO: inject.jsからのMessageをlistenして、DBのCRUD処理
+
+
 
 /* =============================================
  * Message Passing(send)

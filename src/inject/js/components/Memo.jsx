@@ -10,7 +10,7 @@ export default class Memo extends Base {
 
   componentDidMount() {
     if (!this.props.children.trim()) {
-      this.props.onDelete()
+      this.props.noContent()
     }
   }
 
@@ -63,5 +63,6 @@ export default class Memo extends Base {
 Memo.propTypes = {
   //content: React.PropTypes.string.isRequired,
   onClose: React.PropTypes.func.isRequired,
-  onDelete: React.PropTypes.func.isRequired
+  onDelete: React.PropTypes.func.isRequired,
+  noContent: React.PropTypes.func.isRequired
 };

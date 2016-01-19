@@ -4,17 +4,11 @@ import Base from './Base'
 import Memo from './Memo'
 import Editor from './Editor'
 
-/*
-* TODO: Submit, Deleteで、bg_pageで更新に必要なdataを定義
-* TODO: Delete
-* TODO: Submit
-* */
-
 /* ------------------------------
   Sample Message Passing(send)
 * --------------------------------
 chrome.runtime.sendMessage({
-    type: "SUBMIT",
+    type: "PUT",
     text: "sample text"
   },
   function (response) {
@@ -24,15 +18,33 @@ chrome.runtime.sendMessage({
   }
 );
 
-* TODO: DELETE, SUBMIT処理でbackground.jsにmessageを送信
+* DELETE, PUT処理でbackground.jsにmessageを送信
 * responseでstateを更新
 */
+
+/*---------------------------------------------
+*  PUT, DELETE処理について
+*  --------------------------------------------
+*
+*  ComponentのレンダリングではcontentTextとisEditingしか利用しないが、
+   新規登録と更新の処理に対応するために、DBで保存されている値をすべてpropsとして受け取り、
+   stateとして保持する。
+*  DBの更新はtypeとdataのオブジェクトをrequestとして送る。
+*  dataは全てのstateを含める
+*  responseには'status'と'data'を期待し、statusに応じて適切な処理を行う
+*  */
+
 
 export default class MemoContainer extends Base {
   constructor(props) {
     super(props);
     this.state = {
+      locationId: this.props.locationId,
+      url: this.props.url,
+      targetElm: this.props.targetElm,
+      contentId: this.props.contentId,
       contentText: this.props.contentText,
+      containerElmId: this.props.containerElmId,
       isEditing: false
     };
 
@@ -40,7 +52,8 @@ export default class MemoContainer extends Base {
       'rendererChild',
       'handleToggleChild',
       'handleSubmit',
-      'handleDelete'
+      'handleDelete',
+      'noContent'
     );
   }
 
@@ -50,25 +63,54 @@ export default class MemoContainer extends Base {
     }
   }
 
-  componentWillUnmount() {
-    // TODO: DBに削除リクエストを送る
-  }
-
   handleToggleChild() {
     this.setState({ isEditing: !this.state.isEditing })
   }
 
   handleSubmit(text) {
-    // TODO: background.jsにmessage passingしてDBを更新
-    this.setState({ contentText: text });
+    let data = Object.assign({}, this.state, { contentText: text });
+
+    // background.jsにmessage passingしてDBを更新
+    chrome.runtime.sendMessage({ type: 'PUT', data: data },
+      (res) => {
+        if (res.status === 'error') {
+          // TODO: 正しいerrorハンドリングに置き換える
+          alert('error');
+        } else if (res.status === 'success') {
+          this.setState(res.data)
+        }
+      }
+    );
   }
 
+
   handleDelete() {
-    // TODO: background.jsにmessage passingしてDBを更新
+    let data = Object.assign({}, this.state);
+
+    //background.jsにmessage passingしてDBを更新
+    chrome.runtime.sendMessage({ type: 'DELETE', data: data },
+      (res) => {
+        if (res.status === 'error') {
+          // TODO: 正しいerrorハンドリングに置き換える
+          alert('error');
+        } else if (res.status === 'success') {
+          // DOMから自身のComponentとContainerNODEを削除
+          this.removeComponentAndContainer();
+        }
+      }
+    );
+  }
+
+  noContent() {
+    this.removeComponentAndContainer();
+  }
+
+  removeComponentAndContainer() {
     let elm = document.getElementById(this.props.containerElmId);
-    ReactDOM.unmountComponentAtNode(elm); // -> componentWillUnmount()が呼ばれる
+    ReactDOM.unmountComponentAtNode(elm);
     elm.parentNode.removeChild(elm);
   }
+
 
   rendererChild() {
     if (this.state.isEditing) {
@@ -84,6 +126,7 @@ export default class MemoContainer extends Base {
         <Memo
           onClose={this.handleToggleChild}
           onDelete={this.handleDelete}
+          noContent={this.noContent}
         >
           {this.state.contentText}
         </Memo>
@@ -101,8 +144,10 @@ export default class MemoContainer extends Base {
 }
 
 MemoContainer.propTypes = {
-  id: React.PropTypes.number,
+  locationId: React.PropTypes.number,
   contentId: React.PropTypes.number,
   containerElmId: React.PropTypes.string.isRequired,
-  contentText: React.PropTypes.string
+  contentText: React.PropTypes.string,
+  targetElm: React.PropTypes.string,
+  url: React.PropTypes.string
 };

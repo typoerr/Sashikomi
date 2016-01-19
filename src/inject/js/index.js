@@ -84,7 +84,9 @@ let contentText = require('../../../sample2.md');
 // TODO: ComponentでもURLをPropで受取る(新規登録用)
 ReactDOM.render(
   <MemoContainer
-    id={1}
+    locationId={1}
+    url={"http:example.com"}
+    targetElm={"element"}
     contentId={1}
     containerElmId={"foo"}
     contentText={contentText}

@@ -1,64 +1,30 @@
-import DB from './database'
+//import {db} from './database'
+//import {putMemo} from './database'
+//import {deleteMemo} from './database'
+//import {getMemosByUrl} from './database'
+import {db} from './database'
 import _ from '../util'
 
-/* -----------------------------------
-  Schema
-* ------------------------------------
 
-* locations:
-* -------
-  id: 1 // auto increment, index
-  url: '', // index
-
-* contents:
-* -----------
-  id: 1, // Hidden auto-incremented primary key
-  locationId : 1 // index, for relation
-  contentId: 'uuid' // index, containerElmIdとしても利用する
-  targetElm: 'element',
-  contentText: 'text or markdown'
-*/
-const db = DB();
-
-const putMemo = (obj) => {
-  return db.transaction('rw', db.memos, () => {
-    return db.memos.put(obj)
-      .then(id => {
-        return db.memos.get(id);
-      })
-  })
-};
-
-const deleteMemo = (id) => {
-  return db.transaction('rw', db.memos, () => {
-    return db.memos.delete(id)
-  })
-};
-
-const getMemosByUrl = (url) => {
-  return db.transaction('rw', db.memos, () => {
-    return db.memos.where('url').equals(url).toArray()
-  })
-};
-
-deleteMemo(5)
-  .then(db.memos.count(count => console.log(count)))
-  .catch(err => console.log(err));
+//
+//db.deleteMemo(9)
+//  .then(db.memos.count(count => console.log(count)))
+//  .catch(err => console.log(err));
 
 
 //getMemosByUrl('http:example.co.jp')
 //  .then(memos => {console.log(memos)})
 //  .catch(err => console.log(err));
 //
-
-let exist_memo = {
-  id: 1,
-  url: 'http:example.co.jp',
-  contentId: _.uuid(),
-  targetElm: `<div id="bar"></div>>`,
-  contentText: 'text'
-};
-
+//
+//let exist_memo = {
+//  id: 1,
+//  url: 'http:example.co.jp',
+//  contentId: _.uuid(),
+//  targetElm: `<div id="bar"></div>>`,
+//  contentText: 'text'
+//};
+//
 let new_memo = {
   url: 'http:example.co.jp',
   contentId: _.uuid(),
@@ -67,9 +33,10 @@ let new_memo = {
 };
 
 
-//putMemo(new_memo)
-//  .then(data => console.log('success', data))
-//  .catch(err => console.log(err));
+db.putMemo(new_memo)
+  .then(data => console.log('success', data))
+  .catch(err => console.log(err));
+
 
 
 /* =============================================

@@ -21,36 +21,39 @@ import _ from '../util'
 const db = DB();
 
 const putMemo = (obj) => {
-  let locationData = _.pick(obj, ['id', 'url']);
-  let contentData = _.omit(obj, ['id', 'url']);
-
-  return db.transaction('rw', db.locations_table, db.contents_table, () => {
-    return db.locations_table.put(locationData)
-
-      // locationの新規登録/更新に成功するとidが返ってくる。そのidでrelationshipを結ぶため、
-      // contentDataとmargeしてlocationIdとしてcontents_tableに保存
+  return db.transaction('rw', db.memos, () => {
+    return db.memos.put(obj)
       .then(id => {
-        let data = Object.assign({}, contentData, { locationId: id });
-        return db.contents_table.put(data);
+        return db.memos.get(id);
       })
-
-      // contentの保存に成功するとcontentIdが得られる。
-      // contentIdとlocationIdでそれぞれオブジェクトを取得して、
-      // ReactComponentのstateと同様の構造にするようmargeする
-      .then(contentPrimaryKey => {
-        return db.contents_table.get(contentPrimaryKey);
-      })
-  }).then(content => {
-    return db.locations_table.get(content.locationId, (location) => {
-      return Object.assign({}, location, content)
-    })
   })
 };
+
+const deleteMemo = (id) => {
+  return db.transaction('rw', db.memos, () => {
+    return db.memos.delete(id)
+  })
+};
+
+const getMemosByUrl = (url) => {
+  return db.transaction('rw', db.memos, () => {
+    return db.memos.where('url').equals(url).toArray()
+  })
+};
+
+deleteMemo(5)
+  .then(db.memos.count(count => console.log(count)))
+  .catch(err => console.log(err));
+
+
+//getMemosByUrl('http:example.co.jp')
+//  .then(memos => {console.log(memos)})
+//  .catch(err => console.log(err));
+//
 
 let exist_memo = {
   id: 1,
   url: 'http:example.co.jp',
-  locationId: 1,
   contentId: _.uuid(),
   targetElm: `<div id="bar"></div>>`,
   contentText: 'text'
@@ -64,9 +67,9 @@ let new_memo = {
 };
 
 
-putMemo(exist_memo)
-  .then(data => console.log('success', data))
-  .catch(err => console.log(err));
+//putMemo(new_memo)
+//  .then(data => console.log('success', data))
+//  .catch(err => console.log(err));
 
 
 /* =============================================

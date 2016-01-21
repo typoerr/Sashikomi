@@ -1,42 +1,72 @@
-import Dexie from 'dexie'
-
-/* ==========================================
- * indexedDBのsetup
- * ===========================================*/
+import DB from './database'
+import _ from '../util'
 
 /* -----------------------------------
   Schema
 * ------------------------------------
- locationId: 1 // auto increment, index
- url: '', // index
- contents: [
-    {
-      contentId: 1, // auto increment, index
-      targetElm: 'element',
-      contentText: 'text or markdown'
-    },
- ]
-* */
 
-/*-----------------------------------
-  Operation Sample
-* -----------------------------------
- db.transaction('rw', db.memos, function () {
-   db.memos.add({ url: 'http://example.com',
-      contents: [{ node: 'element', content: 'text or markdown' }]
-   });
-   db.memos.where('url').equals('http://example.com').each((item) => console.log(item));
- });
+* locations:
+* -------
+  id: 1 // auto increment, index
+  url: '', // index
 
+* contents:
+* -----------
+  id: 1, // Hidden auto-incremented primary key
+  locationId : 1 // index, for relation
+  contentId: 'uuid' // index, containerElmIdとしても利用する
+  targetElm: 'element',
+  contentText: 'text or markdown'
 */
+const db = DB();
 
-// TODO: Schemaを変更
-let db = new Dexie('SashikomiDB');
-db.version(1).stores({
-  memos: "++id, url"
-});
+const putMemo = (obj) => {
+  let locationData = _.pick(obj, ['id', 'url']);
+  let contentData = _.omit(obj, ['id', 'url']);
 
-db.open();
+  return db.transaction('rw', db.locations_table, db.contents_table, () => {
+    return db.locations_table.put(locationData)
+
+      // locationの新規登録/更新に成功するとidが返ってくる。そのidでrelationshipを結ぶため、
+      // contentDataとmargeしてlocationIdとしてcontents_tableに保存
+      .then(id => {
+        let data = Object.assign({}, contentData, { locationId: id });
+        return db.contents_table.put(data);
+      })
+
+      // contentの保存に成功するとcontentIdが得られる。
+      // contentIdとlocationIdでそれぞれオブジェクトを取得して、
+      // ReactComponentのstateと同様の構造にするようmargeする
+      .then(contentPrimaryKey => {
+        return db.contents_table.get(contentPrimaryKey);
+      })
+  }).then(content => {
+    return db.locations_table.get(content.locationId, (location) => {
+      return Object.assign({}, location, content)
+    })
+  })
+};
+
+let exist_memo = {
+  id: 1,
+  url: 'http:example.co.jp',
+  locationId: 1,
+  contentId: _.uuid(),
+  targetElm: `<div id="bar"></div>>`,
+  contentText: 'text'
+};
+
+let new_memo = {
+  url: 'http:example.co.jp',
+  contentId: _.uuid(),
+  targetElm: `<div id="bar"></div>>`,
+  contentText: 'text'
+};
+
+
+putMemo(exist_memo)
+  .then(data => console.log('success', data))
+  .catch(err => console.log(err));
 
 
 /* =============================================
@@ -55,7 +85,11 @@ db.open();
 * response:
   {
     status: 'error or success',
+
+    // successの場合、
     data: {MemoContainerComponentのstateに合わせたオブジェクトフォーマットを返す}
+
+    // errorの場合、
   }
 
 
@@ -93,7 +127,49 @@ function night(name, callback) {
   callback("Good night, " + name);
 }
  * */
+//chrome.runtime.onMessage.addListener(
+//  function (req, sender, sendResponse) {
+//
+//    switch (req.type) {
+//      case "PUT_MEMO":
+//        putMemo(req, sendResponse);
+//        break;
+//      case "DELETE_MEMO":
+//        deleteMemo(req, sendResponse);
+//        break;
+//      default:
+//        console.log("Error: Unknown request.");
+//        console.log(req);
+//    }
+//  }
+//);
 
+
+//function putMemo(req, res) {
+//  // TODO: DBを更新して、更新データをresする
+//  // 成功時
+//  res({
+//    status: 'success',
+//    data: {
+//      locationId: 1,
+//      url: 'http://example.com',
+//      targetElm: `<div id="bar">`,
+//      contentId: 1,
+//      containerElmId: "foo",
+//      contentText: 'text!!'
+//    }
+//  });
+//
+//  // 失敗時
+//  //res({
+//  //  status: 'error',
+//  //  errorMessage: 'error message'
+//  //})
+//}
+//
+//function deleteMemo(name, callback) {
+//  //callback("Good night, " + name);
+//}
 
 
 /* =============================================
@@ -131,8 +207,7 @@ function night(name, callback) {
 * 挿入できなかったcontent(error)をpopup.htmlで表示
 * errorがなければなにも表示しない
 * -------------------------------*/
-//chrome.browserAction.onClicked.addListener(function () {
-//
+//chrome.browserAction.onClicked.addListener(() => {
 //});
 
 /* #setBadgeText

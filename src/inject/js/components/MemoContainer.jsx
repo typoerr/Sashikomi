@@ -4,6 +4,18 @@ import Base from './Base'
 import Memo from './Memo'
 import Editor from './Editor'
 
+/* -----------------------------------
+  Schema
+* ------------------------------------
+
+* memos:
+* -------
+  id: 1 // auto increment, index
+  url: '', // index,
+  targetElm: 'element',
+  contentText: 'text or markdown'
+*/
+
 /* ------------------------------
   Sample Message Passing(send)
 * --------------------------------
@@ -39,12 +51,10 @@ export default class MemoContainer extends Base {
   constructor(props) {
     super(props);
     this.state = {
-      locationId: this.props.locationId,
+      id: this.props.id,
       url: this.props.url,
       targetElm: this.props.targetElm,
-      contentId: this.props.contentId,
       contentText: this.props.contentText,
-      containerElmId: this.props.containerElmId,
       isEditing: false
     };
 
@@ -144,10 +154,9 @@ export default class MemoContainer extends Base {
 }
 
 MemoContainer.propTypes = {
-  locationId: React.PropTypes.number,
-  contentId: React.PropTypes.number,
-  containerElmId: React.PropTypes.string.isRequired,
+  id: React.PropTypes.number,
+  url: React.PropTypes.string,
   contentText: React.PropTypes.string,
   targetElm: React.PropTypes.string,
-  url: React.PropTypes.string
+  containerElmId: React.PropTypes.string.isRequired
 };

@@ -3,20 +3,16 @@ import MemoContainer from './components/MemoContainer'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-
 /* -----------------------------------
   Schema
-* ------------------------------------*/
-/*
- id: 1 // auto increment, index
- url: '', // index
- contents: [
-    {
-      contentId: 1, // auto increment, index
-      targetElm: 'element',
-      contentText: 'text or markdown'
-    },
- ]
+* ------------------------------------
+
+* memos:
+* -------
+  id: 1 // auto increment, index
+  url: '', // index,
+  targetElm: 'element',
+  contentText: 'text or markdown'
 */
 
 /* ------------------------------
@@ -43,8 +39,38 @@ chrome.runtime.sendMessage({
 *   TODO: data数だけReactComponentの挿入する処理
 *    * dataがあれば、responseでdataを受け取り、domにComponentを追加
 *    * dataがなければ、なにもしない
+*
+*    // Contentの挿入方法
+     * targetElmの子要素としてcontainerElmを生成。
+     * 一意になるようにcontainerElmのidに_.uuid()を叩いて、idとして付与
+       * (Componentの削除に使う。propsとして渡す。)
+     * containerElmのidを頼りにReactComponentを挿入
 */
 
+//// dbg
+//(function() {
+//  chrome.runtime.sendMessage({
+//      type: "PUT_MEMO",
+//      data: {
+//        locationId: 1,
+//        url: 'http://example.com',
+//        targetElm: `<div id="bar">`,
+//        contentId: 1,
+//        containerElmId: "foo",
+//        contentText: 'text'
+//      }
+//    },
+//    function (res) {
+//      if (res && res.status === 'success') {
+//        console.log(res.data);
+//      } else {
+//        console.log(res);
+//      }
+//    }
+//  );
+//})();
+//
+//
 
 /* -------------------------------------
 *  Sample Message Passing(onMessage)
@@ -66,33 +92,23 @@ chrome.runtime.onMessage.addListener(
 
 
 
-/* TODO: Componentの挿入処理
-* contents.targetElmに対してcomponent挿入ポイントとなる、
-  uniqueなid(containerElmId)を持ったdiv要素を生成して、targetElmの子要素として追加。
-* containerElmIdに対してComponentを挿入。
-*
-*
-* */
-
 /*==============================================
 * Component
 * ==============================================*/
 // dbg
 //let contentText = require('../../../sample.md');
-let contentText = require('../../../sample2.md');
-
-// TODO: ComponentでもURLをPropで受取る(新規登録用)
-ReactDOM.render(
-  <MemoContainer
-    locationId={1}
-    url={"http:example.com"}
-    targetElm={"element"}
-    contentId={1}
-    containerElmId={"foo"}
-    contentText={contentText}
-    //contentText=""
-  />,
-  document.getElementById("foo")
-);
+//let contentText = require('../../../sample2.md');
+//
+//ReactDOM.render(
+//  <MemoContainer
+//    id={1}
+//    url={"http:example.com"}
+//    targetElm={"element"}
+//    containerElmId={"foo"}
+//    contentText={contentText}
+//    //contentText=""
+//  />,
+//  document.getElementById("foo")
+//);
 
 

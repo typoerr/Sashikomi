@@ -32,11 +32,11 @@ export const db = (() => {
 * 返り値: Promise。thenの引数に新規登録・更新された1件のオブジェクトが渡る
 
 ex)
-store.putMemo(new_memo)
+store.$put(new_memo)
   .then(data => console.log('success', data))
   .catch(err => console.log(err));
 * */
-export const putMemo = (obj) => {
+export const $put = (obj) => {
   let data = _.pick(obj, ['id', 'url', 'targetElm', 'contentText']);
   return db.transaction('rw', db.memos, () => {
     return db.memos.put(data)
@@ -56,11 +56,11 @@ export const putMemo = (obj) => {
 * 存在しないIDが渡されても例外は起きない。なにも起きない。
 
 ex)
-deleteMemo(2)
+$delete(2)
   .then(store.db.memos.count(count => console.log(count)))
   .catch(err => console.log(err));
 * */
-export const deleteMemo = (obj) => {
+export const $delete = (obj) => {
   let id = obj.id || -1;
   return db.transaction('rw', db.memos, () => {
     return db.memos.delete(id)
@@ -78,11 +78,11 @@ export const deleteMemo = (obj) => {
 * content_script内で配列分だけrenderするように使う
 
 ex)
-getMemosByUrl('http//:example.co.jp')
+$getMemosByUrl('http//:example.co.jp')
   .then(memos => {console.log(memos)})
   .catch(err => console.log(err));
 * */
-export const getMemosByUrl = (url) => {
+export const $getMemosByUrl = (url) => {
   return db.transaction('rw', db.memos, () => {
     return db.memos.where('url').equals(url).toArray()
   })

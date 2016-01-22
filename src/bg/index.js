@@ -2,42 +2,8 @@
 //import {putMemo} from './database'
 //import {deleteMemo} from './database'
 //import {getMemosByUrl} from './database'
-import {db} from './database'
+import * as store from './store'
 import _ from '../util'
-
-
-//
-//db.deleteMemo(9)
-//  .then(db.memos.count(count => console.log(count)))
-//  .catch(err => console.log(err));
-
-
-//getMemosByUrl('http:example.co.jp')
-//  .then(memos => {console.log(memos)})
-//  .catch(err => console.log(err));
-//
-//
-//let exist_memo = {
-//  id: 1,
-//  url: 'http:example.co.jp',
-//  contentId: _.uuid(),
-//  targetElm: `<div id="bar"></div>>`,
-//  contentText: 'text'
-//};
-//
-let new_memo = {
-  url: 'http:example.co.jp',
-  contentId: _.uuid(),
-  targetElm: `<div id="bar"></div>>`,
-  contentText: 'text'
-};
-
-
-db.putMemo(new_memo)
-  .then(data => console.log('success', data))
-  .catch(err => console.log(err));
-
-
 
 /* =============================================
  * Message Passing(onMessage)

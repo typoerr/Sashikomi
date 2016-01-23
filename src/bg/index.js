@@ -1,65 +1,4 @@
-//import {db} from './database'
-//import {putMemo} from './database'
-//import {deleteMemo} from './database'
-//import {getMemosByUrl} from './database'
-import * as store from './store'
-import _ from '../util'
-
-/* =============================================
- * Message Passing(onMessage)
- * ==============================================
-// inject.jsからのMessageをlistenして、DBのCRUD処理
-* request:
-  { type: 'ActionType', data: {MemoContainerComponentのstate}}
-
-  * type: {
-      PUT: Memoの新規作成、更新,
-      DELETE: MemoのDelete
-    }
-
-
-* response:
-  {
-    status: 'error or success',
-
-    // successの場合、
-    data: {MemoContainerComponentのstateに合わせたオブジェクトフォーマットを返す}
-
-    // errorの場合、
-  }
- * */
-chrome.runtime.onMessage.addListener(
-  function (req, sender, sendResponse) {
-
-    switch (req.type) {
-      case "PUT_MEMO":
-        putMemo(req, sendResponse);
-        return true;
-        break;
-      case "DELETE_MEMO":
-        deleteMemo(req, sendResponse);
-        return true;
-        break;
-      default:
-        console.log("Error: Unknown request.");
-        console.log(req);
-    }
-  }
-);
-
-
-function putMemo(req, res) {
-  store.save(req.data)
-    .then(data =>res({ status: 'success', data: data }))
-    .catch(err => res({ status: 'error', errorMessage: err }));
-}
-
-function deleteMemo(req, res) {
-  store.remove(req.data)
-    .then(res({ status: 'success' }))
-    .catch(res({ status: 'error' }))
-}
-
+import message_listener from './message_listener'
 
 /* =============================================
  * Message Passing(send)
@@ -83,8 +22,6 @@ function deleteMemo(req, res) {
  1. ContextMenuから新規Component追加の命令をContentScriptsに司令
 
 * */
-
-
 
 
 /* =============================================

@@ -3,17 +3,6 @@ import MemoContainer from './components/MemoContainer'
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-/* -----------------------------------
-  Schema
-* ------------------------------------
-* memos:
-* -------
-  id: 1 // auto increment, index
-  url: '', // index,
-  targetElm: 'element',
-  contentText: 'text or markdown'
-*/
-
 /* ------------------------------
   Sample Message Passing(send)
 * -------------------------------- */
@@ -60,21 +49,10 @@ chrome.runtime.sendMessage({
 //})();
 
 /* -------------------------------------
-*  Sample Message Passing(onMessage)
-* ------------------------------------- */
-/*
-
-chrome.runtime.onMessage.addListener(
-  function (request, sender, sendResponse) {
-    console.log(request);
-
-    // response
-    sendResponse('fire!!!!! on Message');
-  }
-);
-
+*  Message Passing(onMessage)
+* -------------------------------------
 * TODO: 新規登録用Componentの挿入
-* background pageでcontext_menu eventを検知してcomponentの新規追加処を実行する(?)
+  * background pageでcontext_menu eventを検知してcomponentの新規追加処を実行する
 * */
 chrome.runtime.onMessage.addListener(function
     (req, sender, sendResponse) {
@@ -97,6 +75,17 @@ chrome.runtime.onMessage.addListener(function
 /*==============================================
 * Component
 * ==============================================*/
+/* -----------------------------------
+  DB Schema
+* ------------------------------------
+* memos:
+* -------
+  id: 1 // auto increment, index
+  url: '', // index,
+  targetElm: 'element',
+  contentText: 'text or markdown'
+*/
+
 // dbg
 //let contentText = require('../../../sample.md');
 //let contentText = require('../../../sample2.md');

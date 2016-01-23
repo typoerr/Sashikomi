@@ -1,4 +1,5 @@
 import message_listener from './message_listener'
+import context_menu from './context_menu'
 
 /* =============================================
  * Message Passing(send)

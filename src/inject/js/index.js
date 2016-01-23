@@ -6,7 +6,6 @@ import ReactDOM from 'react-dom'
 /* -----------------------------------
   Schema
 * ------------------------------------
-
 * memos:
 * -------
   id: 1 // auto increment, index
@@ -77,7 +76,22 @@ chrome.runtime.onMessage.addListener(
 * TODO: 新規登録用Componentの挿入
 * background pageでcontext_menu eventを検知してcomponentの新規追加処を実行する(?)
 * */
+chrome.runtime.onMessage.addListener(function
+    (req, sender, sendResponse) {
 
+    switch (req.type) {
+      case "ON_CONTEXT_MENU":
+        /*
+        * todo: memoを挿入
+        * */
+        console.log(location.href);
+        break;
+      default:
+        console.log("Error: Unknown request.");
+        console.log(req);
+    }
+  }
+);
 
 
 /*==============================================

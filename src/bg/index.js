@@ -19,9 +19,6 @@ import context_menu from './context_menu'
     }
   });
 });
-
- 1. ContextMenuから新規Component追加の命令をContentScriptsに司令
-
 * */
 
 

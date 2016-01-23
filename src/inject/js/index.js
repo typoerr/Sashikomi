@@ -35,19 +35,6 @@ chrome.runtime.sendMessage({
      * containerElmのidを頼りにReactComponentを挿入
 */
 
-//// dbg
-//(function () {
-//  chrome.runtime.sendMessage({
-//      type: "PUT",
-//      data: {
-//        url: 'http://google.com',
-//        targetElm: `<div id="bar">`,
-//        contentText: 'sample text'
-//      }
-//    }, (res) => console.log('res:', res)
-//  );
-//})();
-
 /* -------------------------------------
 *  Message Passing(onMessage)
 * -------------------------------------
@@ -60,8 +47,21 @@ chrome.runtime.onMessage.addListener(function
     switch (req.type) {
       case "ON_CONTEXT_MENU":
         /*
-        * todo: memoを挿入
+        * todo: Editorを挿入
+          1 selectされているDOMを取得(targetElm: props)
+          2 取得したDOMの子要素(containerElm)を生成
+          3 containerElmにuniqueなid(containerElmId: props)を付与
+          4 containerElmをPageに挿入
+          5 containerElmIdを頼りにReactComponentを挿入
+
+          * 新規登録時のReactComponentに渡すprops
+            {
+              targetElm: 'element',
+              containerElmId: '_.uuid()で生成',
+              url: location.hrefで取得
+             }
         * */
+
         console.log(location.href);
         break;
       default:

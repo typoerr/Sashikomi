@@ -8,7 +8,7 @@ import _ from '../util'
 /* =============================================
  * Message Passing(onMessage)
  * ==============================================
-// TODO: inject.jsからのMessageをlistenして、DBのCRUD処理
+// inject.jsからのMessageをlistenして、DBのCRUD処理
 * request:
   { type: 'ActionType', data: {MemoContainerComponentのstate}}
 
@@ -27,85 +27,38 @@ import _ from '../util'
 
     // errorの場合、
   }
-
-
-// 以下、Sample
-
+ * */
 chrome.runtime.onMessage.addListener(
-  function (request, sender, sendResponse) {
+  function (req, sender, sendResponse) {
 
-    console.log(request);
-    console.log(request.url);
-
-    sendResponse({url: request.url});
-
-    // 実際はtypeを受け取って、以下のような感じでswitch分岐
-    switch (request.type) {
-      case "hello":
-        hello(request.text, sendResponse);
+    switch (req.type) {
+      case "PUT_MEMO":
+        putMemo(req, sendResponse);
+        return true;
         break;
-      case "night":
-        night(request.text, sendResponse);
+      case "DELETE_MEMO":
+        deleteMemo(req, sendResponse);
+        return true;
         break;
       default:
-        console.log("Error: Unkown request.");
-        console.log(request);
+        console.log("Error: Unknown request.");
+        console.log(req);
     }
   }
 );
 
 
-function hello(name, callback) {
-  callback("Hello, " + name);
+function putMemo(req, res) {
+  store.save(req.data)
+    .then(data =>res({ status: 'success', data: data }))
+    .catch(err => res({ status: 'error', errorMessage: err }));
 }
 
-function night(name, callback) {
-  callback("Good night, " + name);
+function deleteMemo(req, res) {
+  store.remove(req.data)
+    .then(res({ status: 'success' }))
+    .catch(res({ status: 'error' }))
 }
- * */
-//chrome.runtime.onMessage.addListener(
-//  function (req, sender, sendResponse) {
-//
-//    switch (req.type) {
-//      case "PUT_MEMO":
-//        putMemo(req, sendResponse);
-//        break;
-//      case "DELETE_MEMO":
-//        deleteMemo(req, sendResponse);
-//        break;
-//      default:
-//        console.log("Error: Unknown request.");
-//        console.log(req);
-//    }
-//  }
-//);
-
-
-//function putMemo(req, res) {
-//  // TODO: DBを更新して、更新データをresする
-//  // 成功時
-//  res({
-//    status: 'success',
-//    data: {
-//      locationId: 1,
-//      url: 'http://example.com',
-//      targetElm: `<div id="bar">`,
-//      contentId: 1,
-//      containerElmId: "foo",
-//      contentText: 'text!!'
-//    }
-//  });
-//
-//  // 失敗時
-//  //res({
-//  //  status: 'error',
-//  //  errorMessage: 'error message'
-//  //})
-//}
-//
-//function deleteMemo(name, callback) {
-//  //callback("Good night, " + name);
-//}
 
 
 /* =============================================

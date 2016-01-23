@@ -48,29 +48,18 @@ chrome.runtime.sendMessage({
 */
 
 //// dbg
-//(function() {
-//  chrome.runtime.sendMessage({
-//      type: "PUT_MEMO",
-//      data: {
-//        locationId: 1,
-//        url: 'http://example.com',
-//        targetElm: `<div id="bar">`,
-//        contentId: 1,
-//        containerElmId: "foo",
-//        contentText: 'text'
-//      }
-//    },
-//    function (res) {
-//      if (res && res.status === 'success') {
-//        console.log(res.data);
-//      } else {
-//        console.log(res);
-//      }
-//    }
-//  );
-//})();
-//
-//
+(function () {
+  chrome.runtime.sendMessage({
+      type: "DELETE_MEMO",
+      data: {
+        id: 5,
+        url: 'http://google.com',
+        targetElm: `<div id="bar">`,
+        contentText: 'sample text'
+      }
+    }, (res) => console.log('res:', res)
+  );
+})();
 
 /* -------------------------------------
 *  Sample Message Passing(onMessage)

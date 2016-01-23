@@ -36,13 +36,11 @@ store.$put(new_memo)
   .then(data => console.log('success', data))
   .catch(err => console.log(err));
 * */
-export const $put = (obj) => {
+export const save = (obj) => {
   let data = _.pick(obj, ['id', 'url', 'targetElm', 'contentText']);
   return db.transaction('rw', db.memos, () => {
     return db.memos.put(data)
-      .then(id => {
-        return db.memos.get(id);
-      })
+      .then(id => db.memos.get(id))
   })
 };
 
@@ -60,7 +58,7 @@ $delete(2)
   .then(store.db.memos.count(count => console.log(count)))
   .catch(err => console.log(err));
 * */
-export const $delete = (obj) => {
+export const remove = (obj) => {
   let id = obj.id || -1;
   return db.transaction('rw', db.memos, () => {
     return db.memos.delete(id)
@@ -82,7 +80,7 @@ $getMemosByUrl('http//:example.co.jp')
   .then(memos => {console.log(memos)})
   .catch(err => console.log(err));
 * */
-export const $getMemosByUrl = (url) => {
+export const getMemosByUrl = (url) => {
   return db.transaction('rw', db.memos, () => {
     return db.memos.where('url').equals(url).toArray()
   })

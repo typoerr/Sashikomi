@@ -9,6 +9,6 @@ export default (function () {
   });
 
   chrome.contextMenus.onClicked.addListener(function (info, tab) {
-    chrome.tabs.sendMessage(tab.id, { type: 'ON_CONTEXT_MENU' });
+    chrome.tabs.sendMessage(tab.id, { type: 'CONTEXT_MENU' });
   });
 })();

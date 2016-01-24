@@ -18,10 +18,10 @@
   margin: 15px 0;
   width: 100%;
   min-width: 200px;
-  max-width: 700px;
+  max-width: 1000px;
   font-size: 15px;
   color: #444;
-  border-left: 7px solid #7D3C98; }
+  border-left: 4px solid #7D3C98; }
   .chrome__sashikomi__container:hover .chrome__sashikomi__btn-group {
     display: block; }
 

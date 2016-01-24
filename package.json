@@ -28,6 +28,7 @@
     "webpack-notifier": "^1.2.1"
   },
   "dependencies": {
+    "css-path": "^1.0.3",
     "dexie": "^1.2.0",
     "highlight.js": "^9.1.0",
     "lodash.omit": "^4.0.1",

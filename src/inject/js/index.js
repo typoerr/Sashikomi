@@ -1,7 +1,10 @@
 require('../css/inject.scss');
-import MemoContainer from './components/MemoContainer'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
+import MemoContainer from './components/MemoContainer'
+import cssPath from 'css-path'
+import _ from '../../util'
 
 /* ------------------------------
   Sample Message Passing(send)
@@ -45,7 +48,7 @@ chrome.runtime.onMessage.addListener(function
     (req, sender, sendResponse) {
 
     switch (req.type) {
-      case "ON_CONTEXT_MENU":
+      case "CONTEXT_MENU":
         /*
         * todo: Editorを挿入
           1 selectされているDOMを取得(targetElm: props)
@@ -61,16 +64,51 @@ chrome.runtime.onMessage.addListener(function
               url: location.hrefで取得
              }
         * */
-
-        console.log(location.href);
+        createNewMemo();
         break;
       default:
-        console.log("Error: Unknown request.");
-        console.log(req);
+        console.log("Error: Unknown request. : ", req);
     }
   }
 );
 
+function createNewMemo() {
+
+  /*
+   * selectされているDOMを取得(targetElm: props)
+   * 取得したDOMの子要素(containerElm)を生成
+   * containerElmにuniqueなid(containerElmId: props)を付与
+  */
+
+  let selection = window.getSelection();
+  let targetElmPath = cssPath(selection.getRangeAt(0).endContainer.parentNode);
+  let targetElm = document.querySelector(targetElmPath);
+  let containerElm = document.createElement('div');
+  let containerElmId = _.uuid();
+  let url = location.href;
+
+  containerElm.setAttribute('id', containerElmId);
+  targetElm.appendChild(containerElm);
+
+  ReactDOM.render(
+    <MemoContainer
+      url={url}
+      targetElm={targetElmPath}
+      containerElmId={containerElmId}
+      contentText="hogehoge" //dbg
+    />,
+    document.getElementById(containerElmId)
+  );
+}
+
+function insertToHtml(memos = []) {
+  /*
+    4 containerElmをPageに挿入
+    5 containerElmIdを頼りにReactComponentを挿入
+  */
+
+
+}
 
 /*==============================================
 * Component

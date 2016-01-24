@@ -53,8 +53,8 @@ export default class MemoContainer extends Base {
     this.state = {
       id: this.props.id,
       url: this.props.url,
-      targetElm: this.props.targetElm,
-      contentText: this.props.contentText,
+      targetElmPath: this.props.targetElmPath,
+      contentText: this.props.contentText || "",
       isEditing: false
     };
 
@@ -68,7 +68,7 @@ export default class MemoContainer extends Base {
   }
 
   componentWillMount() {
-    if (!this.props.contentText.trim()) {
+    if (!this.state.contentText.trim()) {
       this.setState({ isEditing: true })
     }
   }
@@ -79,14 +79,14 @@ export default class MemoContainer extends Base {
 
   handleSubmit(text) {
     let data = Object.assign({}, this.state, { contentText: text });
+    this.setState(data);
 
-    // background.jsにmessage passingしてDBを更新
     chrome.runtime.sendMessage({ type: 'PUT', data: data },
       (res) => {
         if (res.status === 'error') {
-          // TODO: 正しいerrorハンドリングに置き換える
-          alert('error');
+          console.log(res.errorMessage);
         } else if (res.status === 'success') {
+          console.log('setState! ', res.data);
           this.setState(res.data)
         }
       }
@@ -101,10 +101,8 @@ export default class MemoContainer extends Base {
     chrome.runtime.sendMessage({ type: 'DELETE', data: data },
       (res) => {
         if (res.status === 'error') {
-          // TODO: 正しいerrorハンドリングに置き換える
-          alert('error');
+          console.log(res.errorMessage);
         } else if (res.status === 'success') {
-          // DOMから自身のComponentとContainerNODEを削除
           this.removeComponentAndContainer();
         }
       }
@@ -155,8 +153,8 @@ export default class MemoContainer extends Base {
 
 MemoContainer.propTypes = {
   id: React.PropTypes.number,
-  url: React.PropTypes.string,
+  url: React.PropTypes.string.isRequired,
   contentText: React.PropTypes.string,
-  targetElm: React.PropTypes.string,
+  targetElmPath: React.PropTypes.string.isRequired,
   containerElmId: React.PropTypes.string.isRequired
 };

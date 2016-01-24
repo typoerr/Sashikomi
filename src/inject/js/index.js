@@ -44,6 +44,8 @@ chrome.runtime.sendMessage({
 * TODO: 新規登録用Componentの挿入
   * background pageでcontext_menu eventを検知してcomponentの新規追加処を実行する
 * */
+
+
 chrome.runtime.onMessage.addListener(function
     (req, sender, sendResponse) {
 
@@ -93,9 +95,8 @@ function createNewMemo() {
   ReactDOM.render(
     <MemoContainer
       url={url}
-      targetElm={targetElmPath}
+      targetElmPath={targetElmPath}
       containerElmId={containerElmId}
-      contentText="hogehoge" //dbg
     />,
     document.getElementById(containerElmId)
   );
@@ -110,6 +111,7 @@ function insertToHtml(memos = []) {
 
 }
 
+
 /*==============================================
 * Component
 * ==============================================*/
@@ -120,24 +122,24 @@ function insertToHtml(memos = []) {
 * -------
   id: 1 // auto increment, index
   url: '', // index,
-  targetElm: 'element',
+  targetElmPath: 'element',
   contentText: 'text or markdown'
 */
 
 // dbg
 //let contentText = require('../../../sample.md');
 //let contentText = require('../../../sample2.md');
-//
-//ReactDOM.render(
-//  <MemoContainer
-//    id={1}
-//    url={"http:example.com"}
-//    targetElm={"element"}
-//    containerElmId={"foo"}
-//    contentText={contentText}
-//    //contentText=""
-//  />,
-//  document.getElementById("foo")
-//);
+/*
+
+ReactDOM.render(
+  <MemoContainer
+    url={"http:example.com"}
+    targetElmPath={"element"}
+    containerElmId={"foo"}
+    contentText=""
+  />,
+  document.getElementById("foo")
+);
 
 
+*/

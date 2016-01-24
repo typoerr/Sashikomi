@@ -9,7 +9,7 @@ import _ from '../util'
 * -------
   id: 1 // auto increment, index
   url: '', // index,
-  targetElm: 'element',
+  targetElmPath: 'element',
   contentText: 'text or markdown'
 */
 
@@ -37,7 +37,7 @@ store.$put(new_memo)
   .catch(err => console.log(err));
 * */
 export function save(obj) {
-  let data = _.pick(obj, ['id', 'url', 'targetElm', 'contentText']);
+  let data = _.pick(obj, ['id', 'url', 'targetElmPath', 'contentText']);
   return db.transaction('rw', db.memos, () => {
     return db.memos.put(data)
       .then(id => db.memos.get(id))

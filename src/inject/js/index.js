@@ -46,55 +46,44 @@ chrome.runtime.sendMessage({
 * */
 
 
-chrome.runtime.onMessage.addListener(function
-    (req, sender, sendResponse) {
-
-    switch (req.type) {
-      case "CONTEXT_MENU":
-        /*
-        * todo: Editorを挿入
-          1 selectされているDOMを取得(targetElm: props)
-          2 取得したDOMの子要素(containerElm)を生成
-          3 containerElmにuniqueなid(containerElmId: props)を付与
-          4 containerElmをPageに挿入
-          5 containerElmIdを頼りにReactComponentを挿入
-
-          * 新規登録時のReactComponentに渡すprops
-            {
-              targetElm: 'element',
-              containerElmId: '_.uuid()で生成',
-              url: location.hrefで取得
-             }
-        * */
-        createNewMemo();
-        break;
-      default:
-        console.log("Error: Unknown request. : ", req);
-    }
+chrome.runtime.onMessage.addListener(function (req) {
+  switch (req.type) {
+    case "CONTEXT_MENU":
+      appendNewMemo();
+      break;
+    default:
+      console.log("Error: Unknown request. : ", req);
   }
-);
+});
 
-function createNewMemo() {
-
-  /*
-   * selectされているDOMを取得(targetElm: props)
+function appendNewMemo() {
+  /* Componentを挿入(Editor)
+  ------------------------------
+   * selectされているDOMのCSS Pathを取得(targetElm: props)
    * 取得したDOMの子要素(containerElm)を生成
    * containerElmにuniqueなid(containerElmId: props)を付与
-  */
+   * containerElmをPageに挿入
+   * containerElmIdを頼りにReactComponentを挿入
 
+   * 新規登録時のReactComponentに渡すprops
+      {
+        targetElmPath: 'cssPath',
+        containerElmId: '_.uuid()で生成',
+        url: location.hrefで取得
+       }
+  * */
   let selection = window.getSelection();
   let targetElmPath = cssPath(selection.getRangeAt(0).endContainer.parentNode);
   let targetElm = document.querySelector(targetElmPath);
   let containerElm = document.createElement('div');
   let containerElmId = _.uuid();
-  let url = location.href;
 
   containerElm.setAttribute('id', containerElmId);
   targetElm.appendChild(containerElm);
 
   ReactDOM.render(
     <MemoContainer
-      url={url}
+      url={location.href}
       targetElmPath={targetElmPath}
       containerElmId={containerElmId}
     />,

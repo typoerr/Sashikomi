@@ -63,7 +63,7 @@ export default class MemoContainer extends Base {
       'handleToggleChild',
       'handleSubmit',
       'handleDelete',
-      'noContent'
+      'handleHasNoContent'
     );
   }
 
@@ -97,23 +97,22 @@ export default class MemoContainer extends Base {
   handleDelete() {
     let data = Object.assign({}, this.state);
 
-    //background.jsにmessage passingしてDBを更新
     chrome.runtime.sendMessage({ type: 'DELETE', data: data },
       (res) => {
         if (res.status === 'error') {
           console.log(res.errorMessage);
         } else if (res.status === 'success') {
-          this.removeComponentAndContainer();
+          this.removeComponent();
         }
       }
     );
   }
 
-  noContent() {
-    this.removeComponentAndContainer();
+  handleHasNoContent() {
+    this.removeComponent();
   }
 
-  removeComponentAndContainer() {
+  removeComponent() {
     let elm = document.getElementById(this.props.containerElmId);
     ReactDOM.unmountComponentAtNode(elm);
     elm.parentNode.removeChild(elm);
@@ -134,7 +133,7 @@ export default class MemoContainer extends Base {
         <Memo
           onClose={this.handleToggleChild}
           onDelete={this.handleDelete}
-          noContent={this.noContent}
+          hasNoContent={this.handleHasNoContent}
         >
           {this.state.contentText}
         </Memo>

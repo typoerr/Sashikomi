@@ -17,8 +17,8 @@
     "persistent": false
   },
   "options_page": "options.html",
-  "browser_action": {
-    "default_icon": "icons/icon19.png",
+  "page_action": {
+    "default_icon": "icons/icon19_default.png",
     "default_title": "Sashikomi"
   },
   "permissions": [

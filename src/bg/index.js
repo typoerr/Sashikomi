@@ -24,22 +24,26 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 /* ============================================
 * Context Menu
 * ============================================*/
-export default (function () {
-  chrome.contextMenus.create({
-    id: 'sashikomi_context_menu',
-    title: 'Sashikomi',
-    contexts: ['selection']
-  });
+chrome.contextMenus.create({
+  id: 'sashikomi_context_menu',
+  title: 'Sashikomi',
+  contexts: ['selection']
+});
 
-  chrome.contextMenus.onClicked.addListener(function (info, tab) {
-    chrome.tabs.sendMessage(tab.id, { type: 'CONTEXT_MENU' });
-  });
-})();
+chrome.contextMenus.onClicked.addListener(function (info, tab) {
+  chrome.tabs.sendMessage(tab.id, { type: 'CONTEXT_MENU' });
+});
 
 
+//TODO: browserActionからPageActionに変更する
 /* =============================================
  * browserAction
  * ==============================================*/
-chrome.browserAction.onClicked.addListener(() => {
-  chrome.tabs.create({ url: chrome.extension.getURL('insertion_error.html') });
-});
+//chrome.browserAction.onClicked.addListener((tab) => {
+//  chrome.browserAction.getBadgeText({ tabId: tab.id }, function (count) {
+//    if (count) {
+//      chrome.tabs.create({ url: chrome.extension.getURL('insertion_error.html') });
+//    }
+//  });
+//});
+

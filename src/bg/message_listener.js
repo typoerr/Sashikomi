@@ -1,10 +1,6 @@
 import * as store from './store'
-
-/* =============================================
- * Message Passing(onMessage)
- * ============================================== */
-
 export default (function () {
+
   chrome.runtime.onMessage.addListener(
     function (req, sender, sendResponse) {
 

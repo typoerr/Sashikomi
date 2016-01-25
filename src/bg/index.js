@@ -27,9 +27,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
         chrome.tabs.sendMessage(tabId, { type: 'TAB_ON_UPDATED', data: data });
       }
     })
-    .catch(err => {
-      chrome.tabs.sendMessage(tabId, { type: 'TAB_ON_UPDATED', data: { error: err } });
-    })
+    .catch(err => console.log(err))
 });
 
 /* =============================================

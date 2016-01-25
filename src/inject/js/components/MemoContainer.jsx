@@ -4,49 +4,6 @@ import Base from './Base'
 import Memo from './Memo'
 import Editor from './Editor'
 
-/* -----------------------------------
-  Schema
-* ------------------------------------
-
-* memos:
-* -------
-  id: 1 // auto increment, index
-  url: '', // index,
-  targetElm: 'element',
-  contentText: 'text or markdown'
-*/
-
-/* ------------------------------
-  Sample Message Passing(send)
-* --------------------------------
-chrome.runtime.sendMessage({
-    type: "PUT",
-    text: "sample text"
-  },
-  function (response) {
-    if (response) {
-      alert(response);
-    }
-  }
-);
-
-* DELETE, PUT処理でbackground.jsにmessageを送信
-* responseでstateを更新
-*/
-
-/*---------------------------------------------
-*  PUT, DELETE処理について
-*  --------------------------------------------
-*
-*  ComponentのレンダリングではcontentTextとisEditingしか利用しないが、
-   新規登録と更新の処理に対応するために、DBで保存されている値をすべてpropsとして受け取り、
-   stateとして保持する。
-*  DBの更新はtypeとdataのオブジェクトをrequestとして送る。
-*  dataは全てのstateを含める
-*  responseには'status'と'data'を期待し、statusに応じて適切な処理を行う
-*  */
-
-
 export default class MemoContainer extends Base {
   constructor(props) {
     super(props);
@@ -86,7 +43,6 @@ export default class MemoContainer extends Base {
         if (res.status === 'error') {
           console.log(res.errorMessage);
         } else if (res.status === 'success') {
-          console.log('setState! ', res.data);
           this.setState(res.data)
         }
       }

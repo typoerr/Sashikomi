@@ -9,6 +9,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     .then(data => {
       if (data.length) {
         chrome.tabs.sendMessage(tabId, { type: 'TAB_ON_UPDATED', data: data, tabId: tabId });
+        chrome.pageAction.show(tabId);
       }
     })
     .catch(err => console.log(err))
@@ -35,15 +36,13 @@ chrome.contextMenus.onClicked.addListener(function (info, tab) {
 });
 
 
-//TODO: browserActionからPageActionに変更する
 /* =============================================
- * browserAction
+ * PageAction
  * ==============================================*/
-//chrome.browserAction.onClicked.addListener((tab) => {
-//  chrome.browserAction.getBadgeText({ tabId: tab.id }, function (count) {
-//    if (count) {
-//      chrome.tabs.create({ url: chrome.extension.getURL('insertion_error.html') });
-//    }
-//  });
-//});
-
+chrome.pageAction.onClicked.addListener(tab => {
+  chrome.pageAction.getTitle({ tabId: tab.id }, function (title) {
+    if (title.match(/error/)) {
+      chrome.tabs.create({ url: chrome.extension.getURL('insertion_error.html') });
+    }
+  });
+});

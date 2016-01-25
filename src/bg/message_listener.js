@@ -3,18 +3,19 @@ export default (function () {
 
   chrome.runtime.onMessage.addListener(
     function (req, sender, sendResponse) {
-
       switch (req.type) {
         case "PUT":
           putMemo(req, sendResponse);
+          _validatePageAction(sender);
           return true;
           break;
         case "DELETE":
           deleteMemo(req, sendResponse);
+          _validatePageAction(sender);
           return true;
           break;
         case "INSERTION_ERROR":
-          updateBrowserActionBadge(req);
+          changePageActionToErrorIcon(req, sender);
           return true;
           break;
         default:
@@ -37,10 +38,36 @@ export default (function () {
       .catch(res({ status: 'error' }))
   }
 
-  function updateBrowserActionBadge(req) {
-    chrome.browserAction.setBadgeText({
-      text: req.data.length.toString(),
-      tabId: req.tabId
+  function changePageActionToErrorIcon(req, sender) {
+    chrome.pageAction.setTitle({
+      tabId: sender.tab.id,
+      title: `Sashikomi has insertion error(${req.data.length})`
     });
+    chrome.pageAction.setIcon({
+      tabId: sender.tab.id,
+      path: "icons/icon19_error.png"
+    })
+  }
+
+
+  function _validatePageAction(sender) {
+    /*
+    * TODO: memoのcount数に応じて、page actionを操作
+    *  memoのurlでmemoのカウントを調べる
+    *  memoがあればpageAction.show
+    *  なければhide
+    *  putMemoとdeleteMemoのタイミングで実行
+    */
+    let url = sender.url;
+    let tabId = sender.tab.id;
+
+    store.getMemosByUrl(url)
+      .then(data => {
+        if (data.length) {
+          chrome.pageAction.show(tabId)
+        } else {
+          chrome.pageAction.hide(tabId)
+        }
+      })
   }
 })();

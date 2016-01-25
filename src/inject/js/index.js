@@ -12,7 +12,7 @@ chrome.runtime.onMessage.addListener(function (req) {
       insertNewMemo();
       break;
     case "TAB_ON_UPDATED":
-      insertComponent(req.data, req.tabId);
+      insertComponent(req.data);
       break;
     default:
       console.log("Error: Unknown request. : ", req);
@@ -48,7 +48,7 @@ function insertNewMemo() {
 }
 
 
-function insertComponent(memos = [], tabId) {
+function insertComponent(memos = []) {
   let failed = [];
 
   memos.forEach(memo => {
@@ -78,6 +78,6 @@ function insertComponent(memos = [], tabId) {
   });
 
   if (failed.length) {
-    chrome.runtime.sendMessage({ type: 'INSERTION_ERROR', data: failed, tabId: tabId })
+    chrome.runtime.sendMessage({ type: 'INSERTION_ERROR', data: failed })
   }
 }

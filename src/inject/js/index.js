@@ -12,7 +12,7 @@ chrome.runtime.onMessage.addListener(function (req) {
       insertNewMemo();
       break;
     case "TAB_ON_UPDATED":
-      insertComponent(req.data);
+      insertComponent(req.data, req.tabId);
       break;
     default:
       console.log("Error: Unknown request. : ", req);
@@ -48,7 +48,8 @@ function insertNewMemo() {
 }
 
 
-function insertComponent(memos = []) {
+function insertComponent(memos = [], tabId) {
+  let failed = [];
 
   memos.forEach(memo => {
 
@@ -56,18 +57,27 @@ function insertComponent(memos = []) {
     let containerElm = document.createElement('div');
     let containerElmId = _.uuid();
 
-    containerElm.setAttribute('id', containerElmId);
-    targetElm.appendChild(containerElm);
+    try {
+      containerElm.setAttribute('id', containerElmId);
+      targetElm.appendChild(containerElm);
 
-    ReactDOM.render(
-      <MemoContainer
-        id={memo.id}
-        url={memo.url}
-        targetElmPath={memo.targetElmPath}
-        containerElmId={containerElmId}
-        contentText={memo.contentText}
-      />,
-      document.getElementById(containerElmId)
-    );
-  })
+      ReactDOM.render(
+        <MemoContainer
+          id={memo.id}
+          url={memo.url}
+          targetElmPath={memo.targetElmPath}
+          containerElmId={containerElmId}
+          contentText={memo.contentText}
+        />,
+        document.getElementById(containerElmId)
+      );
+
+    } catch (e) {
+      failed.push(memo)
+    }
+  });
+
+  if (failed.length) {
+    chrome.runtime.sendMessage({ type: 'INSERTION_ERROR', data: failed, tabId: tabId })
+  }
 }

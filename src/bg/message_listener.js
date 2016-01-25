@@ -13,6 +13,10 @@ export default (function () {
           deleteMemo(req, sendResponse);
           return true;
           break;
+        case "INSERTION_ERROR":
+          sendToBrowserAction(req);
+          return true;
+          break;
         default:
           console.log("Error: Unknown request.");
           console.log(req);
@@ -31,5 +35,16 @@ export default (function () {
     store.remove(req.data)
       .then(res({ status: 'success' }))
       .catch(res({ status: 'error' }))
+  }
+
+  function sendToBrowserAction(req) {
+    //TODO: BrowserActionを実装
+    chrome.browserAction.setBadgeText({
+      text: req.data.length.toString(),
+      tabId: req.tabId
+    });
+
+    console.log(req);
+
   }
 })();

@@ -1,6 +1,6 @@
 import message_listener from './message_listener'
 import context_menu from './context_menu'
-
+import * as store from './store'
 /* =============================================
  * Message Passing(send)
  * ==============================================
@@ -20,7 +20,17 @@ import context_menu from './context_menu'
   });
 });
 * */
-
+chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
+  store.getMemosByUrl(tab.url)
+    .then(data => {
+      if (data.length) {
+        chrome.tabs.sendMessage(tabId, { type: 'TAB_ON_UPDATED', data: data });
+      }
+    })
+    .catch(err => {
+      chrome.tabs.sendMessage(tabId, { type: 'TAB_ON_UPDATED', data: { error: err } });
+    })
+});
 
 /* =============================================
  * browserAction

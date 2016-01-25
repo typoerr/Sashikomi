@@ -6,57 +6,22 @@ import MemoContainer from './components/MemoContainer'
 import cssPath from 'css-path'
 import _ from '../../util'
 
-/* ------------------------------
-  Sample Message Passing(send)
-* -------------------------------- */
-/*
-chrome.runtime.sendMessage({
-    type: "SUBMIT",
-    text: "sample text"
-  },
-  function (response) {
-    if (response) {
-      alert(response);
-    }
-  }
-);
-
-* Component内に実装
-* 1. DELETE, SUBMIT処理でbackground pageにmessageを送信
-*    * responseでstateを更新
-*
-* TODO: URLでDBを検索
-* 2. URLを監視して、dataの有無をbackground pageに問い合わせる
-*   TODO: data数だけReactComponentの挿入する処理
-*    * dataがあれば、responseでdataを受け取り、domにComponentを追加
-*    * dataがなければ、なにもしない
-*
-*    // Contentの挿入方法
-     * targetElmの子要素としてcontainerElmを生成。
-     * 一意になるようにcontainerElmのidに_.uuid()を叩いて、idとして付与
-       * (Componentの削除に使う。propsとして渡す。)
-     * containerElmのidを頼りにReactComponentを挿入
-*/
-
-/* -------------------------------------
-*  Message Passing(onMessage)
-* -------------------------------------
-* TODO: 新規登録用Componentの挿入
-  * background pageでcontext_menu eventを検知してcomponentの新規追加処を実行する
-* */
-
-
+//新規登録用Componentの挿入
+//background pageでcontext_menu eventを検知してcomponentの新規追加処を実行する
 chrome.runtime.onMessage.addListener(function (req) {
   switch (req.type) {
     case "CONTEXT_MENU":
-      appendNewMemo();
+      insertNewMemo();
+      break;
+    case "TAB_ON_UPDATED":
+      insertComponent(req.data);
       break;
     default:
       console.log("Error: Unknown request. : ", req);
   }
 });
 
-function appendNewMemo() {
+function insertNewMemo() {
   /* Componentを挿入(Editor)
   ------------------------------
    * selectされているDOMのCSS Pathを取得(targetElm: props)
@@ -91,13 +56,29 @@ function appendNewMemo() {
   );
 }
 
-function insertToHtml(memos = []) {
-  /*
-    4 containerElmをPageに挿入
-    5 containerElmIdを頼りにReactComponentを挿入
-  */
 
+function insertComponent(memos = []) {
 
+  memos.forEach(memo => {
+
+    let targetElm = document.querySelector(memo.targetElmPath);
+    let containerElm = document.createElement('div');
+    let containerElmId = _.uuid();
+
+    containerElm.setAttribute('id', containerElmId);
+    targetElm.appendChild(containerElm);
+
+    ReactDOM.render(
+      <MemoContainer
+        id={memo.id}
+        url={memo.url}
+        targetElmPath={memo.targetElmPath}
+        containerElmId={containerElmId}
+        contentText={memo.contentText}
+      />,
+      document.getElementById(containerElmId)
+    );
+  })
 }
 
 

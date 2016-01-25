@@ -14,7 +14,7 @@ export default (function () {
           return true;
           break;
         case "INSERTION_ERROR":
-          sendToBrowserAction(req);
+          updateBrowserActionBadge(req);
           return true;
           break;
         default:
@@ -37,14 +37,10 @@ export default (function () {
       .catch(res({ status: 'error' }))
   }
 
-  function sendToBrowserAction(req) {
-    //TODO: BrowserActionを実装
+  function updateBrowserActionBadge(req) {
     chrome.browserAction.setBadgeText({
       text: req.data.length.toString(),
       tabId: req.tabId
     });
-
-    console.log(req);
-
   }
 })();

@@ -19,8 +19,7 @@
   "options_page": "options.html",
   "browser_action": {
     "default_icon": "icons/icon19.png",
-    "default_title": "Sashikomi",
-    "default_popup": "popup.html"
+    "default_title": "Sashikomi"
   },
   "permissions": [
     "contextMenus",

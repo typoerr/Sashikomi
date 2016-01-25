@@ -40,7 +40,6 @@ export default (function () {
 /* =============================================
  * browserAction
  * ==============================================*/
-// TODO: background.htmlを開く
 chrome.browserAction.onClicked.addListener(() => {
-  chrome.tabs.create({ url: chrome.extension.getURL('error.html') });
+  chrome.tabs.create({ url: chrome.extension.getURL('insertion_error.html') });
 });

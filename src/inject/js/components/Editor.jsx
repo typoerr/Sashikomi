@@ -29,8 +29,12 @@ export default class Editor extends Base {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.onSubmit(this.state.inputContent);
-    this.props.onClose()
+    if (this.state.inputContent.trim()) {
+      this.props.onSubmit(this.state.inputContent);
+      this.props.onClose()
+    } else {
+      this.props.onClose()
+    }
   }
 
 

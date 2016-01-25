@@ -1,25 +1,9 @@
 import message_listener from './message_listener'
-import context_menu from './context_menu'
 import * as store from './store'
-/* =============================================
- * Message Passing(send)
- * ==============================================
 
- * content_scripsへのmessage_sendはchrome.tabs.sendMessageでtabIdを
- 指定して送信する必要がある。以下の例は、tab eventと組み合わせて、
- tabIdを取得し、sendMessageしている。
-
-  * chrome.tabs.sendMessageでsendしているが、
- content_scrips側では、chrome.runtime.onMessageに発火する
-
- chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
-  chrome.tabs.sendMessage(tabId, tab.url,  function(res) {
-    if (res) {
-      console.log(res)
-    }
-  });
-});
-* */
+/*========================================
+* Tab Action
+* ========================================*/
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   store.getMemosByUrl(tab.url)
     .then(data => {
@@ -31,26 +15,32 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 });
 
 // dbg
-store.save({
-  url: "https://github.com/dfahlander/Dexie.js/wiki/Collection",
-  contentText: 'test',
-  targetElmPath: '.foo'
-});
+//store.save({
+//  url: "https://github.com/dfahlander/Dexie.js/wiki/Collection",
+//  contentText: 'test',
+//  targetElmPath: '.foo'
+//});
+
+/* ============================================
+* Context Menu
+* ============================================*/
+export default (function () {
+  chrome.contextMenus.create({
+    id: 'sashikomi_context_menu',
+    title: 'Sashikomi',
+    contexts: ['selection']
+  });
+
+  chrome.contextMenus.onClicked.addListener(function (info, tab) {
+    chrome.tabs.sendMessage(tab.id, { type: 'CONTEXT_MENU' });
+  });
+})();
+
 
 /* =============================================
  * browserAction
  * ==============================================*/
-
-/* #onClick
-* TODO: popup.htmlを開く
-* 挿入できなかったcontent(error)をpopup.htmlで表示
-* errorがなければなにも表示しない
-* -------------------------------*/
-//chrome.browserAction.onClicked.addListener(() => {
-//});
-
-/* #setBadgeText
-* TODO: 挿入errorがあればBadgeTextで通知
-* chrome.browserAction.setBadgeText(object details)
-* https://developer.chrome.com/extensions/browserAction
-*/
+// TODO: background.htmlを開く
+chrome.browserAction.onClicked.addListener(() => {
+  chrome.tabs.create({ url: chrome.extension.getURL('error.html') });
+});

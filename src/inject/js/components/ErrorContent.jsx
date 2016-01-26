@@ -30,14 +30,15 @@ export default class ErrorContent extends Base {
   render() {
     return (
       <div className="p-error-content">
-        <div>
-          <button type="button" className="c-btn"
+
+        <div className="p-btn-group">
+          <button type="button"
             onClick={this.handleDelete}>
             DELETE
           </button>
         </div>
 
-        <div className="p-error-content__content-body"
+        <div className="p-error-content__body"
           dangerouslySetInnerHTML={this.rawMarkup()}>
         </div>
       </div>

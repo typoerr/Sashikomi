@@ -41,20 +41,23 @@ export default class ErrorPage extends Base {
 
   render() {
     return (
-      <div className="l-component-wrapper">
+      <div className="l-page-component-wrapper">
         <header className="l-page-header">
           <h1 className="p-header__title">{this.props.url}</h1>
         </header>
 
         <section className="l-page-body">
-          <div className="p-operation-container">
-            <button type="button" className="c-btn--link"
-              onClick={this.handleDeleteAll}>
-              Clear All
-            </button>
+          <div className="l-page-body__inner">
+            <div className="p-operation-container">
+              <button type="button" className="p-operation-btn"
+                onClick={this.handleDeleteAll}>
+                Clear All
+              </button>
+            </div>
+
+            {this.contentList()}
           </div>
 
-          {this.contentList()}
         </section>
       </div>
     )

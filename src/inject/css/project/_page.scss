@@ -1,0 +1,54 @@
+/* Page Style
+----------------------------------*/
+.chrome__sashikomi--page {
+  .p-header__title {
+    margin      : 0;
+    padding     : 0;
+    color       : $white;
+    font-size   : 1.6em;
+    font-weight : normal;
+    text-align  : center;
+    word-break  : break-all;
+  }
+
+  .p-operation-container {
+    margin : 20px 0;
+  }
+
+  .p-operation-btn {
+    @extend %c-btn--link;
+  }
+
+  .p-error-content {
+    position    : relative;
+    display     : block !important;
+    margin      : 30px 0;
+    width       : 100%;
+    font-size   : 15px;
+    color       : $default-font-color;
+    border-left : 4px solid $yellow;
+    background  : $dark-white;
+
+    &:hover {
+      .p-btn-group {
+        display : block;
+      }
+    }
+  }
+
+  .p-error-content__body {
+    padding : 15px;
+    @import "../tomorrow-night-eighties";
+  }
+
+  .p-btn-group {
+    @extend %c-btn-group--base;
+    button {
+      background : $blur-yellow;
+
+      &:hover {
+        background : $yellow;
+      }
+    }
+  }
+}

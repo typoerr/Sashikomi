@@ -3,29 +3,16 @@
 ==========================================*/
 /* variable
 -------------------------------------------*/
-$white : #fff;
-$dark-white : #f8f8f8;
-$accent-color : #7D3C98;
-$accent-color--rgba : rgba(125, 60, 152, 0.20);
-$default-font-color : #444;
-
+@import "base/variables";
 /* base
 --------------------------------------------*/
-@import "normalize";
-.chrome__sashikomi--page__body {
-  margin      : 0;
-  font-family : "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;;
-  font-size   : 100%;
-  width       : 100%;
-}
+@import "base/normalize";
+@import "base/typography";
 
 
-.chrome__sashikomi--page {
-  h1, h2, h3, h4, h5, h6 {
-    margin  : 0;
-    padding : 0;
-    //width: 100%;
-
+.chrome__sashikomi {
+  body {
+    margin : 0;
   }
 }
 
@@ -34,6 +21,9 @@ $default-font-color : #444;
   Layout
 ==========================================*/
 .chrome__sashikomi--page {
+  .l-page-component-wrapper {
+    width : 100%;
+  }
 
   .l-page-header {
     background-color : $accent-color;
@@ -42,7 +32,14 @@ $default-font-color : #444;
     padding          : 15px 25px;
   }
 
-  .l-page-main-container {
+  .l-page-body {
+    width : 100%;
+  }
+
+  .l-page-body__inner {
+    margin    : 20px auto;
+    width     : 100%;
+    max-width : 800px;
   }
 
 }
@@ -54,23 +51,73 @@ $default-font-color : #444;
 /*-------------------------------------------
   Component
 --------------------------------------------*/
-.chrome__sashikomi--page {
+%c-btn--link {
+  background : none;
+  border     : none;
+  margin     : 0;
+  padding    : 0;
+  color      : $link-color;
+  &:hover {
+    text-decoration : underline;
+  }
+}
+
+
+%c-container--base {
+  // TODO： 共通化する
+
+}
+
+
+%c-btn-group--base {
+  display  : none;
+  position : absolute;
+  top      : 0;
+  right    : 0;
+  overflow : hidden;
+  width    : 100%;
+
+  button {
+    cursor     : pointer;
+    display    : block;
+    float      : right;
+    background : $accent-color--rgba;
+    border     : 0;
+    padding    : 5px 15px;
+    color      : $white;
+    font-size  : 14px;
+
+    &:hover {
+      background-color : $accent-color;
+    }
+
+    &:active {
+      position : relative;
+      top      : 1px;
+      right    : -1px;
+    }
+
+    &:focus {
+      outline : none;
+    }
+  }
+
+  button + button {
+    border-right : 1px solid $dark-white;
+  }
 }
 
 
 /*-------------------------------------------
   Project
 --------------------------------------------*/
-.chrome__sashikomi--page {
-  .p-header__title {
-    color       : $white;
-    font-size   : 1.6em;
-    font-weight : normal;
-    text-align  : center;
-    word-break  : break-all;
-  }
-}
+@import 'project/page';
 
+/* Extension Style
+----------------------------------*/
+.chrome__sashikomi--ext {
+  //  TODO: ExtensionのStyleを修正する
+}
 
 /* MemoContainerComponent
 -------------------------------------------*/
@@ -183,5 +230,5 @@ $default-font-color : #444;
 /*-------------------------------------------
   Utility
 --------------------------------------------*/
-.chrome__sashikomi--page {
+.chrome__sashikomi {
 }

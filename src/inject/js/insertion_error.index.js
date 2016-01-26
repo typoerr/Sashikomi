@@ -9,11 +9,15 @@ import _ from '../../util'
   targetElmPath: 'element',
   contentText: 'text or markdown'
 */
+
+let sample = require('../../../sample.md');
+let sample2 = require('../../../sample2.md');
+
 let d = {
   url: 'http://example.com',
   insertionErrorData: [
-    { id: 1, url: 'http://example.com', targetElmPath: '.path', contentText: 'sample' },
-    { id: 2, url: 'http://example.com', targetElmPath: '.path', contentText: 'sample' },
+    { id: 1, url: 'http://example.com', targetElmPath: '.path', contentText: sample },
+    { id: 2, url: 'http://example.com', targetElmPath: '.path', contentText: sample2 },
     { id: 3, url: 'http://example.com', targetElmPath: '.path', contentText: 'sample' },
     { id: 4, url: 'http://example.com', targetElmPath: '.path', contentText: 'sample' }
   ]

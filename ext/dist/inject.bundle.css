@@ -1,15 +1,115 @@
 @charset "UTF-8";
 /* =======================================
-  Base
+  Foundation
 ==========================================*/
 /* variable
 -------------------------------------------*/
+/* base
+--------------------------------------------*/
+/*
+html5doctor.com Reset Stylesheet
+v1.4
+2009-07-27
+Author: Richard Clark - http://richclarkdesign.com
+*/
+.chrome__sashikomi--base div, .chrome__sashikomi--base span, .chrome__sashikomi--base object, .chrome__sashikomi--base iframe,
+.chrome__sashikomi--base h1, .chrome__sashikomi--base h2, .chrome__sashikomi--base h3, .chrome__sashikomi--base h4, .chrome__sashikomi--base h5, .chrome__sashikomi--base h6, .chrome__sashikomi--base p, .chrome__sashikomi--base blockquote, .chrome__sashikomi--base pre,
+.chrome__sashikomi--base abbr, .chrome__sashikomi--base address, .chrome__sashikomi--base cite, .chrome__sashikomi--base code,
+.chrome__sashikomi--base del, .chrome__sashikomi--base dfn, .chrome__sashikomi--base em, .chrome__sashikomi--base img, .chrome__sashikomi--base ins, .chrome__sashikomi--base kbd, .chrome__sashikomi--base q, .chrome__sashikomi--base samp,
+.chrome__sashikomi--base small, .chrome__sashikomi--base strong, .chrome__sashikomi--base sub, .chrome__sashikomi--base sup, .chrome__sashikomi--base var,
+.chrome__sashikomi--base b, .chrome__sashikomi--base i,
+.chrome__sashikomi--base dl, .chrome__sashikomi--base dt, .chrome__sashikomi--base dd, .chrome__sashikomi--base ol, .chrome__sashikomi--base ul, .chrome__sashikomi--base li,
+.chrome__sashikomi--base fieldset, .chrome__sashikomi--base form, .chrome__sashikomi--base label, .chrome__sashikomi--base legend,
+.chrome__sashikomi--base table, .chrome__sashikomi--base caption, .chrome__sashikomi--base tbody, .chrome__sashikomi--base tfoot, .chrome__sashikomi--base thead, .chrome__sashikomi--base tr, .chrome__sashikomi--base th, .chrome__sashikomi--base td,
+.chrome__sashikomi--base article, .chrome__sashikomi--base aside, .chrome__sashikomi--base dialog, .chrome__sashikomi--base figure, .chrome__sashikomi--base footer, .chrome__sashikomi--base header,
+.chrome__sashikomi--base hgroup, .chrome__sashikomi--base menu, .chrome__sashikomi--base nav, .chrome__sashikomi--base section,
+.chrome__sashikomi--base time, .chrome__sashikomi--base mark, .chrome__sashikomi--base audio, .chrome__sashikomi--base video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+.chrome__sashikomi--base article, .chrome__sashikomi--base aside, .chrome__sashikomi--base dialog, .chrome__sashikomi--base figure, .chrome__sashikomi--base footer, .chrome__sashikomi--base header,
+.chrome__sashikomi--base hgroup, .chrome__sashikomi--base nav, .chrome__sashikomi--base section {
+  display: block; }
+
+.chrome__sashikomi--base nav ul {
+  list-style: none; }
+
+.chrome__sashikomi--base blockquote, .chrome__sashikomi--base q {
+  quotes: none; }
+
+.chrome__sashikomi--base blockquote:before, .chrome__sashikomi--base blockquote:after,
+.chrome__sashikomi--base q:before, .chrome__sashikomi--base q:after {
+  content: '';
+  content: none; }
+
+.chrome__sashikomi--base a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
+.chrome__sashikomi--base ins {
+  background-color: #ff9;
+  color: #000;
+  text-decoration: none; }
+
+.chrome__sashikomi--base mark {
+  background-color: #ff9;
+  color: #000;
+  font-style: italic;
+  font-weight: bold; }
+
+.chrome__sashikomi--base del {
+  text-decoration: line-through; }
+
+.chrome__sashikomi--base abbr[title], .chrome__sashikomi--base dfn[title] {
+  border-bottom: 1px dotted #000;
+  cursor: help; }
+
+.chrome__sashikomi--base table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+.chrome__sashikomi--base hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #cccccc;
+  margin: 1em 0;
+  padding: 0; }
+
+.chrome__sashikomi--base input, .chrome__sashikomi--base select {
+  vertical-align: middle; }
+
+.chrome__sashikomi__page-body {
+  line-height: 1;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent; }
+
 /* =======================================
-  Module
+  Layout
 ==========================================*/
 /* =======================================
+  Object
+==========================================*/
+/*-------------------------------------------
   Component
-==========================================*/
+--------------------------------------------*/
+/*-------------------------------------------
+  Project
+--------------------------------------------*/
 /* MemoContainerComponent
 -------------------------------------------*/
 .chrome__sashikomi__container {
@@ -83,7 +183,61 @@
   background: #f8f8f8; }
 
 .chrome__sashikomi__memo__body {
-  padding: 15px; }
+  padding: 15px;
+  /* Tomorrow Night Eighties Theme */
+  /* Original theme - https://github.com/chriskempson/tomorrow-theme */
+  /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+  /* Tomorrow Comment */
+  /* Tomorrow Red */
+  /* Tomorrow Orange */
+  /* Tomorrow Yellow */
+  /* Tomorrow Green */
+  /* Tomorrow Blue */
+  /* Tomorrow Purple */ }
+  .chrome__sashikomi__memo__body .hljs-comment,
+  .chrome__sashikomi__memo__body .hljs-quote {
+    color: #999999; }
+  .chrome__sashikomi__memo__body .hljs-variable,
+  .chrome__sashikomi__memo__body .hljs-template-variable,
+  .chrome__sashikomi__memo__body .hljs-tag,
+  .chrome__sashikomi__memo__body .hljs-name,
+  .chrome__sashikomi__memo__body .hljs-selector-id,
+  .chrome__sashikomi__memo__body .hljs-selector-class,
+  .chrome__sashikomi__memo__body .hljs-regexp,
+  .chrome__sashikomi__memo__body .hljs-deletion {
+    color: #f2777a; }
+  .chrome__sashikomi__memo__body .hljs-number,
+  .chrome__sashikomi__memo__body .hljs-built_in,
+  .chrome__sashikomi__memo__body .hljs-builtin-name,
+  .chrome__sashikomi__memo__body .hljs-literal,
+  .chrome__sashikomi__memo__body .hljs-type,
+  .chrome__sashikomi__memo__body .hljs-params,
+  .chrome__sashikomi__memo__body .hljs-meta,
+  .chrome__sashikomi__memo__body .hljs-link {
+    color: #f99157; }
+  .chrome__sashikomi__memo__body .hljs-attribute {
+    color: #ffcc66; }
+  .chrome__sashikomi__memo__body .hljs-string,
+  .chrome__sashikomi__memo__body .hljs-symbol,
+  .chrome__sashikomi__memo__body .hljs-bullet,
+  .chrome__sashikomi__memo__body .hljs-addition {
+    color: #99cc99; }
+  .chrome__sashikomi__memo__body .hljs-title,
+  .chrome__sashikomi__memo__body .hljs-section {
+    color: #6699cc; }
+  .chrome__sashikomi__memo__body .hljs-keyword,
+  .chrome__sashikomi__memo__body .hljs-selector-tag {
+    color: #cc99cc; }
+  .chrome__sashikomi__memo__body .hljs {
+    display: block;
+    overflow-x: auto;
+    background: #2d2d2d;
+    color: #cccccc;
+    padding: 0.5em; }
+  .chrome__sashikomi__memo__body .hljs-emphasis {
+    font-style: italic; }
+  .chrome__sashikomi__memo__body .hljs-strong {
+    font-weight: bold; }
 
 .chrome__sashikomi__memo__body {
   font-family: "\30D2\30E9\30AE\30CE\89D2\30B4   Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", sans-serif !important;
@@ -367,68 +521,8 @@
     .chrome__sashikomi__memo__body pre {
       word-wrap: break-word; } }
 
-/* Tomorrow Night Eighties Theme */
-/* Original theme - https://github.com/chriskempson/tomorrow-theme */
-/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
-/* Tomorrow Comment */
-.hljs-comment,
-.hljs-quote {
-  color: #999999; }
-
-/* Tomorrow Red */
-.hljs-variable,
-.hljs-template-variable,
-.hljs-tag,
-.hljs-name,
-.hljs-selector-id,
-.hljs-selector-class,
-.hljs-regexp,
-.hljs-deletion {
-  color: #f2777a; }
-
-/* Tomorrow Orange */
-.hljs-number,
-.hljs-built_in,
-.hljs-builtin-name,
-.hljs-literal,
-.hljs-type,
-.hljs-params,
-.hljs-meta,
-.hljs-link {
-  color: #f99157; }
-
-/* Tomorrow Yellow */
-.hljs-attribute {
-  color: #ffcc66; }
-
-/* Tomorrow Green */
-.hljs-string,
-.hljs-symbol,
-.hljs-bullet,
-.hljs-addition {
-  color: #99cc99; }
-
-/* Tomorrow Blue */
-.hljs-title,
-.hljs-section {
-  color: #6699cc; }
-
-/* Tomorrow Purple */
-.hljs-keyword,
-.hljs-selector-tag {
-  color: #cc99cc; }
-
-.hljs {
-  display: block;
-  overflow-x: auto;
-  background: #2d2d2d;
-  color: #cccccc;
-  padding: 0.5em; }
-
-.hljs-emphasis {
-  font-style: italic; }
-
-.hljs-strong {
-  font-weight: bold; }
+/*-------------------------------------------
+  Utility
+--------------------------------------------*/
 
 /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJpbmplY3QuYnVuZGxlLmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/

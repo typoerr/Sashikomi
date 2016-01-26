@@ -97,9 +97,7 @@ export function addInsertionErrorFlag(memos = []) {
     return Object.assign({}, _data, { insertionError: true });
   });
 
-  db.transaction('rw', db.memos, () => {
-      _memos.forEach(memo => db.memos.put(memo))
-    })
+  db.transaction('rw', db.memos, () => _memos.forEach(memo => db.memos.put(memo)))
     .catch(err => console.log(err))
 }
 
@@ -108,7 +106,17 @@ export function addInsertionErrorFlag(memos = []) {
 * ---------------------------------------------
 * URLを受け取りInsertErrorが付いているdataを取得
 * 返り値: Promise(array)
+*
+* ex)
+store.getInsertionErrorData(sender.url)
+  .then(data => console.log(data));
 * */
 export function getInsertionErrorData(url) {
-
+  return getMemosByUrl(url)
+    .then(memos => {
+      return memos.filter(memo => {
+        if (memo.insertionError) return memo
+      })
+    })
+    .catch(e => console.log(e))
 }

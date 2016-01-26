@@ -1,7 +1,6 @@
 /* =======================================
-  Base
+  Foundation
 ==========================================*/
-
 /* variable
 -------------------------------------------*/
 $white : #fff;
@@ -10,13 +9,54 @@ $accent-color : #7D3C98;
 $accent-color--rgba : rgba(125, 60, 152, 0.20);
 $default-font-color : #444;
 
-/* =======================================
-  Module
-==========================================*/
+/* base
+--------------------------------------------*/
+
+@import "reset";
+.chrome__sashikomi__page-body {
+  line-height    : 1;
+  margin         : 0;
+  padding        : 0;
+  border         : 0;
+  outline        : 0;
+  font-size      : 100%;
+  vertical-align : baseline;
+  background     : transparent;
+}
+
+
+.chrome__sashikomi--base {
+}
+
+
+
 
 /* =======================================
-  Component
+  Layout
 ==========================================*/
+.chrome__sashikomi--base {
+}
+
+
+/* =======================================
+  Object
+==========================================*/
+.chrome__sashikomi--base {
+}
+
+
+/*-------------------------------------------
+  Component
+--------------------------------------------*/
+.chrome__sashikomi--base {
+}
+
+
+/*-------------------------------------------
+  Project
+--------------------------------------------*/
+.chrome__sashikomi--base {
+}
 
 /* MemoContainerComponent
 -------------------------------------------*/
@@ -117,7 +157,13 @@ $default-font-color : #444;
 
 .chrome__sashikomi__memo__body {
   padding : 15px;
+  @import "tomorrow-night-eighties";
 }
 
 @import "markdown";
-@import "tomorrow-night-eighties";
+
+/*-------------------------------------------
+  Utility
+--------------------------------------------*/
+.chrome__sashikomi--base {
+}

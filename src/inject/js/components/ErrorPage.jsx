@@ -1,8 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Base from './Base'
-import ErrorHeader from './ErrorHeader'
-import ErrorList from './ErrorList'
+import ErrorContent from './ErrorContent'
 
 export default class ErrorPage extends Base {
   constructor(props) {
@@ -10,14 +9,38 @@ export default class ErrorPage extends Base {
     this.state = {
       data: this.props.data
     };
+
+    this._bind('handleDelete', 'contentList');
   }
 
+  handleDelete(id) {
+    console.log(id);
+  }
+
+  contentList() {
+    return this.props.data.map(memo => {
+      return (
+        <ErrorContent
+          key={memo.id}
+          onDelete={this.handleDelete}
+          id={memo.id}
+          contentText={memo.contentText}
+        />
+      )
+    });
+  }
+
+
   render() {
-    console.log(this.state);
     return (
       <div className="l-component-wrapper">
-        <ErrorHeader url={this.props.url}/>
-        <ErrorList data={this.state.data}/>
+        <header className="l-page-header">
+          <h1 className="p-header__title">{this.props.url}</h1>
+        </header>
+
+        <div className="l-page-body">
+          {this.contentList()}
+        </div>
       </div>
     )
   }

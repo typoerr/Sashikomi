@@ -1,0 +1,42 @@
+// Typography
+$base-font-family : 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', Meiryo, メイリオ, Osaka, 'MS PGothic', arial, helvetica, sans-serif;
+$heading-font-family : $base-font-family;
+
+// Font Sizes
+$base-font-size : 1em;
+
+// Line height
+$base-line-height : 1.5;
+$heading-line-height : 1.2;
+
+// Other Sizes
+$base-border-radius : 0;
+$base-spacing : $base-line-height * 1em;
+$small-spacing : $base-spacing / 2;
+$base-z-index : 0;
+
+// Colors
+$white : #fff;
+$dark-white : #f8f8f8;
+$accent-color : #7D3C98;
+$accent-color--rgba : rgba(125, 60, 152, 0.20);
+$blue : #477dca;
+$medium-gray : #999;
+$light-gray : #ddd;
+$tag : $blue;
+
+// Font Colors
+$default-font-color : #444;
+$action-color : $blue;
+
+// Border
+$base-border-color : $light-gray;
+$light-border : 1px solid $dark-white;
+$base-border : 1px solid $base-border-color;
+
+// Background Colors
+$base-background-color : #fff;
+
+// Animations
+$base-duration : 150ms;
+$base-timing : ease;

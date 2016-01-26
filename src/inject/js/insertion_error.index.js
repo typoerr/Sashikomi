@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import InsertionErrorPage from './components/InsertionErrorPage'
+import ErrorPage from './components/ErrorPage'
 import _ from '../../util'
 
 /*
@@ -20,7 +20,7 @@ let d = {
 };
 
 ReactDOM.render(
-  <InsertionErrorPage
+  <ErrorPage
     url={d.url}
     data={d.insertionErrorData}
   />,

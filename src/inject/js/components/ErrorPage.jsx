@@ -1,10 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Base from './Base'
-import InsertionErrorHeader from './InsertErrorHeader'
-import InsertionErrorList from './InsertionErrorList'
+import ErrorHeader from './ErrorHeader'
+import ErrorList from './ErrorList'
 
-export default class InsertionErrorPage extends Base {
+export default class ErrorPage extends Base {
   constructor(props) {
     super(props);
     this.state = {
@@ -16,14 +16,14 @@ export default class InsertionErrorPage extends Base {
     console.log(this.state);
     return (
       <div className="l-component-wrapper">
-        <InsertionErrorHeader url={this.props.url}/>
-        <InsertionErrorList data={this.state.data}/>
+        <ErrorHeader url={this.props.url}/>
+        <ErrorList data={this.state.data}/>
       </div>
     )
   }
 }
 
-InsertionErrorPage.propTypes = {
+ErrorPage.propTypes = {
   url: React.PropTypes.string.isRequired,
   data: React.PropTypes.array.isRequired
 };

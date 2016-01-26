@@ -1,9 +1,8 @@
 import React from 'react'
 import Base from './Base'
 import marked from 'marked'
-import _ from '../../../util'
 
-export default class Memo extends Base {
+export default class ErrorContent extends Base {
   constructor(props) {
     super(props);
     this._bind('handleDelete');
@@ -46,7 +45,7 @@ export default class Memo extends Base {
   }
 }
 
-Memo.propTypes = {
+ErrorContent.propTypes = {
   id: React.PropTypes.number.isRequired,
   contentText: React.PropTypes.string.isRequired,
   onDelete: React.PropTypes.func.isRequired

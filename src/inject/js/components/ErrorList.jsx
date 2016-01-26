@@ -1,8 +1,8 @@
 import React from 'react'
 import Base from './Base'
-import InsertErrorContent from './InsertErrorContent'
+import ErrorContent from './ErrorContent'
 
-export default class InsertionErrors extends Base {
+export default class ErrorList extends Base {
   constructor(props) {
     super(props);
     this._bind('handleDelete');
@@ -16,7 +16,7 @@ export default class InsertionErrors extends Base {
   render() {
     let memos = this.props.data.map(memo => {
       return (
-        <InsertErrorContent
+        <ErrorContent
           key={memo.id}
           onDelete={this.handleDelete}
           id={memo.id}
@@ -34,6 +34,6 @@ export default class InsertionErrors extends Base {
   }
 }
 
-InsertionErrors.propTypes = {
+ErrorList.propTypes = {
   data: React.PropTypes.array
 };

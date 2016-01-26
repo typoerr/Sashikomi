@@ -6,101 +6,335 @@
 -------------------------------------------*/
 /* base
 --------------------------------------------*/
-/*
-html5doctor.com Reset Stylesheet
-v1.4
-2009-07-27
-Author: Richard Clark - http://richclarkdesign.com
-*/
-.chrome__sashikomi--base div, .chrome__sashikomi--base span, .chrome__sashikomi--base object, .chrome__sashikomi--base iframe,
-.chrome__sashikomi--base h1, .chrome__sashikomi--base h2, .chrome__sashikomi--base h3, .chrome__sashikomi--base h4, .chrome__sashikomi--base h5, .chrome__sashikomi--base h6, .chrome__sashikomi--base p, .chrome__sashikomi--base blockquote, .chrome__sashikomi--base pre,
-.chrome__sashikomi--base abbr, .chrome__sashikomi--base address, .chrome__sashikomi--base cite, .chrome__sashikomi--base code,
-.chrome__sashikomi--base del, .chrome__sashikomi--base dfn, .chrome__sashikomi--base em, .chrome__sashikomi--base img, .chrome__sashikomi--base ins, .chrome__sashikomi--base kbd, .chrome__sashikomi--base q, .chrome__sashikomi--base samp,
-.chrome__sashikomi--base small, .chrome__sashikomi--base strong, .chrome__sashikomi--base sub, .chrome__sashikomi--base sup, .chrome__sashikomi--base var,
-.chrome__sashikomi--base b, .chrome__sashikomi--base i,
-.chrome__sashikomi--base dl, .chrome__sashikomi--base dt, .chrome__sashikomi--base dd, .chrome__sashikomi--base ol, .chrome__sashikomi--base ul, .chrome__sashikomi--base li,
-.chrome__sashikomi--base fieldset, .chrome__sashikomi--base form, .chrome__sashikomi--base label, .chrome__sashikomi--base legend,
-.chrome__sashikomi--base table, .chrome__sashikomi--base caption, .chrome__sashikomi--base tbody, .chrome__sashikomi--base tfoot, .chrome__sashikomi--base thead, .chrome__sashikomi--base tr, .chrome__sashikomi--base th, .chrome__sashikomi--base td,
-.chrome__sashikomi--base article, .chrome__sashikomi--base aside, .chrome__sashikomi--base dialog, .chrome__sashikomi--base figure, .chrome__sashikomi--base footer, .chrome__sashikomi--base header,
-.chrome__sashikomi--base hgroup, .chrome__sashikomi--base menu, .chrome__sashikomi--base nav, .chrome__sashikomi--base section,
-.chrome__sashikomi--base time, .chrome__sashikomi--base mark, .chrome__sashikomi--base audio, .chrome__sashikomi--base video {
+.chrome__sashikomi--page {
+  /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+  /**
+   * 1. Set default font family to sans-serif.
+   * 2. Prevent iOS text size adjust after orientation change, without disabling
+   *    user zoom.
+   */
+  /**
+   * Remove default margin.
+   */
+  /* HTML5 display definitions
+     ========================================================================== */
+  /**
+   * Correct `block` display not defined for any HTML5 element in IE 8/9.
+   * Correct `block` display not defined for `details` or `summary` in IE 10/11
+   * and Firefox.
+   * Correct `block` display not defined for `main` in IE 11.
+   */
+  /**
+   * 1. Correct `inline-block` display not defined in IE 8/9.
+   * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+   */
+  /**
+   * Prevent modern browsers from displaying `audio` without controls.
+   * Remove excess height in iOS 5 devices.
+   */
+  /**
+   * Address `[hidden]` styling not present in IE 8/9/10.
+   * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+   */
+  /* Links
+     ========================================================================== */
+  /**
+   * Remove the gray background color from active links in IE 10.
+   */
+  /**
+   * Improve readability when focused and also mouse hovered in all browsers.
+   */
+  /* Text-level semantics
+     ========================================================================== */
+  /**
+   * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+   */
+  /**
+   * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+   */
+  /**
+   * Address styling not present in Safari and Chrome.
+   */
+  /**
+   * Address variable `h1` font-size and margin within `section` and `article`
+   * contexts in Firefox 4+, Safari, and Chrome.
+   */
+  /**
+   * Address styling not present in IE 8/9.
+   */
+  /**
+   * Address inconsistent and variable font size in all browsers.
+   */
+  /**
+   * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+   */
+  /* Embedded content
+     ========================================================================== */
+  /**
+   * Remove border when inside `a` element in IE 8/9/10.
+   */
+  /**
+   * Correct overflow not hidden in IE 9/10/11.
+   */
+  /* Grouping content
+     ========================================================================== */
+  /**
+   * Address margin not present in IE 8/9 and Safari.
+   */
+  /**
+   * Address differences between Firefox and other browsers.
+   */
+  /**
+   * Contain overflow in all browsers.
+   */
+  /**
+   * Address odd `em`-unit font size rendering in all browsers.
+   */
+  /* Forms
+     ========================================================================== */
+  /**
+   * Known limitation: by default, Chrome and Safari on OS X allow very limited
+   * styling of `select`, unless a `border` property is set.
+   */
+  /**
+   * 1. Correct color not being inherited.
+   *    Known issue: affects color of disabled elements.
+   * 2. Correct font properties not being inherited.
+   * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+   */
+  /**
+   * Address `overflow` set to `hidden` in IE 8/9/10/11.
+   */
+  /**
+   * Address inconsistent `text-transform` inheritance for `button` and `select`.
+   * All other form control elements do not inherit `text-transform` values.
+   * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+   * Correct `select` style inheritance in Firefox.
+   */
+  /**
+   * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+   *    and `video` controls.
+   * 2. Correct inability to style clickable `input` types in iOS.
+   * 3. Improve usability and consistency of cursor style between image-type
+   *    `input` and others.
+   */
+  /**
+   * Re-set default cursor for disabled elements.
+   */
+  /**
+   * Remove inner padding and border in Firefox 4+.
+   */
+  /**
+   * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+   * the UA stylesheet.
+   */
+  /**
+   * It's recommended that you don't attempt to style these elements.
+   * Firefox's implementation doesn't respect box-sizing, padding, or width.
+   *
+   * 1. Address box sizing set to `content-box` in IE 8/9/10.
+   * 2. Remove excess padding in IE 8/9/10.
+   */
+  /**
+   * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+   * `font-size` values of the `input`, it causes the cursor style of the
+   * decrement button to change from `default` to `text`.
+   */
+  /**
+   * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+   * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+   *    (include `-moz` to future-proof).
+   */
+  /**
+   * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+   * Safari (but not Chrome) clips the cancel button when the search input has
+   * padding (and `textfield` appearance).
+   */
+  /**
+   * Define consistent border, margin, and padding.
+   */
+  /**
+   * 1. Correct `color` not being inherited in IE 8/9/10/11.
+   * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+   */
+  /**
+   * Remove default vertical scrollbar in IE 8/9/10/11.
+   */
+  /**
+   * Don't inherit the `font-weight` (applied by a rule above).
+   * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+   */
+  /* Tables
+     ========================================================================== */
+  /**
+   * Remove most spacing between table cells.
+   */ }
+  .chrome__sashikomi--page article,
+  .chrome__sashikomi--page aside,
+  .chrome__sashikomi--page details,
+  .chrome__sashikomi--page figcaption,
+  .chrome__sashikomi--page figure,
+  .chrome__sashikomi--page footer,
+  .chrome__sashikomi--page header,
+  .chrome__sashikomi--page main,
+  .chrome__sashikomi--page menu,
+  .chrome__sashikomi--page nav,
+  .chrome__sashikomi--page section,
+  .chrome__sashikomi--page summary {
+    display: block; }
+  .chrome__sashikomi--page audio,
+  .chrome__sashikomi--page canvas,
+  .chrome__sashikomi--page progress,
+  .chrome__sashikomi--page video {
+    display: inline-block;
+    /* 1 */
+    vertical-align: baseline;
+    /* 2 */ }
+  .chrome__sashikomi--page audio:not([controls]) {
+    display: none;
+    height: 0; }
+  .chrome__sashikomi--page [hidden],
+  .chrome__sashikomi--page template {
+    display: none; }
+  .chrome__sashikomi--page a {
+    background-color: transparent; }
+  .chrome__sashikomi--page a:active,
+  .chrome__sashikomi--page a:hover {
+    outline: 0; }
+  .chrome__sashikomi--page abbr[title] {
+    border-bottom: 1px dotted; }
+  .chrome__sashikomi--page b,
+  .chrome__sashikomi--page strong {
+    font-weight: bold; }
+  .chrome__sashikomi--page dfn {
+    font-style: italic; }
+  .chrome__sashikomi--page h1 {
+    font-size: 2em;
+    margin: 0.67em 0; }
+  .chrome__sashikomi--page mark {
+    background: #ff0;
+    color: #000; }
+  .chrome__sashikomi--page small {
+    font-size: 80%; }
+  .chrome__sashikomi--page sub,
+  .chrome__sashikomi--page sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline; }
+  .chrome__sashikomi--page sup {
+    top: -0.5em; }
+  .chrome__sashikomi--page sub {
+    bottom: -0.25em; }
+  .chrome__sashikomi--page img {
+    border: 0; }
+  .chrome__sashikomi--page svg:not(:root) {
+    overflow: hidden; }
+  .chrome__sashikomi--page figure {
+    margin: 1em 40px; }
+  .chrome__sashikomi--page hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0; }
+  .chrome__sashikomi--page pre {
+    overflow: auto; }
+  .chrome__sashikomi--page code,
+  .chrome__sashikomi--page kbd,
+  .chrome__sashikomi--page pre,
+  .chrome__sashikomi--page samp {
+    font-family: monospace, monospace;
+    font-size: 1em; }
+  .chrome__sashikomi--page button,
+  .chrome__sashikomi--page input,
+  .chrome__sashikomi--page optgroup,
+  .chrome__sashikomi--page select,
+  .chrome__sashikomi--page textarea {
+    color: inherit;
+    /* 1 */
+    font: inherit;
+    /* 2 */
+    margin: 0;
+    /* 3 */ }
+  .chrome__sashikomi--page button {
+    overflow: visible; }
+  .chrome__sashikomi--page button,
+  .chrome__sashikomi--page select {
+    text-transform: none; }
+  .chrome__sashikomi--page button,
+  .chrome__sashikomi--page html input[type="button"],
+  .chrome__sashikomi--page input[type="reset"],
+  .chrome__sashikomi--page input[type="submit"] {
+    -webkit-appearance: button;
+    /* 2 */
+    cursor: pointer;
+    /* 3 */ }
+  .chrome__sashikomi--page button[disabled],
+  .chrome__sashikomi--page html input[disabled] {
+    cursor: default; }
+  .chrome__sashikomi--page button::-moz-focus-inner,
+  .chrome__sashikomi--page input::-moz-focus-inner {
+    border: 0;
+    padding: 0; }
+  .chrome__sashikomi--page input {
+    line-height: normal; }
+  .chrome__sashikomi--page input[type="checkbox"],
+  .chrome__sashikomi--page input[type="radio"] {
+    box-sizing: border-box;
+    /* 1 */
+    padding: 0;
+    /* 2 */ }
+  .chrome__sashikomi--page input[type="number"]::-webkit-inner-spin-button,
+  .chrome__sashikomi--page input[type="number"]::-webkit-outer-spin-button {
+    height: auto; }
+  .chrome__sashikomi--page input[type="search"] {
+    -webkit-appearance: textfield;
+    /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    /* 2 */
+    box-sizing: content-box; }
+  .chrome__sashikomi--page input[type="search"]::-webkit-search-cancel-button,
+  .chrome__sashikomi--page input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none; }
+  .chrome__sashikomi--page fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em; }
+  .chrome__sashikomi--page legend {
+    border: 0;
+    /* 1 */
+    padding: 0;
+    /* 2 */ }
+  .chrome__sashikomi--page textarea {
+    overflow: auto; }
+  .chrome__sashikomi--page optgroup {
+    font-weight: bold; }
+  .chrome__sashikomi--page table {
+    border-collapse: collapse;
+    border-spacing: 0; }
+  .chrome__sashikomi--page td,
+  .chrome__sashikomi--page th {
+    padding: 0; }
+
+.chrome__sashikomi--page__body {
   margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
+  font-family: "\30D2\30E9\30AE\30CE\89D2\30B4   Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", sans-serif;
   font-size: 100%;
-  vertical-align: baseline;
-  background: transparent; }
+  width: 100%; }
 
-.chrome__sashikomi--base article, .chrome__sashikomi--base aside, .chrome__sashikomi--base dialog, .chrome__sashikomi--base figure, .chrome__sashikomi--base footer, .chrome__sashikomi--base header,
-.chrome__sashikomi--base hgroup, .chrome__sashikomi--base nav, .chrome__sashikomi--base section {
-  display: block; }
-
-.chrome__sashikomi--base nav ul {
-  list-style: none; }
-
-.chrome__sashikomi--base blockquote, .chrome__sashikomi--base q {
-  quotes: none; }
-
-.chrome__sashikomi--base blockquote:before, .chrome__sashikomi--base blockquote:after,
-.chrome__sashikomi--base q:before, .chrome__sashikomi--base q:after {
-  content: '';
-  content: none; }
-
-.chrome__sashikomi--base a {
+.chrome__sashikomi--page h1, .chrome__sashikomi--page h2, .chrome__sashikomi--page h3, .chrome__sashikomi--page h4, .chrome__sashikomi--page h5, .chrome__sashikomi--page h6 {
   margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent; }
-
-.chrome__sashikomi--base ins {
-  background-color: #ff9;
-  color: #000;
-  text-decoration: none; }
-
-.chrome__sashikomi--base mark {
-  background-color: #ff9;
-  color: #000;
-  font-style: italic;
-  font-weight: bold; }
-
-.chrome__sashikomi--base del {
-  text-decoration: line-through; }
-
-.chrome__sashikomi--base abbr[title], .chrome__sashikomi--base dfn[title] {
-  border-bottom: 1px dotted #000;
-  cursor: help; }
-
-.chrome__sashikomi--base table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-.chrome__sashikomi--base hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #cccccc;
-  margin: 1em 0;
   padding: 0; }
-
-.chrome__sashikomi--base input, .chrome__sashikomi--base select {
-  vertical-align: middle; }
-
-.chrome__sashikomi__page-body {
-  line-height: 1;
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-  background: transparent; }
 
 /* =======================================
   Layout
 ==========================================*/
+.chrome__sashikomi--page .l-header {
+  background-color: #7D3C98;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px 25px; }
+
 /* =======================================
   Object
 ==========================================*/
@@ -110,6 +344,13 @@ Author: Richard Clark - http://richclarkdesign.com
 /*-------------------------------------------
   Project
 --------------------------------------------*/
+.chrome__sashikomi--page .p-header__title {
+  color: #fff;
+  font-size: 1.6em;
+  font-weight: normal;
+  text-align: center;
+  word-break: break-all; }
+
 /* MemoContainerComponent
 -------------------------------------------*/
 .chrome__sashikomi__container {

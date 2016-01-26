@@ -1,4 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import InsertionErrorContainer from './components/InsertionErrorContainer'
+import InsertionErrorPage from './components/InsertionErrorPage'
 import _ from '../../util'
+
+
+ReactDOM.render(<InsertionErrorPage/> ,
+  document.getElementById('InsertionErrorContainer')
+);

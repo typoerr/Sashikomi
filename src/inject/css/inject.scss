@@ -11,52 +11,63 @@ $default-font-color : #444;
 
 /* base
 --------------------------------------------*/
-
-@import "reset";
-.chrome__sashikomi__page-body {
-  line-height    : 1;
-  margin         : 0;
-  padding        : 0;
-  border         : 0;
-  outline        : 0;
-  font-size      : 100%;
-  vertical-align : baseline;
-  background     : transparent;
+@import "normalize";
+.chrome__sashikomi--page__body {
+  margin      : 0;
+  font-family : "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;;
+  font-size   : 100%;
+  width       : 100%;
 }
 
 
-.chrome__sashikomi--base {
+.chrome__sashikomi--page {
+  h1, h2, h3, h4, h5, h6 {
+    margin  : 0;
+    padding : 0;
+    //width: 100%;
+
+  }
 }
-
-
 
 
 /* =======================================
   Layout
 ==========================================*/
-.chrome__sashikomi--base {
+.chrome__sashikomi--page {
+
+  .l-header {
+    background-color : $accent-color;
+    box-sizing       : border-box;
+    width            : 100%;
+    padding          : 15px 25px;
+  }
+
 }
 
 
 /* =======================================
   Object
 ==========================================*/
-.chrome__sashikomi--base {
-}
-
-
 /*-------------------------------------------
   Component
 --------------------------------------------*/
-.chrome__sashikomi--base {
+.chrome__sashikomi--page {
 }
 
 
 /*-------------------------------------------
   Project
 --------------------------------------------*/
-.chrome__sashikomi--base {
+.chrome__sashikomi--page {
+  .p-header__title {
+    color       : $white;
+    font-size   : 1.6em;
+    font-weight : normal;
+    text-align  : center;
+    word-break  : break-all;
+  }
 }
+
 
 /* MemoContainerComponent
 -------------------------------------------*/
@@ -123,11 +134,12 @@ $default-font-color : #444;
 /* EditorComponent
 -------------------------------------------*/
 .chrome__sashikomi__editor {
-  border      : 1px solid $accent-color;
-  overflow    : hidden;
-  padding     : 0;
-  margin      : 0;
+  border   : 1px solid $accent-color;
+  overflow : hidden;
+  padding  : 0;
+  margin   : 0;
 }
+
 
 .chrome__sashikomi__editor__body {
   textarea {
@@ -149,21 +161,24 @@ $default-font-color : #444;
   }
 }
 
+
 /* MemoComponent
 -------------------------------------------*/
 .chrome__sashikomi__memo {
-  background  : $dark-white;
+  background : $dark-white;
 }
+
 
 .chrome__sashikomi__memo__body {
   padding : 15px;
   @import "tomorrow-night-eighties";
 }
 
+
 @import "markdown";
 
 /*-------------------------------------------
   Utility
 --------------------------------------------*/
-.chrome__sashikomi--base {
+.chrome__sashikomi--page {
 }

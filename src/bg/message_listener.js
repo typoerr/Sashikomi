@@ -16,6 +16,7 @@ export default (function () {
           break;
         case "INSERTION_ERROR":
           changePageActionToErrorIcon(req, sender);
+          addFlag(req);
           return true;
           break;
         default:
@@ -47,6 +48,10 @@ export default (function () {
       tabId: sender.tab.id,
       path: "icons/icon19_error.png"
     })
+  }
+
+  function addFlag(req) {
+    store.addInsertionErrorFlag(req.data)
   }
 
 

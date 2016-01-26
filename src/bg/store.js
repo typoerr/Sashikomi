@@ -85,3 +85,30 @@ export function getMemosByUrl(url) {
     return db.memos.where('url').equals(url).toArray()
   })
 }
+
+/*
+* InsertionErrorフラグを追加する
+* --------------------------------------------
+* 配列オブジェクトを受け取り1件毎に_insertionErrorフラグを立てる
+* */
+export function addInsertionErrorFlag(memos = []) {
+  let _memos = memos.map(memo => {
+    let _data = _.pick(memo, ['id', 'url', 'targetElmPath', 'contentText']);
+    return Object.assign({}, _data, { insertionError: true });
+  });
+
+  db.transaction('rw', db.memos, () => {
+      _memos.forEach(memo => db.memos.put(memo))
+    })
+    .catch(err => console.log(err))
+}
+
+/*
+* InsertErrorが付いたdataを検索
+* ---------------------------------------------
+* URLを受け取りInsertErrorが付いているdataを取得
+* 返り値: Promise(array)
+* */
+export function getInsertionErrorData(url) {
+
+}

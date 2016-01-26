@@ -35,11 +35,14 @@ $default-font-color : #444;
 ==========================================*/
 .chrome__sashikomi--page {
 
-  .l-header {
+  .l-page-header {
     background-color : $accent-color;
     box-sizing       : border-box;
     width            : 100%;
     padding          : 15px 25px;
+  }
+
+  .l-page-main-container {
   }
 
 }

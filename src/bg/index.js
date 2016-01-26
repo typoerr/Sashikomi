@@ -42,6 +42,7 @@ chrome.contextMenus.onClicked.addListener(function (info, tab) {
 chrome.pageAction.onClicked.addListener(tab => {
   chrome.pageAction.getTitle({ tabId: tab.id }, function (title) {
     if (title.match(/error/)) {
+      sessionStorage.insetionErrorURL = tab.url;
       chrome.tabs.create({ url: chrome.extension.getURL('insertion_error.html') });
     }
   });

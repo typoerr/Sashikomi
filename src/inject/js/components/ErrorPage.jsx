@@ -10,12 +10,20 @@ export default class ErrorPage extends Base {
       data: this.props.data
     };
 
-    this._bind('handleDelete', 'contentList');
+    this._bind('handleDelete', 'handleDeleteAll', 'contentList');
   }
 
+  //TODO: delete処理
   handleDelete(id) {
     console.log(id);
   }
+
+  //TODO: delete処理
+  handleDeleteAll() {
+    console.log('all');
+
+  }
+
 
   contentList() {
     return this.props.data.map(memo => {
@@ -38,9 +46,16 @@ export default class ErrorPage extends Base {
           <h1 className="p-header__title">{this.props.url}</h1>
         </header>
 
-        <div className="l-page-body">
+        <section className="l-page-body">
+          <div className="p-operation-container">
+            <button type="button" className="c-btn--link"
+              onClick={this.handleDeleteAll}>
+              Clear All
+            </button>
+          </div>
+
           {this.contentList()}
-        </div>
+        </section>
       </div>
     )
   }

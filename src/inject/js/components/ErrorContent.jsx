@@ -29,15 +29,15 @@ export default class ErrorContent extends Base {
 
   render() {
     return (
-      <div className="chrome__sashikomi__memo">
-
+      <div className="p-error-content">
         <div>
-          <button type="button" onClick={this.handleDelete}>
+          <button type="button" className="c-btn"
+            onClick={this.handleDelete}>
             DELETE
           </button>
         </div>
 
-        <div className="chrome__sashikomi__memo__body"
+        <div className="p-error-content__content-body"
           dangerouslySetInnerHTML={this.rawMarkup()}>
         </div>
       </div>

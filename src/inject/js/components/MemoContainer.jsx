@@ -19,14 +19,19 @@ export default class MemoContainer extends Base {
       'rendererChild',
       'handleToggleChild',
       'handleSubmit',
-      'handleDelete',
-      'handleHasNoContent'
+      'handleDelete'
     );
   }
 
   componentWillMount() {
     if (!this.state.contentText.trim()) {
       this.setState({ isEditing: true })
+    }
+  }
+
+  componentDidUpdate() {
+    if (!this.state.isEditing && !this.state.contentText.trim()) {
+      this.removeComponent();
     }
   }
 
@@ -51,21 +56,20 @@ export default class MemoContainer extends Base {
 
 
   handleDelete() {
-    let data = Object.assign({}, this.state);
+    if (confirm("Sashikomi: Memoを1件削除します")) {
 
-    chrome.runtime.sendMessage({ type: 'DELETE', data: data },
-      (res) => {
-        if (res.status === 'error') {
-          console.log(res.errorMessage);
-        } else if (res.status === 'success') {
-          this.removeComponent();
+      let data = Object.assign({}, this.state);
+
+      chrome.runtime.sendMessage({ type: 'DELETE', data: data },
+        (res) => {
+          if (res.status === 'error') {
+            console.log(res.errorMessage);
+          } else if (res.status === 'success') {
+            this.removeComponent();
+          }
         }
-      }
-    );
-  }
-
-  handleHasNoContent() {
-    this.removeComponent();
+      );
+    }
   }
 
   removeComponent() {
@@ -87,12 +91,10 @@ export default class MemoContainer extends Base {
     } else {
       return (
         <Memo
+          contentText={this.state.contentText}
           onClose={this.handleToggleChild}
           onDelete={this.handleDelete}
-          hasNoContent={this.handleHasNoContent}
-        >
-          {this.state.contentText}
-        </Memo>
+        />
       )
     }
   }

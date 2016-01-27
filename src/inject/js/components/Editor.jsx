@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Base from './Base'
+import Button from './Button'
 
 export default class Editor extends Base {
   constructor(props) {
@@ -32,8 +33,6 @@ export default class Editor extends Base {
     if (this.state.inputContent.trim()) {
       this.props.onSubmit(this.state.inputContent);
       this.props.onClose()
-    } else {
-      this.props.onClose()
     }
   }
 
@@ -51,13 +50,8 @@ export default class Editor extends Base {
       <div className="p-editor">
 
         <div className="p-editor__btn-group">
-          <button type="button" onClick={this.handleSubmit}>
-            SUBMIT
-          </button>
-
-          <button type="button" onClick={this.handleCancel}>
-            CANCEL
-          </button>
+          <Button onClick={this.handleSubmit}>SUBMIT</Button>
+          <Button onClick={this.handleCancel}>CANCEL</Button>
         </div>
 
         <div className="p-editor__body">

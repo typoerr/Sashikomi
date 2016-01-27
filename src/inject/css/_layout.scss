@@ -1,0 +1,22 @@
+.chrome__sashikomi--page {
+  .l-page-component-wrapper {
+    width : 100%;
+  }
+
+  .l-page-header {
+    background-color : $accent-color;
+    box-sizing       : border-box;
+    width            : 100%;
+    padding          : 15px 25px;
+  }
+
+  .l-page-body {
+    width : 100%;
+  }
+
+  .l-page-body__inner {
+    margin    : 20px auto;
+    width     : 100%;
+    max-width : 800px;
+  }
+}

@@ -6,7 +6,12 @@ import marked from 'marked'
 export default class Memo extends Base {
   constructor(props) {
     super(props);
-    this._bind('handleClose', 'handleDelete', 'rawMarkup', 'buttons');
+    this._bind(
+      'handleClose',
+      'handleDelete',
+      'rawMarkup',
+      'buttons'
+    );
   }
 
   handleClose() {
@@ -35,13 +40,13 @@ export default class Memo extends Base {
     if (typeof this.props.onClose === "function") {
       return (
         <span>
-         <Button onClick={this.props.onClose}>EDIT</Button>
-         <Button onClick={this.props.onDelete}>DELETE</Button>
+         <Button onClick={this.handleClose}>EDIT</Button>
+         <Button onClick={this.handleDelete}>DELETE</Button>
        </span>
       )
     } else {
       return (
-        <Button onClick={this.props.onDelete}>DELETE</Button>
+        <Button onClick={this.handleDelete}>DELETE</Button>
       )
     }
   }

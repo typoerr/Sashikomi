@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import Base from './Base'
-import ErrorContent from './ErrorContent'
+import Memo from  './Memo'
 
 export default class ErrorPage extends Base {
   constructor(props) {
@@ -28,10 +28,10 @@ export default class ErrorPage extends Base {
   contentList() {
     return this.props.data.map(memo => {
       return (
-        <ErrorContent
+        <Memo
           key={memo.id}
-          onDelete={this.handleDelete}
           id={memo.id}
+          onDelete={this.handleDelete}
           contentText={memo.contentText}
         />
       )

@@ -19,35 +19,16 @@
     @extend %c-btn--link;
   }
 
-  .p-error-content {
-    position    : relative;
-    display     : block !important;
-    margin      : 30px 0;
-    width       : 100%;
-    font-size   : 15px;
-    color       : $default-font-color;
-    border-left : 4px solid $yellow;
-    background  : $dark-white;
-
-    &:hover {
-      .p-btn-group {
-        display : block;
-      }
-    }
+  .p-memo {
+    border-left : 4px solid $yellow !important;
   }
 
-  .p-error-content__body {
-    padding : 15px;
-    @import "../tomorrow-night-eighties";
-  }
-
-  .p-btn-group {
-    @extend %c-btn-group--base;
+  .p-memo__btn-group {
     button {
-      background : $blur-yellow;
+      background : $blur-yellow !important;
 
       &:hover {
-        background : $yellow;
+        background : $yellow !important;
       }
     }
   }

@@ -1,17 +1,12 @@
 import React from 'react'
 import Base from './Base'
+import Button from './Button'
 import marked from 'marked'
 
 export default class Memo extends Base {
   constructor(props) {
     super(props);
-    this._bind('handleClose', 'handleDelete', 'rawMarkup');
-  }
-
-  componentDidMount() {
-    if (!this.props.children.trim()) {
-      this.props.hasNoContent()
-    }
+    this._bind('handleClose', 'handleDelete', 'rawMarkup', 'buttons');
   }
 
   handleClose() {
@@ -19,14 +14,12 @@ export default class Memo extends Base {
   }
 
   handleDelete() {
-    if (confirm("Sashikomi: Memoを1件削除します")) {
-      this.props.onDelete();
-    }
+    this.props.onDelete(this.props.id);
   }
 
   rawMarkup() {
     let md = marked(
-      this.props.children.toString(),
+      this.props.contentText.toString(),
       {
         sanitize: true,
         breaks: true,
@@ -38,31 +31,40 @@ export default class Memo extends Base {
     return { __html: md };
   }
 
+  buttons() {
+    if (typeof this.props.onClose === "function") {
+      return (
+        <span>
+         <Button onClick={this.props.onClose}>EDIT</Button>
+         <Button onClick={this.props.onDelete}>DELETE</Button>
+       </span>
+      )
+    } else {
+      return (
+        <Button onClick={this.props.onDelete}>DELETE</Button>
+      )
+    }
+  }
+
 
   render() {
     return (
-      <div className="chrome__sashikomi__memo">
-
-        <div className="chrome__sashikomi__btn-group">
-          <button type="button" onClick={this.handleClose}>
-            EDIT
-          </button>
-
-          <button type="button" onClick={this.handleDelete}>
-            DELETE
-          </button>
+      <div className="p-memo">
+        <div className="p-memo__btn-group">
+          {this.buttons()}
         </div>
 
-        <div className="chrome__sashikomi__memo__body"
-          dangerouslySetInnerHTML={this.rawMarkup()}></div>
+        <div className="p-memo__body"
+          dangerouslySetInnerHTML={this.rawMarkup()}>
+        </div>
       </div>
     )
   }
 }
 
 Memo.propTypes = {
-  //content: React.PropTypes.string.isRequired,
-  onClose: React.PropTypes.func.isRequired,
-  onDelete: React.PropTypes.func.isRequired,
-  hasNoContent: React.PropTypes.func.isRequired
+  id: React.PropTypes.number,
+  contentText: React.PropTypes.string.isRequired,
+  onClose: React.PropTypes.func,
+  onDelete: React.PropTypes.func
 };

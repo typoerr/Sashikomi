@@ -48,9 +48,9 @@ export default class Editor extends Base {
   render() {
 
     return (
-      <div className="chrome__sashikomi__editor">
+      <div className="p-editor">
 
-        <div className="chrome__sashikomi__btn-group">
+        <div className="p-editor__btn-group">
           <button type="button" onClick={this.handleSubmit}>
             SUBMIT
           </button>
@@ -60,7 +60,7 @@ export default class Editor extends Base {
           </button>
         </div>
 
-        <div className="chrome__sashikomi__editor__body">
+        <div className="p-editor__body">
           <textarea
             ref="_textarea"
             value={this.state.inputContent}

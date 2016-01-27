@@ -9,7 +9,6 @@
 @import "base/normalize";
 @import "base/typography";
 
-
 .chrome__sashikomi {
   body {
     margin : 0;
@@ -20,30 +19,7 @@
 /* =======================================
   Layout
 ==========================================*/
-.chrome__sashikomi--page {
-  .l-page-component-wrapper {
-    width : 100%;
-  }
-
-  .l-page-header {
-    background-color : $accent-color;
-    box-sizing       : border-box;
-    width            : 100%;
-    padding          : 15px 25px;
-  }
-
-  .l-page-body {
-    width : 100%;
-  }
-
-  .l-page-body__inner {
-    margin    : 20px auto;
-    width     : 100%;
-    max-width : 800px;
-  }
-
-}
-
+@import "layout";
 
 /* =======================================
   Object
@@ -63,138 +39,11 @@
 }
 
 
-%c-container--base {
-  // TODO： 共通化する
-
-}
-
-
-%c-btn-group--base {
-
-}
-
-
-/*-------------------------------------------
-  Project
---------------------------------------------*/
-@import 'project/page';
-
-/* Extension Style
-----------------------------------*/
-.chrome__sashikomi--ext {
-  //  TODO: ExtensionのStyleを修正する
-}
-
-/* MemoContainerComponent
--------------------------------------------*/
-.chrome__sashikomi__container {
+%c-memo {
   position    : relative;
   display     : block !important;
+  box-sizing  : border-box;
   margin      : 15px 0;
-  width       : 100%;
-  min-width   : 200px;
-  max-width   : 1000px;
-  font-size   : 15px;
-  color       : $default-font-color;
-  border-left : 4px solid $accent-color;
-
-  &:hover {
-    .chrome__sashikomi__btn-group {
-      display : block;
-    }
-  }
-}
-
-
-/* Shared Class
-----------------------------------*/
-.chrome__sashikomi__btn-group {
-  display  : none;
-  position : absolute;
-  top      : 0;
-  right    : 0;
-  overflow : hidden;
-  width    : 100%;
-
-  button {
-    cursor     : pointer;
-    display    : block;
-    float      : right;
-    background : $accent-color--rgba;
-    border     : 0;
-    padding    : 5px 15px;
-    color      : $white;
-    font-size  : 14px;
-
-    &:hover {
-      background-color : $accent-color;
-    }
-
-    &:active {
-      position : relative;
-      top      : 1px;
-      right    : -1px;
-    }
-
-    &:focus {
-      outline : none;
-    }
-  }
-
-  button + button {
-    border-right : 1px solid $dark-white;
-  }
-}
-
-
-/* EditorComponent
--------------------------------------------*/
-.chrome__sashikomi__editor {
-  border   : 1px solid $accent-color;
-  overflow : hidden;
-  padding  : 0;
-  margin   : 0;
-}
-
-
-.chrome__sashikomi__editor__body {
-  textarea {
-    font-family : "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;
-    display     : block !important;
-    font-size   : 15px;
-    line-height : 1.6;
-    border      : none;
-    width       : 100%;
-    height      : 300px;
-    box-sizing  : border-box;
-    resize      : vertical;
-    overflow    : auto;
-    padding     : 15px;
-
-    &:focus {
-      outline : none;
-    }
-  }
-}
-
-
-/* MemoComponent
--------------------------------------------*/
-.chrome__sashikomi__memo {
-  background : $dark-white;
-}
-
-
-.chrome__sashikomi__memo__body {
-  padding : 15px;
-  @import "tomorrow-night-eighties";
-}
-
-
-.p-memo {
-  position    : relative;
-  display     : block !important;
-  margin      : 30px 0;
   width       : 100%;
   font-size   : 15px;
   color       : $default-font-color;
@@ -209,13 +58,13 @@
 }
 
 
-.p-memo__body {
+%c-memo__body {
   padding : 15px;
   @import "./tomorrow-night-eighties";
 }
 
 
-.p-memo__btn-group {
+%c-btn-group {
   display  : none;
   position : absolute;
   top      : 0;
@@ -251,9 +100,14 @@
   button + button {
     border-right : 1px solid $dark-white;
   }
-
 }
 
+
+/*-------------------------------------------
+  Project
+--------------------------------------------*/
+@import 'project/page';
+@import "project/ext";
 @import "markdown";
 
 /*-------------------------------------------

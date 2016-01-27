@@ -1,4 +1,4 @@
-.chrome__sashikomi__memo__body, .p-memo__body {
+.chrome__sashikomi .p-memo__body {
   font-family : "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro W3",
   メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif !important;
   font-size   : 15px !important;
@@ -81,6 +81,7 @@
 
   hr {
     border        : 0 !important;
+    height        : 0 !important;
     border-top    : 1px solid #bbb !important;
     border-bottom : 1px solid #fff !important;
   }

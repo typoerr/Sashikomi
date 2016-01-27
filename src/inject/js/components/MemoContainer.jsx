@@ -101,8 +101,10 @@ export default class MemoContainer extends Base {
 
   render() {
     return (
-      <div className='chrome__sashikomi__container'>
-        {this.rendererChild()}
+      <div className='chrome__sashikomi'>
+        <div className='chrome__sashikomi--ext'>
+          {this.rendererChild()}
+        </div>
       </div>
     )
   }

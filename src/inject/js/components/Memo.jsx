@@ -19,7 +19,7 @@ export default class Memo extends Base {
   }
 
   handleDelete() {
-    this.props.onDelete(this.props.id);
+    this.props.onDelete(this.props);
   }
 
   rawMarkup() {

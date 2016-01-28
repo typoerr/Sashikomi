@@ -23,15 +23,28 @@ export default class ErrorPage extends Base {
       });
   }
 
-  //TODO: delete処理
-  handleDelete(id) {
-    console.log(id);
+  handleDelete(memo) {
+    let _memo = Object.assign({}, memo);
+
+    chrome.runtime.sendMessage({ type: 'DELETE', data: _memo },
+      (res) => {
+        if (res.status === 'error') {
+          console.log(res.errorMessage);
+        } else if (res.status === 'success') {
+          let idx = this.state.data.findIndex(elm => elm.id === _memo.id);
+          let _data = this.state.data.concat();
+
+          _data.splice(idx, 1);
+          this.setState({ data: _data });
+        }
+      }
+    );
   }
 
-  //TODO: delete処理
   handleDeleteAll() {
-    console.log('all');
-
+    this.state.data.forEach(memo => {
+      this.handleDelete(memo)
+    })
   }
 
 

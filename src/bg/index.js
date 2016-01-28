@@ -17,8 +17,8 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
 
 // dbg
 //store.save({
-//  url: "https://github.com/dfahlander/Dexie.js/wiki/Collection",
-//  contentText: 'test',
+//  url: "http://localhost:8080/demo/",
+//  contentText: 'insertion error text',
 //  targetElmPath: '.foo'
 //});
 

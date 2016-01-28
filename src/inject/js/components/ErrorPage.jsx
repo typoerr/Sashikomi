@@ -7,10 +7,20 @@ export default class ErrorPage extends Base {
   constructor(props) {
     super(props);
     this.state = {
-      data: this.props.data
+      url: "",
+      data: []
     };
 
     this._bind('handleDelete', 'handleDeleteAll', 'contentList');
+  }
+
+  componentWillMount() {
+    chrome.runtime.sendMessage({ type: 'GET_INSERTION_ERRORS' },
+      (res) => {
+        if (res.status === 'success') {
+          this.setState({ url: res.data.url, data: res.data.errors });
+        }
+      });
   }
 
   //TODO: delete処理
@@ -26,7 +36,7 @@ export default class ErrorPage extends Base {
 
 
   contentList() {
-    return this.props.data.map(memo => {
+    return this.state.data.map(memo => {
       return (
         <Memo
           key={memo.id}
@@ -43,7 +53,7 @@ export default class ErrorPage extends Base {
     return (
       <div className="l-page-component-wrapper">
         <header className="l-page-header">
-          <h1 className="p-header__title">{this.props.url}</h1>
+          <h1 className="p-header__title">{this.state.url}</h1>
         </header>
 
         <section className="l-page-body">
@@ -63,8 +73,3 @@ export default class ErrorPage extends Base {
     )
   }
 }
-
-ErrorPage.propTypes = {
-  url: React.PropTypes.string.isRequired,
-  data: React.PropTypes.array.isRequired
-};

@@ -19,6 +19,10 @@ export default (function () {
           addFlag(req);
           return true;
           break;
+        case "GET_INSERTION_ERRORS":
+          getInsertionErrors(sendResponse);
+          return true;
+          break;
         default:
           console.log("Error: Unknown request.");
           console.log(req);
@@ -52,6 +56,15 @@ export default (function () {
 
   function addFlag(req) {
     store.addInsertionErrorFlag(req.data)
+  }
+
+  function getInsertionErrors(res) {
+    let url = sessionStorage.insetionErrorURL;
+    store.getInsertionErrorData(url)
+      .then(data => {
+        res({ status: 'success', data: { url: url, errors: data } })
+      })
+      .catch(e => console.error(e))
   }
 
 

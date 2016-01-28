@@ -11,7 +11,7 @@ export default class ErrorPage extends Base {
       data: []
     };
 
-    this._bind('handleDelete', 'handleDeleteAll', 'contentList');
+    this._bind('handleDelete', 'handleDeleteAll', 'ContentList', 'DeleteAllButton');
   }
 
   componentWillMount() {
@@ -47,8 +47,17 @@ export default class ErrorPage extends Base {
     })
   }
 
+  DeleteAllButton() {
+    if (this.state.data.length) {
+      return (
+        <button type="button" className="p-operation-btn" onClick={this.handleDeleteAll}>
+          delete all
+        </button>
+      )
+    }
+  }
 
-  contentList() {
+  ContentList() {
     return this.state.data.map(memo => {
       return (
         <Memo
@@ -72,13 +81,10 @@ export default class ErrorPage extends Base {
         <section className="l-page-body">
           <div className="l-page-body__inner">
             <div className="p-operation-container">
-              <button type="button" className="p-operation-btn"
-                onClick={this.handleDeleteAll}>
-                Clear All
-              </button>
+              {this.DeleteAllButton()}
             </div>
 
-            {this.contentList()}
+            {this.ContentList()}
           </div>
 
         </section>

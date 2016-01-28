@@ -13,6 +13,18 @@
   body {
     margin : 0;
   }
+
+  button {
+    &:active {
+      position : relative;
+      top      : 1px;
+      right    : -1px;
+    }
+
+    &:focus {
+      outline : none;
+    }
+  }
 }
 
 
@@ -84,16 +96,6 @@
 
     &:hover {
       background-color : $accent-color;
-    }
-
-    &:active {
-      position : relative;
-      top      : 1px;
-      right    : -1px;
-    }
-
-    &:focus {
-      outline : none;
     }
   }
 

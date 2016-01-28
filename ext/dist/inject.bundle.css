@@ -359,6 +359,14 @@
 .chrome__sashikomi body {
   margin: 0; }
 
+.chrome__sashikomi button:active {
+  position: relative;
+  top: 1px;
+  right: -1px; }
+
+.chrome__sashikomi button:focus {
+  outline: none; }
+
 /* =======================================
   Layout
 ==========================================*/
@@ -372,7 +380,8 @@
   padding: 15px 25px; }
 
 .chrome__sashikomi--page .l-page-body {
-  width: 100%; }
+  width: 100%;
+  margin-bottom: 100px; }
 
 .chrome__sashikomi--page .l-page-body__inner {
   margin: 20px auto;
@@ -407,7 +416,7 @@
   .chrome__sashikomi--page .p-memo:hover .p-memo__btn-group, .chrome__sashikomi--ext .p-memo:hover .p-memo__btn-group {
     display: block; }
 
-.chrome__sashikomi--page .p-memo, .chrome__sashikomi--ext .p-memo__body {
+.chrome__sashikomi--page .p-memo__body, .chrome__sashikomi--ext .p-memo__body {
   padding: 15px;
   /* Tomorrow Night Eighties Theme */
   /* Original theme - https://github.com/chriskempson/tomorrow-theme */
@@ -419,29 +428,29 @@
   /* Tomorrow Green */
   /* Tomorrow Blue */
   /* Tomorrow Purple */ }
-  .chrome__sashikomi--page .p-memo .hljs-comment, .chrome__sashikomi--ext .p-memo__body .hljs-comment, .chrome__sashikomi--page .p-memo .hljs-quote, .chrome__sashikomi--ext .p-memo__body .hljs-quote {
+  .chrome__sashikomi--page .p-memo__body .hljs-comment, .chrome__sashikomi--ext .p-memo__body .hljs-comment, .chrome__sashikomi--page .p-memo__body .hljs-quote, .chrome__sashikomi--ext .p-memo__body .hljs-quote {
     color: #999999; }
-  .chrome__sashikomi--page .p-memo .hljs-variable, .chrome__sashikomi--ext .p-memo__body .hljs-variable, .chrome__sashikomi--page .p-memo .hljs-template-variable, .chrome__sashikomi--ext .p-memo__body .hljs-template-variable, .chrome__sashikomi--page .p-memo .hljs-tag, .chrome__sashikomi--ext .p-memo__body .hljs-tag, .chrome__sashikomi--page .p-memo .hljs-name, .chrome__sashikomi--ext .p-memo__body .hljs-name, .chrome__sashikomi--page .p-memo .hljs-selector-id, .chrome__sashikomi--ext .p-memo__body .hljs-selector-id, .chrome__sashikomi--page .p-memo .hljs-selector-class, .chrome__sashikomi--ext .p-memo__body .hljs-selector-class, .chrome__sashikomi--page .p-memo .hljs-regexp, .chrome__sashikomi--ext .p-memo__body .hljs-regexp, .chrome__sashikomi--page .p-memo .hljs-deletion, .chrome__sashikomi--ext .p-memo__body .hljs-deletion {
+  .chrome__sashikomi--page .p-memo__body .hljs-variable, .chrome__sashikomi--ext .p-memo__body .hljs-variable, .chrome__sashikomi--page .p-memo__body .hljs-template-variable, .chrome__sashikomi--ext .p-memo__body .hljs-template-variable, .chrome__sashikomi--page .p-memo__body .hljs-tag, .chrome__sashikomi--ext .p-memo__body .hljs-tag, .chrome__sashikomi--page .p-memo__body .hljs-name, .chrome__sashikomi--ext .p-memo__body .hljs-name, .chrome__sashikomi--page .p-memo__body .hljs-selector-id, .chrome__sashikomi--ext .p-memo__body .hljs-selector-id, .chrome__sashikomi--page .p-memo__body .hljs-selector-class, .chrome__sashikomi--ext .p-memo__body .hljs-selector-class, .chrome__sashikomi--page .p-memo__body .hljs-regexp, .chrome__sashikomi--ext .p-memo__body .hljs-regexp, .chrome__sashikomi--page .p-memo__body .hljs-deletion, .chrome__sashikomi--ext .p-memo__body .hljs-deletion {
     color: #f2777a; }
-  .chrome__sashikomi--page .p-memo .hljs-number, .chrome__sashikomi--ext .p-memo__body .hljs-number, .chrome__sashikomi--page .p-memo .hljs-built_in, .chrome__sashikomi--ext .p-memo__body .hljs-built_in, .chrome__sashikomi--page .p-memo .hljs-builtin-name, .chrome__sashikomi--ext .p-memo__body .hljs-builtin-name, .chrome__sashikomi--page .p-memo .hljs-literal, .chrome__sashikomi--ext .p-memo__body .hljs-literal, .chrome__sashikomi--page .p-memo .hljs-type, .chrome__sashikomi--ext .p-memo__body .hljs-type, .chrome__sashikomi--page .p-memo .hljs-params, .chrome__sashikomi--ext .p-memo__body .hljs-params, .chrome__sashikomi--page .p-memo .hljs-meta, .chrome__sashikomi--ext .p-memo__body .hljs-meta, .chrome__sashikomi--page .p-memo .hljs-link, .chrome__sashikomi--ext .p-memo__body .hljs-link {
+  .chrome__sashikomi--page .p-memo__body .hljs-number, .chrome__sashikomi--ext .p-memo__body .hljs-number, .chrome__sashikomi--page .p-memo__body .hljs-built_in, .chrome__sashikomi--ext .p-memo__body .hljs-built_in, .chrome__sashikomi--page .p-memo__body .hljs-builtin-name, .chrome__sashikomi--ext .p-memo__body .hljs-builtin-name, .chrome__sashikomi--page .p-memo__body .hljs-literal, .chrome__sashikomi--ext .p-memo__body .hljs-literal, .chrome__sashikomi--page .p-memo__body .hljs-type, .chrome__sashikomi--ext .p-memo__body .hljs-type, .chrome__sashikomi--page .p-memo__body .hljs-params, .chrome__sashikomi--ext .p-memo__body .hljs-params, .chrome__sashikomi--page .p-memo__body .hljs-meta, .chrome__sashikomi--ext .p-memo__body .hljs-meta, .chrome__sashikomi--page .p-memo__body .hljs-link, .chrome__sashikomi--ext .p-memo__body .hljs-link {
     color: #f99157; }
-  .chrome__sashikomi--page .p-memo .hljs-attribute, .chrome__sashikomi--ext .p-memo__body .hljs-attribute {
+  .chrome__sashikomi--page .p-memo__body .hljs-attribute, .chrome__sashikomi--ext .p-memo__body .hljs-attribute {
     color: #ffcc66; }
-  .chrome__sashikomi--page .p-memo .hljs-string, .chrome__sashikomi--ext .p-memo__body .hljs-string, .chrome__sashikomi--page .p-memo .hljs-symbol, .chrome__sashikomi--ext .p-memo__body .hljs-symbol, .chrome__sashikomi--page .p-memo .hljs-bullet, .chrome__sashikomi--ext .p-memo__body .hljs-bullet, .chrome__sashikomi--page .p-memo .hljs-addition, .chrome__sashikomi--ext .p-memo__body .hljs-addition {
+  .chrome__sashikomi--page .p-memo__body .hljs-string, .chrome__sashikomi--ext .p-memo__body .hljs-string, .chrome__sashikomi--page .p-memo__body .hljs-symbol, .chrome__sashikomi--ext .p-memo__body .hljs-symbol, .chrome__sashikomi--page .p-memo__body .hljs-bullet, .chrome__sashikomi--ext .p-memo__body .hljs-bullet, .chrome__sashikomi--page .p-memo__body .hljs-addition, .chrome__sashikomi--ext .p-memo__body .hljs-addition {
     color: #99cc99; }
-  .chrome__sashikomi--page .p-memo .hljs-title, .chrome__sashikomi--ext .p-memo__body .hljs-title, .chrome__sashikomi--page .p-memo .hljs-section, .chrome__sashikomi--ext .p-memo__body .hljs-section {
+  .chrome__sashikomi--page .p-memo__body .hljs-title, .chrome__sashikomi--ext .p-memo__body .hljs-title, .chrome__sashikomi--page .p-memo__body .hljs-section, .chrome__sashikomi--ext .p-memo__body .hljs-section {
     color: #6699cc; }
-  .chrome__sashikomi--page .p-memo .hljs-keyword, .chrome__sashikomi--ext .p-memo__body .hljs-keyword, .chrome__sashikomi--page .p-memo .hljs-selector-tag, .chrome__sashikomi--ext .p-memo__body .hljs-selector-tag {
+  .chrome__sashikomi--page .p-memo__body .hljs-keyword, .chrome__sashikomi--ext .p-memo__body .hljs-keyword, .chrome__sashikomi--page .p-memo__body .hljs-selector-tag, .chrome__sashikomi--ext .p-memo__body .hljs-selector-tag {
     color: #cc99cc; }
-  .chrome__sashikomi--page .p-memo .hljs, .chrome__sashikomi--ext .p-memo__body .hljs {
+  .chrome__sashikomi--page .p-memo__body .hljs, .chrome__sashikomi--ext .p-memo__body .hljs {
     display: block;
     overflow-x: auto;
     background: #2d2d2d;
     color: #cccccc;
     padding: 0.5em; }
-  .chrome__sashikomi--page .p-memo .hljs-emphasis, .chrome__sashikomi--ext .p-memo__body .hljs-emphasis {
+  .chrome__sashikomi--page .p-memo__body .hljs-emphasis, .chrome__sashikomi--ext .p-memo__body .hljs-emphasis {
     font-style: italic; }
-  .chrome__sashikomi--page .p-memo .hljs-strong, .chrome__sashikomi--ext .p-memo__body .hljs-strong {
+  .chrome__sashikomi--page .p-memo__body .hljs-strong, .chrome__sashikomi--ext .p-memo__body .hljs-strong {
     font-weight: bold; }
 
 .chrome__sashikomi--page .p-memo__btn-group, .chrome__sashikomi--ext .p-editor__btn-group, .chrome__sashikomi--ext .p-memo__btn-group {
@@ -462,12 +471,6 @@
     font-size: 14px; }
     .chrome__sashikomi--page .p-memo__btn-group button:hover, .chrome__sashikomi--ext .p-editor__btn-group button:hover, .chrome__sashikomi--ext .p-memo__btn-group button:hover {
       background-color: #7D3C98; }
-    .chrome__sashikomi--page .p-memo__btn-group button:active, .chrome__sashikomi--ext .p-editor__btn-group button:active, .chrome__sashikomi--ext .p-memo__btn-group button:active {
-      position: relative;
-      top: 1px;
-      right: -1px; }
-    .chrome__sashikomi--page .p-memo__btn-group button:focus, .chrome__sashikomi--ext .p-editor__btn-group button:focus, .chrome__sashikomi--ext .p-memo__btn-group button:focus {
-      outline: none; }
   .chrome__sashikomi--page .p-memo__btn-group button + button, .chrome__sashikomi--ext .p-editor__btn-group button + button, .chrome__sashikomi--ext .p-memo__btn-group button + button {
     border-right: 1px solid #f8f8f8; }
 
@@ -486,11 +489,16 @@
   word-break: break-all; }
 
 .chrome__sashikomi--page .p-operation-container {
-  margin: 20px 0; }
+  margin: 40px 0 20px;
+  overflow: hidden; }
+
+.chrome__sashikomi--page .p-operation-btn {
+  float: right;
+  padding: 0 10px; }
 
 .chrome__sashikomi--page .p-memo {
   border-left: 4px solid #F5B041 !important;
-  margin: 30px 0 !important; }
+  margin: 20px 0 !important; }
 
 .chrome__sashikomi--page .p-memo__btn-group button {
   background: rgba(245, 176, 65, 0.2) !important; }

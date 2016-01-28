@@ -12,20 +12,23 @@
   }
 
   .p-operation-container {
-    margin : 20px 0;
+    margin   : 40px 0 20px;
+    overflow : hidden;
   }
 
   .p-operation-btn {
     @extend %c-btn--link;
+    float   : right;
+    padding : 0 10px;
   }
 
   .p-memo {
     @extend %c-memo;
     border-left : 4px solid $yellow !important;
-    margin      : 30px 0 !important;
+    margin      : 20px 0 !important;
   }
 
-  .p-memo {
+  .p-memo__body {
     @extend %c-memo__body;
   }
 

@@ -42,9 +42,9 @@ export default class ErrorPage extends Base {
   }
 
   handleDeleteAll() {
-    this.state.data.forEach(memo => {
-      this.handleDelete(memo)
-    })
+    if (confirm('挿入errorがあったmemoをすべて削除します')) {
+      this.state.data.forEach(memo => this.handleDelete(memo))
+    }
   }
 
   DeleteAllButton() {

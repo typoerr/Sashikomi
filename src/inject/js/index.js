@@ -78,6 +78,6 @@ function insertComponent(memos = []) {
   });
 
   if (failed.length) {
-    chrome.runtime.sendMessage({ type: 'INSERTION_ERROR', data: failed })
+    chrome.runtime.sendMessage({ type: 'HAS_INSERTION_ERRORS', data: failed })
   }
 }

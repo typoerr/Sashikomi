@@ -14,7 +14,7 @@ export default (function () {
           _validatePageAction(sender);
           return true;
           break;
-        case "INSERTION_ERROR":
+        case "HAS_INSERTION_ERRORS":
           changePageActionToErrorIcon(req, sender);
           addFlag(req);
           return true;
@@ -57,7 +57,7 @@ export default (function () {
 
   function _validatePageAction(sender) {
     /*
-    * TODO: memoのcount数に応じて、page actionを操作
+    *  memoの数に応じて、page actionを操作
     *  memoのurlでmemoのカウントを調べる
     *  memoがあればpageAction.show
     *  なければhide

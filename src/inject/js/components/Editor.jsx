@@ -11,7 +11,7 @@ export default class Editor extends Base {
       hasChanged: false
     };
 
-    this._bind('handleChange', 'handleCancel', 'handleSubmit');
+    this._bind('handleChange', 'handleCancel', 'handleSubmit', 'handleKeyDown');
   }
 
   componentDidMount() {
@@ -33,6 +33,13 @@ export default class Editor extends Base {
     if (this.state.inputContent.trim()) {
       this.props.onSubmit(this.state.inputContent);
       this.props.onClose()
+    }
+  }
+
+  handleKeyDown(e) {
+    if (e.ctrlKey && e.keyCode === 13) {
+      e.preventDefault();
+      this.handleSubmit(e);
     }
   }
 
@@ -59,6 +66,7 @@ export default class Editor extends Base {
             ref="_textarea"
             value={this.state.inputContent}
             onChange={this.handleChange}
+            onKeyDown={this.handleKeyDown}
           />
         </div>
       </div>

@@ -15,12 +15,6 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
     .catch(err => console.log(err))
 });
 
-// dbg
-//store.save({
-//  url: "http://localhost:8080/demo/",
-//  contentText: 'insertion error text',
-//  targetElmPath: '.foo'
-//});
 
 /* ============================================
 * Context Menu

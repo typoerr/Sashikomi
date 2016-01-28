@@ -391,7 +391,7 @@
 /* =======================================
   Object
 ==========================================*/
-/*-------------------------------------------
+/*
   Component
 --------------------------------------------*/
 .chrome__sashikomi--page .p-operation-btn {
@@ -474,7 +474,7 @@
   .chrome__sashikomi--page .p-memo__btn-group button + button, .chrome__sashikomi--ext .p-editor__btn-group button + button, .chrome__sashikomi--ext .p-memo__btn-group button + button {
     border-right: 1px solid #f8f8f8; }
 
-/*-------------------------------------------
+/*
   Project
 --------------------------------------------*/
 /* Page Style
@@ -823,9 +823,5 @@
       page-break-inside: avoid; }
     .chrome__sashikomi .p-memo__body pre {
       word-wrap: break-word; } }
-
-/*-------------------------------------------
-  Utility
---------------------------------------------*/
 
 /*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJpbmplY3QuYnVuZGxlLmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/

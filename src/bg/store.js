@@ -32,7 +32,7 @@ export const db = (() => {
 * 返り値: Promise。thenの引数に新規登録・更新された1件のオブジェクトが渡る
 
 ex)
-store.$put(new_memo)
+store.save(new_memo)
   .then(data => console.log('success', data))
   .catch(err => console.log(err));
 * */
@@ -54,7 +54,7 @@ export function save(obj) {
 * 存在しないIDが渡されても例外は起きない。なにも起きない。
 
 ex)
-$delete(2)
+delete(obj)
   .then(store.db.memos.count(count => console.log(count)))
   .catch(err => console.log(err));
 * */
@@ -73,10 +73,10 @@ export function remove(obj) {
 * 返り値: Promise(array)
 * 存在しないURLの場合も空の配列が返る
 * dataの有無判定をせず、content_scriptに配列を投げ、
-* content_script内で配列分だけrenderするように使う
+* content_script側で配列分だけrenderするように使う
 
 ex)
-$getMemosByUrl('http//:example.co.jp')
+getMemosByUrl('http//:example.co.jp')
   .then(memos => {console.log(memos)})
   .catch(err => console.log(err));
 * */
@@ -89,7 +89,7 @@ export function getMemosByUrl(url) {
 /*
 * InsertionErrorフラグを追加する
 * --------------------------------------------
-* 配列オブジェクトを受け取り1件毎に_insertionErrorフラグを立てる
+* 配列オブジェクトを受け取り1件毎にinsertionErrorフラグを立てる
 * */
 export function addInsertionErrorFlag(memos = []) {
   let _memos = memos.map(memo => {
@@ -106,10 +106,6 @@ export function addInsertionErrorFlag(memos = []) {
 * ---------------------------------------------
 * URLを受け取りInsertErrorが付いているdataを取得
 * 返り値: Promise(array)
-*
-* ex)
-store.getInsertionErrorData(sender.url)
-  .then(data => console.log(data));
 * */
 export function getInsertionErrorData(url) {
   return getMemosByUrl(url)

@@ -72,8 +72,7 @@ export default (function () {
     /*
     *  memoの数に応じて、page actionを操作
     *  memoのurlでmemoのカウントを調べる
-    *  memoがあればpageAction.show
-    *  なければhide
+    *  memoがあればpageAction.show, なければhide
     *  putMemoとdeleteMemoのタイミングで実行
     */
     let url = sender.url;

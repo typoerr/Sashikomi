@@ -8,7 +8,7 @@ chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
   store.getMemosByUrl(tab.url)
     .then(data => {
       if (data.length) {
-        chrome.tabs.sendMessage(tabId, { type: 'TAB_ON_UPDATED', data: data, tabId: tabId });
+        chrome.tabs.sendMessage(tabId, { type: 'TAB_ON_UPDATED', data: data });
         chrome.pageAction.show(tabId);
       }
     })

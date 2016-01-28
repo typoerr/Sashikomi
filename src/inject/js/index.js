@@ -49,7 +49,7 @@ function insertNewMemo() {
 
 
 function insertComponent(memos = []) {
-  let failed = [];
+  let error = [];
 
   memos.forEach(memo => {
 
@@ -73,11 +73,11 @@ function insertComponent(memos = []) {
       );
 
     } catch (e) {
-      failed.push(memo)
+      error.push(memo)
     }
   });
 
-  if (failed.length) {
-    chrome.runtime.sendMessage({ type: 'HAS_INSERTION_ERRORS', data: failed })
+  if (error.length) {
+    chrome.runtime.sendMessage({ type: 'HAS_INSERTION_ERRORS', data: error })
   }
 }

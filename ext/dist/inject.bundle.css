@@ -1,456 +1,827 @@
-.chrome__sashikomi { /*! normalize.css v3.0.2 | MIT License | git.io/normalize */ }
-
-
-.chrome__sashikomi article, .chrome__sashikomi aside, .chrome__sashikomi details, .chrome__sashikomi figcaption, .chrome__sashikomi figure, .chrome__sashikomi footer, .chrome__sashikomi header, .chrome__sashikomi main, .chrome__sashikomi menu, .chrome__sashikomi nav, .chrome__sashikomi section, .chrome__sashikomi summary { display : block }
-
-
-.chrome__sashikomi audio, .chrome__sashikomi canvas, .chrome__sashikomi progress, .chrome__sashikomi video { display : inline-block; vertical-align : baseline }
-
-
-.chrome__sashikomi audio:not([controls]) { display : none; height : 0 }
-
-
-.chrome__sashikomi [hidden], .chrome__sashikomi template { display : none }
-
-
-.chrome__sashikomi a { background-color : transparent }
-
-
-.chrome__sashikomi a:active, .chrome__sashikomi a:hover { outline : 0 }
-
-
-.chrome__sashikomi abbr[title] { border-bottom : 1px dotted }
-
-
-.chrome__sashikomi b, .chrome__sashikomi strong { font-weight : 700 }
-
-
-.chrome__sashikomi dfn { font-style : italic }
-
-
-.chrome__sashikomi h1 { font-size : 2em; margin : .67em 0 }
-
-
-.chrome__sashikomi mark { background : #ff0; color : #000 }
-
-
-.chrome__sashikomi small { font-size : 80% }
-
-
-.chrome__sashikomi sub, .chrome__sashikomi sup { font-size : 75%; line-height : 0; position : relative; vertical-align : baseline }
-
-
-.chrome__sashikomi sup { top : -.5em }
-
-
-.chrome__sashikomi sub { bottom : -.25em }
-
-
-.chrome__sashikomi img { border : 0 }
-
-
-.chrome__sashikomi svg:not(:root) { overflow : hidden }
-
-
-.chrome__sashikomi figure { margin : 1em 40px }
-
-
-.chrome__sashikomi hr { box-sizing : content-box; height : 0 }
-
-
-.chrome__sashikomi pre { overflow : auto }
-
-
-.chrome__sashikomi code, .chrome__sashikomi kbd, .chrome__sashikomi pre, .chrome__sashikomi samp { font-family : monospace; font-size : 1em }
-
-
-.chrome__sashikomi button, .chrome__sashikomi input, .chrome__sashikomi optgroup, .chrome__sashikomi select, .chrome__sashikomi textarea { color : inherit; font : inherit; margin : 0 }
-
-
-.chrome__sashikomi button { overflow : visible }
-
-
-.chrome__sashikomi button, .chrome__sashikomi select { text-transform : none }
-
-
-.chrome__sashikomi button, .chrome__sashikomi html input[type=button], .chrome__sashikomi input[type=reset], .chrome__sashikomi input[type=submit] { -webkit-appearance : button; cursor : pointer }
-
-
-.chrome__sashikomi button[disabled], .chrome__sashikomi html input[disabled] { cursor : default }
-
-
-.chrome__sashikomi button::-moz-focus-inner, .chrome__sashikomi input::-moz-focus-inner { border : 0; padding : 0 }
-
-
-.chrome__sashikomi input { line-height : normal }
-
-
-.chrome__sashikomi input[type=checkbox], .chrome__sashikomi input[type=radio] { box-sizing : border-box; padding : 0 }
-
-
-.chrome__sashikomi input[type=number]::-webkit-inner-spin-button, .chrome__sashikomi input[type=number]::-webkit-outer-spin-button { height : auto }
-
-
-.chrome__sashikomi input[type=search] { -webkit-appearance : textfield; box-sizing : content-box }
-
-
-.chrome__sashikomi input[type=search]::-webkit-search-cancel-button, .chrome__sashikomi input[type=search]::-webkit-search-decoration { -webkit-appearance : none }
-
-
-.chrome__sashikomi fieldset { border : 1px solid silver; margin : 0 2px; padding : .35em .625em .75em }
-
-
-.chrome__sashikomi legend { border : 0; padding : 0 }
-
-
-.chrome__sashikomi textarea { overflow : auto }
-
-
-.chrome__sashikomi optgroup { font-weight : 700 }
-
-
-.chrome__sashikomi table { border-collapse : collapse; border-spacing : 0 }
-
-
-.chrome__sashikomi td, .chrome__sashikomi th { padding : 0 }
-
-
-.chrome__sashikomi body { color : #444; font-family : Hiragino Kaku Gothic ProN, \\30D2\30E9\30AE\30CE\89D2\30B4 ProN W3, Meiryo, メイリオ, Osaka, MS PGothic, arial, helvetica, sans-serif; font-feature-settings : "kern", "liga", "pnum"; font-size : 1em; line-height : 1.5 }
-
-
-.chrome__sashikomi h1, .chrome__sashikomi h2, .chrome__sashikomi h3, .chrome__sashikomi h4, .chrome__sashikomi h5, .chrome__sashikomi h6 { font-family : Hiragino Kaku Gothic ProN, \\30D2\30E9\30AE\30CE\89D2\30B4 ProN W3, Meiryo, メイリオ, Osaka, MS PGothic, arial, helvetica, sans-serif; font-size : 1em; line-height : 1.2; margin : 0 0 .75em }
-
-
-.chrome__sashikomi p { margin : 0 0 .75em }
-
-
-.chrome__sashikomi a { color : #477dca; text-decoration : none; transition : color .15s ease }
-
-
-.chrome__sashikomi a:active, .chrome__sashikomi a:focus, .chrome__sashikomi a:hover { text-decoration : underline }
-
-
-.chrome__sashikomi hr { border-bottom : 1px solid #ddd; border-left : 0; border-right : 0; border-top : 0; margin : 1.5em 0 }
-
-
-.chrome__sashikomi img, .chrome__sashikomi picture { margin : 0; max-width : 100% }
-
-
-.chrome__sashikomi body { margin : 0 }
-
-
-.chrome__sashikomi button:active { position : relative; top : 1px; right : -1px }
-
-
-.chrome__sashikomi button:focus { outline : none }
-
-
-.chrome__sashikomi--page .l-page-component-wrapper { width : 100% }
-
-
-.chrome__sashikomi--page .l-page-header { background-color : #7d3c98; box-sizing : border-box; width : 100%; padding : 15px 25px }
-
-
-.chrome__sashikomi--page .l-page-body { width : 100%; margin-bottom : 100px }
-
-
-.chrome__sashikomi--page .l-page-body__inner { margin : 20px auto; width : 100%; max-width : 800px }
-
-
-.chrome__sashikomi--page .p-operation-btn { background : none; border : none; margin : 0; padding : 0; color : #477dca }
-
-
-.chrome__sashikomi--page .p-operation-btn:hover { text-decoration : underline }
-
-
-.chrome__sashikomi--ext .p-memo, .chrome__sashikomi--page .p-memo { position : relative; display : block !important; box-sizing : border-box; margin : 15px 0; width : 100%; font-size : 15px; color : #444; border-left : 4px solid #7d3c98; background : #f8f8f8 }
-
-
-.chrome__sashikomi--ext .p-memo:hover .p-memo__btn-group, .chrome__sashikomi--page .p-memo:hover .p-memo__btn-group { display : block }
-
-
-.chrome__sashikomi--ext .p-memo__body, .chrome__sashikomi--page .p-memo__body { padding : 15px }
-
-
-.chrome__sashikomi--ext .p-memo__body .hljs-comment, .chrome__sashikomi--ext .p-memo__body .hljs-quote, .chrome__sashikomi--page .p-memo__body .hljs-comment, .chrome__sashikomi--page .p-memo__body .hljs-quote { color : #999 }
-
-
-.chrome__sashikomi--ext .p-memo__body .hljs-deletion, .chrome__sashikomi--ext .p-memo__body .hljs-name, .chrome__sashikomi--ext .p-memo__body .hljs-regexp, .chrome__sashikomi--ext .p-memo__body .hljs-selector-class, .chrome__sashikomi--ext .p-memo__body .hljs-selector-id, .chrome__sashikomi--ext .p-memo__body .hljs-tag, .chrome__sashikomi--ext .p-memo__body .hljs-template-variable, .chrome__sashikomi--ext .p-memo__body .hljs-variable, .chrome__sashikomi--page .p-memo__body .hljs-deletion, .chrome__sashikomi--page .p-memo__body .hljs-name, .chrome__sashikomi--page .p-memo__body .hljs-regexp, .chrome__sashikomi--page .p-memo__body .hljs-selector-class, .chrome__sashikomi--page .p-memo__body .hljs-selector-id, .chrome__sashikomi--page .p-memo__body .hljs-tag, .chrome__sashikomi--page .p-memo__body .hljs-template-variable, .chrome__sashikomi--page .p-memo__body .hljs-variable { color : #f2777a }
-
-
-.chrome__sashikomi--ext .p-memo__body .hljs-built_in, .chrome__sashikomi--ext .p-memo__body .hljs-builtin-name, .chrome__sashikomi--ext .p-memo__body .hljs-link, .chrome__sashikomi--ext .p-memo__body .hljs-literal, .chrome__sashikomi--ext .p-memo__body .hljs-meta, .chrome__sashikomi--ext .p-memo__body .hljs-number, .chrome__sashikomi--ext .p-memo__body .hljs-params, .chrome__sashikomi--ext .p-memo__body .hljs-type, .chrome__sashikomi--page .p-memo__body .hljs-built_in, .chrome__sashikomi--page .p-memo__body .hljs-builtin-name, .chrome__sashikomi--page .p-memo__body .hljs-link, .chrome__sashikomi--page .p-memo__body .hljs-literal, .chrome__sashikomi--page .p-memo__body .hljs-meta, .chrome__sashikomi--page .p-memo__body .hljs-number, .chrome__sashikomi--page .p-memo__body .hljs-params, .chrome__sashikomi--page .p-memo__body .hljs-type { color : #f99157 }
-
-
-.chrome__sashikomi--ext .p-memo__body .hljs-attribute, .chrome__sashikomi--page .p-memo__body .hljs-attribute { color : #fc6 }
-
-
-.chrome__sashikomi--ext .p-memo__body .hljs-addition, .chrome__sashikomi--ext .p-memo__body .hljs-bullet, .chrome__sashikomi--ext .p-memo__body .hljs-string, .chrome__sashikomi--ext .p-memo__body .hljs-symbol, .chrome__sashikomi--page .p-memo__body .hljs-addition, .chrome__sashikomi--page .p-memo__body .hljs-bullet, .chrome__sashikomi--page .p-memo__body .hljs-string, .chrome__sashikomi--page .p-memo__body .hljs-symbol { color : #9c9 }
-
-
-.chrome__sashikomi--ext .p-memo__body .hljs-section, .chrome__sashikomi--ext .p-memo__body .hljs-title, .chrome__sashikomi--page .p-memo__body .hljs-section, .chrome__sashikomi--page .p-memo__body .hljs-title { color : #69c }
-
-
-.chrome__sashikomi--ext .p-memo__body .hljs-keyword, .chrome__sashikomi--ext .p-memo__body .hljs-selector-tag, .chrome__sashikomi--page .p-memo__body .hljs-keyword, .chrome__sashikomi--page .p-memo__body .hljs-selector-tag { color : #c9c }
-
-
-.chrome__sashikomi--ext .p-memo__body .hljs, .chrome__sashikomi--page .p-memo__body .hljs { display : block; overflow-x : auto; background : #2d2d2d; color : #ccc; padding : .5em }
-
-
-.chrome__sashikomi--ext .p-memo__body .hljs-emphasis, .chrome__sashikomi--page .p-memo__body .hljs-emphasis { font-style : italic }
-
-
-.chrome__sashikomi--ext .p-memo__body .hljs-strong, .chrome__sashikomi--page .p-memo__body .hljs-strong { font-weight : 700 }
-
-
-.chrome__sashikomi--ext .p-editor__btn-group, .chrome__sashikomi--ext .p-memo__btn-group, .chrome__sashikomi--page .p-memo__btn-group { display : none; position : absolute; top : 0; right : 0; overflow : hidden; width : 100% }
-
-
-.chrome__sashikomi--ext .p-editor__btn-group button, .chrome__sashikomi--ext .p-memo__btn-group button, .chrome__sashikomi--page .p-memo__btn-group button { cursor : pointer; display : block; float : right; background : rgba(125, 60, 152, .2); border : 0; padding : 5px 15px; color : #fff; font-size : 14px }
-
-
-.chrome__sashikomi--ext .p-editor__btn-group button:hover, .chrome__sashikomi--ext .p-memo__btn-group button:hover, .chrome__sashikomi--page .p-memo__btn-group button:hover { background-color : #7d3c98 }
-
-
-.chrome__sashikomi--ext .p-editor__btn-group button + button, .chrome__sashikomi--ext .p-memo__btn-group button + button, .chrome__sashikomi--page .p-memo__btn-group button + button { border-right : 1px solid #f8f8f8 }
-
-
-.chrome__sashikomi--page .p-header__title { margin : 0; padding : 0; color : #fff; font-size : 1.6em; font-weight : 400; text-align : center; word-break : break-all }
-
-
-.chrome__sashikomi--page .p-operation-container { margin : 40px 0 20px; overflow : hidden }
-
-
-.chrome__sashikomi--page .p-operation-btn { float : right; padding : 0 10px }
-
-
-.chrome__sashikomi--page .p-memo { border-left : 4px solid #f5b041 !important; margin : 20px 0 !important }
-
-
-.chrome__sashikomi--page .p-memo__btn-group button { background : rgba(245, 176, 65, .2) !important }
-
-
-.chrome__sashikomi--page .p-memo__btn-group button:hover { background : #f5b041 !important }
-
-
-.chrome__sashikomi--ext { display : block !important; margin : 15px 0; width : 100%; min-width : 200px; max-width : 1000px; color : #444 }
-
-
-.chrome__sashikomi--ext .p-editor { position : relative; border : 1px solid #7d3c98; border-left : 4px solid #7d3c98; overflow : hidden; padding : 0; margin : 0 }
-
-
-.chrome__sashikomi--ext .p-editor:hover .p-editor__btn-group { display : block }
-
-
-.chrome__sashikomi--ext .p-editor__body textarea { font-family : \\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3, Hiragino Kaku Gothic Pro W3, メイリオ, Meiryo, "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", sans-serif; display : block !important; font-size : 15px; line-height : 1.6; border : none; width : 100%; height : 300px; box-sizing : border-box; resize : vertical; overflow : auto; padding : 15px }
-
-
-.chrome__sashikomi--ext .p-editor__body textarea:focus { outline : none }
-
-
-.chrome__sashikomi .p-memo__body { font-family : \\30D2\30E9\30AE\30CE\89D2\30B4 Pro W3, Hiragino Kaku Gothic Pro W3, メイリオ, Meiryo, "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", sans-serif !important; font-size : 15px !important; line-height : 1.6 !important }
-
-
-.chrome__sashikomi .p-memo__body > :first-child { margin-top : 0 !important }
-
-
-.chrome__sashikomi .p-memo__body > :last-child { margin-bottom : 0 !important }
-
-
-.chrome__sashikomi .p-memo__body a { color : #4183c4 }
-
-
-.chrome__sashikomi .p-memo__body a.absent { color : #c00 }
-
-
-.chrome__sashikomi .p-memo__body a.anchor { display : block; padding-left : 30px; margin-left : -30px; cursor : pointer; position : absolute; top : 0; left : 0; bottom : 0 }
-
-
-.chrome__sashikomi .p-memo__body h1, .chrome__sashikomi .p-memo__body h2, .chrome__sashikomi .p-memo__body h3, .chrome__sashikomi .p-memo__body h4, .chrome__sashikomi .p-memo__body h5, .chrome__sashikomi .p-memo__body h6 { margin : 20px 0 10px !important; padding : 0 !important; font-weight : 700 !important; -webkit-font-smoothing : antialiased !important; position : relative !important }
-
-
-.chrome__sashikomi .p-memo__body h1 code, .chrome__sashikomi .p-memo__body h1 tt, .chrome__sashikomi .p-memo__body h2 code, .chrome__sashikomi .p-memo__body h2 tt, .chrome__sashikomi .p-memo__body h3 code, .chrome__sashikomi .p-memo__body h3 tt, .chrome__sashikomi .p-memo__body h4 code, .chrome__sashikomi .p-memo__body h4 tt, .chrome__sashikomi .p-memo__body h5 code, .chrome__sashikomi .p-memo__body h5 tt, .chrome__sashikomi .p-memo__body h6 code, .chrome__sashikomi .p-memo__body h6 tt { font-size : inherit }
-
-
-.chrome__sashikomi .p-memo__body h1 { border-bottom : 1px solid #e4e4e4 !important }
-
-
-.chrome__sashikomi .p-memo__body h1, .chrome__sashikomi .p-memo__body h2 { font-size : 18px !important; color : #333 !important }
-
-
-.chrome__sashikomi .p-memo__body h3 { border-bottom : 1px dashed #ccc !important }
-
-
-.chrome__sashikomi .p-memo__body h3, .chrome__sashikomi .p-memo__body h4 { font-size : 16px !important; color : #333 !important }
-
-
-.chrome__sashikomi .p-memo__body h5 { font-size : 14px !important; color : #333 !important }
-
-
-.chrome__sashikomi .p-memo__body h6 { color : #777 !important; font-size : 14px !important }
-
-
-.chrome__sashikomi .p-memo__body blockquote, .chrome__sashikomi .p-memo__body dl, .chrome__sashikomi .p-memo__body li, .chrome__sashikomi .p-memo__body ol, .chrome__sashikomi .p-memo__body p, .chrome__sashikomi .p-memo__body pre, .chrome__sashikomi .p-memo__body table, .chrome__sashikomi .p-memo__body ul { margin : 15px 0 !important }
-
-
-.chrome__sashikomi .p-memo__body hr { border : 0 !important; height : 0 !important; border-top : 1px solid #bbb !important; border-bottom : 1px solid #fff !important }
-
-
-.chrome__sashikomi .p-memo__body a:first-child h1, .chrome__sashikomi .p-memo__body a:first-child h2, .chrome__sashikomi .p-memo__body a:first-child h3, .chrome__sashikomi .p-memo__body a:first-child h4, .chrome__sashikomi .p-memo__body a:first-child h5, .chrome__sashikomi .p-memo__body a:first-child h6 { margin-top : 0 !important; padding-top : 0 !important }
-
-
-.chrome__sashikomi .p-memo__body h1 p, .chrome__sashikomi .p-memo__body h2 p, .chrome__sashikomi .p-memo__body h3 p, .chrome__sashikomi .p-memo__body h4 p, .chrome__sashikomi .p-memo__body h5 p, .chrome__sashikomi .p-memo__body h6 p { margin-top : 0 !important }
-
-
-.chrome__sashikomi .p-memo__body li, .chrome__sashikomi .p-memo__body ol, .chrome__sashikomi .p-memo__body ul { margin : 0 !important }
-
-
-.chrome__sashikomi .p-memo__body ol, .chrome__sashikomi .p-memo__body ul { padding-left : 30px !important }
-
-
-.chrome__sashikomi .p-memo__body ol :first-child, .chrome__sashikomi .p-memo__body ul :first-child { margin-top : 0 !important }
-
-
-.chrome__sashikomi .p-memo__body dl { padding : 0 !important }
-
-
-.chrome__sashikomi .p-memo__body dl dt { font-size : 14px; font-weight : 700; font-style : italic; padding : 0; margin : 15px 0 5px }
-
-
-.chrome__sashikomi .p-memo__body dl dt:first-child { padding : 0 }
-
-
-.chrome__sashikomi .p-memo__body dl dt > :first-child { margin-top : 0 }
-
-
-.chrome__sashikomi .p-memo__body dl dt > :last-child { margin-bottom : 0 }
-
-
-.chrome__sashikomi .p-memo__body dl dd { margin : 0 0 15px; padding : 0 15px }
-
-
-.chrome__sashikomi .p-memo__body dl dd > :first-child { margin-top : 0 }
-
-
-.chrome__sashikomi .p-memo__body dl dd > :last-child { margin-bottom : 0 }
-
-
-.chrome__sashikomi .p-memo__body blockquote { border-left : 4px solid #ddd !important; padding : 0 15px !important; color : #777 !important }
-
-
-.chrome__sashikomi .p-memo__body blockquote > :first-child { margin-top : 0 !important }
-
-
-.chrome__sashikomi .p-memo__body blockquote > :last-child { margin-bottom : 0 !important }
-
-
-.chrome__sashikomi .p-memo__body table { padding : 0; border-collapse : collapse }
-
-
-.chrome__sashikomi .p-memo__body table tr { border-top : 1px solid #ccc; background-color : #fff; margin : 0; padding : 0 }
-
-
-.chrome__sashikomi .p-memo__body table tr:nth-child(2n) { background-color : #f8f8f8 }
-
-
-.chrome__sashikomi .p-memo__body table tr th { font-weight : 700 }
-
-
-.chrome__sashikomi .p-memo__body table tr td, .chrome__sashikomi .p-memo__body table tr th { border : 1px solid #ccc; margin : 0; padding : 6px 13px }
-
-
-.chrome__sashikomi .p-memo__body table tr td :first-child, .chrome__sashikomi .p-memo__body table tr th :first-child { margin-top : 0 }
-
-
-.chrome__sashikomi .p-memo__body table tr td :last-child, .chrome__sashikomi .p-memo__body table tr th :last-child { margin-bottom : 0 }
-
-
-.chrome__sashikomi .p-memo__body img { max-width : 100% !important; margin : 0 auto !important; display : block !important }
-
-
-.chrome__sashikomi .p-memo__body span.frame { display : block; overflow : hidden }
-
-
-.chrome__sashikomi .p-memo__body span.frame > span { border : 1px solid #ddd; display : block; float : left; overflow : hidden; margin : 13px 0 0; padding : 7px; width : auto }
-
-
-.chrome__sashikomi .p-memo__body span.frame span img { display : block; float : left }
-
-
-.chrome__sashikomi .p-memo__body span.frame span span { clear : both; color : #333; display : block; padding : 5px 0 0 }
-
-
-.chrome__sashikomi .p-memo__body span.align-center { display : block; overflow : hidden; clear : both }
-
-
-.chrome__sashikomi .p-memo__body span.align-center > span { display : block; overflow : hidden; margin : 13px auto 0; text-align : center }
-
-
-.chrome__sashikomi .p-memo__body span.align-center span img { margin : 0 auto; text-align : center }
-
-
-.chrome__sashikomi .p-memo__body span.align-right { display : block; overflow : hidden; clear : both }
-
-
-.chrome__sashikomi .p-memo__body span.align-right > span { display : block; overflow : hidden; margin : 13px 0 0; text-align : right }
-
-
-.chrome__sashikomi .p-memo__body span.align-right span img { margin : 0; text-align : right }
-
-
-.chrome__sashikomi .p-memo__body span.float-left { display : block; margin-right : 13px; overflow : hidden; float : left }
-
-
-.chrome__sashikomi .p-memo__body span.float-left span { margin : 13px 0 0 }
-
-
-.chrome__sashikomi .p-memo__body span.float-right { display : block; margin-left : 13px; overflow : hidden; float : right }
-
-
-.chrome__sashikomi .p-memo__body span.float-right > span { display : block; overflow : hidden; margin : 13px auto 0; text-align : right }
-
-
-.chrome__sashikomi .p-memo__body code, .chrome__sashikomi .p-memo__body tt { margin : 0 2px !important; padding : 0 5px !important; white-space : nowrap !important; border : 1px solid #eaeaea !important; background-color : #f8f8f8 !important; border-radius : 3px !important }
-
-
-.chrome__sashikomi .p-memo__body pre code { margin : 0 !important; padding : 0 !important; white-space : pre !important; border : none !important; background : transparent !important }
-
-
-.chrome__sashikomi .p-memo__body .highlight pre { background-color : #444 !important }
-
-
-.chrome__sashikomi .p-memo__body .highlight pre, .chrome__sashikomi .p-memo__body pre { border : 1px solid #ccc !important; font-size : 13px !important; line-height : 19px !important; overflow : auto !important; padding : 6px 10px !important; border-radius : 3px !important }
-
-
-.chrome__sashikomi .p-memo__body pre { background-color : #2d2d2d !important }
-
-
-.chrome__sashikomi .p-memo__body pre code, .chrome__sashikomi .p-memo__body pre tt { color : #f8f8f8; background-color : transparent; border : none }
-
-
-.chrome__sashikomi .p-memo__body sup { font-size : .83px; vertical-align : super; line-height : 0 }
-
-
-.chrome__sashikomi .p-memo__body code { border-radius : 3px; padding : 0 2px; border : 1px solid #ccc; background-color : #f6f6f6; font-size : .9em; font-family : Monaco, monospace }
-
-
-.chrome__sashikomi .p-memo__body .code-frame { border-radius : 3px; margin : 1em 0; border : 1px solid #ccc; background-color : #f6f6f6; line-height : 0 }
-
-
-.chrome__sashikomi .p-memo__body .code-frame .code-lang { border-bottom-right-radius : 3px; color : #4a4a4a; display : inline-block; padding : 3px 6px; margin : 0; line-height : .85em; background-color : #e6e6e6; font-size : .85em; font-weight : 400; border-right : 1px solid #ccc; border-bottom : 1px solid #ccc }
-
-
-.chrome__sashikomi .p-memo__body .code-frame pre { overflow : auto; border : none; padding : .5em 1em; margin : 0; background-color : transparent }
-
-
-.chrome__sashikomi .p-memo__body .code-frame pre code { border : none; padding : 0; margin : 0; background-color : transparent; line-height : 1.44em; font-size : .9em; font-family : Monaco, monospace }
-
-
-.chrome__sashikomi .p-memo__body * { -webkit-print-color-adjust : exact }
-
-
-@media print {
-  .chrome__sashikomi .p-memo__body pre, .chrome__sashikomi .p-memo__body table { page-break-inside : avoid }
-
-
-  .chrome__sashikomi .p-memo__body pre { word-wrap : break-word }
-}
+@charset "UTF-8";
+/* =======================================
+  Foundation
+==========================================*/
+/* variable
+-------------------------------------------*/
+/* base
+--------------------------------------------*/
+.chrome__sashikomi {
+  /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+  /**
+   * 1. Set default font family to sans-serif.
+   * 2. Prevent iOS text size adjust after orientation change, without disabling
+   *    user zoom.
+   */
+  /**
+   * Remove default margin.
+   */
+  /* HTML5 display definitions
+     ========================================================================== */
+  /**
+   * Correct `block` display not defined for any HTML5 element in IE 8/9.
+   * Correct `block` display not defined for `details` or `summary` in IE 10/11
+   * and Firefox.
+   * Correct `block` display not defined for `main` in IE 11.
+   */
+  /**
+   * 1. Correct `inline-block` display not defined in IE 8/9.
+   * 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+   */
+  /**
+   * Prevent modern browsers from displaying `audio` without controls.
+   * Remove excess height in iOS 5 devices.
+   */
+  /**
+   * Address `[hidden]` styling not present in IE 8/9/10.
+   * Hide the `template` element in IE 8/9/11, Safari, and Firefox < 22.
+   */
+  /* Links
+     ========================================================================== */
+  /**
+   * Remove the gray background color from active links in IE 10.
+   */
+  /**
+   * Improve readability when focused and also mouse hovered in all browsers.
+   */
+  /* Text-level semantics
+     ========================================================================== */
+  /**
+   * Address styling not present in IE 8/9/10/11, Safari, and Chrome.
+   */
+  /**
+   * Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+   */
+  /**
+   * Address styling not present in Safari and Chrome.
+   */
+  /**
+   * Address variable `h1` font-size and margin within `section` and `article`
+   * contexts in Firefox 4+, Safari, and Chrome.
+   */
+  /**
+   * Address styling not present in IE 8/9.
+   */
+  /**
+   * Address inconsistent and variable font size in all browsers.
+   */
+  /**
+   * Prevent `sub` and `sup` affecting `line-height` in all browsers.
+   */
+  /* Embedded content
+     ========================================================================== */
+  /**
+   * Remove border when inside `a` element in IE 8/9/10.
+   */
+  /**
+   * Correct overflow not hidden in IE 9/10/11.
+   */
+  /* Grouping content
+     ========================================================================== */
+  /**
+   * Address margin not present in IE 8/9 and Safari.
+   */
+  /**
+   * Address differences between Firefox and other browsers.
+   */
+  /**
+   * Contain overflow in all browsers.
+   */
+  /**
+   * Address odd `em`-unit font size rendering in all browsers.
+   */
+  /* Forms
+     ========================================================================== */
+  /**
+   * Known limitation: by default, Chrome and Safari on OS X allow very limited
+   * styling of `select`, unless a `border` property is set.
+   */
+  /**
+   * 1. Correct color not being inherited.
+   *    Known issue: affects color of disabled elements.
+   * 2. Correct font properties not being inherited.
+   * 3. Address margins set differently in Firefox 4+, Safari, and Chrome.
+   */
+  /**
+   * Address `overflow` set to `hidden` in IE 8/9/10/11.
+   */
+  /**
+   * Address inconsistent `text-transform` inheritance for `button` and `select`.
+   * All other form control elements do not inherit `text-transform` values.
+   * Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+   * Correct `select` style inheritance in Firefox.
+   */
+  /**
+   * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+   *    and `video` controls.
+   * 2. Correct inability to style clickable `input` types in iOS.
+   * 3. Improve usability and consistency of cursor style between image-type
+   *    `input` and others.
+   */
+  /**
+   * Re-set default cursor for disabled elements.
+   */
+  /**
+   * Remove inner padding and border in Firefox 4+.
+   */
+  /**
+   * Address Firefox 4+ setting `line-height` on `input` using `!important` in
+   * the UA stylesheet.
+   */
+  /**
+   * It's recommended that you don't attempt to style these elements.
+   * Firefox's implementation doesn't respect box-sizing, padding, or width.
+   *
+   * 1. Address box sizing set to `content-box` in IE 8/9/10.
+   * 2. Remove excess padding in IE 8/9/10.
+   */
+  /**
+   * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+   * `font-size` values of the `input`, it causes the cursor style of the
+   * decrement button to change from `default` to `text`.
+   */
+  /**
+   * 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+   * 2. Address `box-sizing` set to `border-box` in Safari and Chrome
+   *    (include `-moz` to future-proof).
+   */
+  /**
+   * Remove inner padding and search cancel button in Safari and Chrome on OS X.
+   * Safari (but not Chrome) clips the cancel button when the search input has
+   * padding (and `textfield` appearance).
+   */
+  /**
+   * Define consistent border, margin, and padding.
+   */
+  /**
+   * 1. Correct `color` not being inherited in IE 8/9/10/11.
+   * 2. Remove padding so people aren't caught out if they zero out fieldsets.
+   */
+  /**
+   * Remove default vertical scrollbar in IE 8/9/10/11.
+   */
+  /**
+   * Don't inherit the `font-weight` (applied by a rule above).
+   * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
+   */
+  /* Tables
+     ========================================================================== */
+  /**
+   * Remove most spacing between table cells.
+   */ }
+  .chrome__sashikomi article,
+  .chrome__sashikomi aside,
+  .chrome__sashikomi details,
+  .chrome__sashikomi figcaption,
+  .chrome__sashikomi figure,
+  .chrome__sashikomi footer,
+  .chrome__sashikomi header,
+  .chrome__sashikomi main,
+  .chrome__sashikomi menu,
+  .chrome__sashikomi nav,
+  .chrome__sashikomi section,
+  .chrome__sashikomi summary {
+    display: block; }
+  .chrome__sashikomi audio,
+  .chrome__sashikomi canvas,
+  .chrome__sashikomi progress,
+  .chrome__sashikomi video {
+    display: inline-block;
+    /* 1 */
+    vertical-align: baseline;
+    /* 2 */ }
+  .chrome__sashikomi audio:not([controls]) {
+    display: none;
+    height: 0; }
+  .chrome__sashikomi [hidden],
+  .chrome__sashikomi template {
+    display: none; }
+  .chrome__sashikomi a {
+    background-color: transparent; }
+  .chrome__sashikomi a:active,
+  .chrome__sashikomi a:hover {
+    outline: 0; }
+  .chrome__sashikomi abbr[title] {
+    border-bottom: 1px dotted; }
+  .chrome__sashikomi b,
+  .chrome__sashikomi strong {
+    font-weight: bold; }
+  .chrome__sashikomi dfn {
+    font-style: italic; }
+  .chrome__sashikomi h1 {
+    font-size: 2em;
+    margin: 0.67em 0; }
+  .chrome__sashikomi mark {
+    background: #ff0;
+    color: #000; }
+  .chrome__sashikomi small {
+    font-size: 80%; }
+  .chrome__sashikomi sub,
+  .chrome__sashikomi sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline; }
+  .chrome__sashikomi sup {
+    top: -0.5em; }
+  .chrome__sashikomi sub {
+    bottom: -0.25em; }
+  .chrome__sashikomi img {
+    border: 0; }
+  .chrome__sashikomi svg:not(:root) {
+    overflow: hidden; }
+  .chrome__sashikomi figure {
+    margin: 1em 40px; }
+  .chrome__sashikomi hr {
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0; }
+  .chrome__sashikomi pre {
+    overflow: auto; }
+  .chrome__sashikomi code,
+  .chrome__sashikomi kbd,
+  .chrome__sashikomi pre,
+  .chrome__sashikomi samp {
+    font-family: monospace, monospace;
+    font-size: 1em; }
+  .chrome__sashikomi button,
+  .chrome__sashikomi input,
+  .chrome__sashikomi optgroup,
+  .chrome__sashikomi select,
+  .chrome__sashikomi textarea {
+    color: inherit;
+    /* 1 */
+    font: inherit;
+    /* 2 */
+    margin: 0;
+    /* 3 */ }
+  .chrome__sashikomi button {
+    overflow: visible; }
+  .chrome__sashikomi button,
+  .chrome__sashikomi select {
+    text-transform: none; }
+  .chrome__sashikomi button,
+  .chrome__sashikomi html input[type="button"],
+  .chrome__sashikomi input[type="reset"],
+  .chrome__sashikomi input[type="submit"] {
+    -webkit-appearance: button;
+    /* 2 */
+    cursor: pointer;
+    /* 3 */ }
+  .chrome__sashikomi button[disabled],
+  .chrome__sashikomi html input[disabled] {
+    cursor: default; }
+  .chrome__sashikomi button::-moz-focus-inner,
+  .chrome__sashikomi input::-moz-focus-inner {
+    border: 0;
+    padding: 0; }
+  .chrome__sashikomi input {
+    line-height: normal; }
+  .chrome__sashikomi input[type="checkbox"],
+  .chrome__sashikomi input[type="radio"] {
+    box-sizing: border-box;
+    /* 1 */
+    padding: 0;
+    /* 2 */ }
+  .chrome__sashikomi input[type="number"]::-webkit-inner-spin-button,
+  .chrome__sashikomi input[type="number"]::-webkit-outer-spin-button {
+    height: auto; }
+  .chrome__sashikomi input[type="search"] {
+    -webkit-appearance: textfield;
+    /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box;
+    /* 2 */
+    box-sizing: content-box; }
+  .chrome__sashikomi input[type="search"]::-webkit-search-cancel-button,
+  .chrome__sashikomi input[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none; }
+  .chrome__sashikomi fieldset {
+    border: 1px solid #c0c0c0;
+    margin: 0 2px;
+    padding: 0.35em 0.625em 0.75em; }
+  .chrome__sashikomi legend {
+    border: 0;
+    /* 1 */
+    padding: 0;
+    /* 2 */ }
+  .chrome__sashikomi textarea {
+    overflow: auto; }
+  .chrome__sashikomi optgroup {
+    font-weight: bold; }
+  .chrome__sashikomi table {
+    border-collapse: collapse;
+    border-spacing: 0; }
+  .chrome__sashikomi td,
+  .chrome__sashikomi th {
+    padding: 0; }
+
+.chrome__sashikomi body {
+  color: #444;
+  font-family: "Hiragino Kaku Gothic ProN", "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", Meiryo, メイリオ, Osaka, "MS PGothic", arial, helvetica, sans-serif;
+  font-feature-settings: "kern", "liga", "pnum";
+  font-size: 1em;
+  line-height: 1.5; }
+
+.chrome__sashikomi h1,
+.chrome__sashikomi h2,
+.chrome__sashikomi h3,
+.chrome__sashikomi h4,
+.chrome__sashikomi h5,
+.chrome__sashikomi h6 {
+  font-family: "Hiragino Kaku Gothic ProN", "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", Meiryo, メイリオ, Osaka, "MS PGothic", arial, helvetica, sans-serif;
+  font-size: 1em;
+  line-height: 1.2;
+  margin: 0 0 0.75em; }
+
+.chrome__sashikomi p {
+  margin: 0 0 0.75em; }
+
+.chrome__sashikomi a {
+  color: #477dca;
+  text-decoration: none;
+  transition: color 150ms ease; }
+  .chrome__sashikomi a:active, .chrome__sashikomi a:focus, .chrome__sashikomi a:hover {
+    text-decoration: underline; }
+
+.chrome__sashikomi hr {
+  border-bottom: 1px solid #ddd;
+  border-left: 0;
+  border-right: 0;
+  border-top: 0;
+  margin: 1.5em 0; }
+
+.chrome__sashikomi img,
+.chrome__sashikomi picture {
+  margin: 0;
+  max-width: 100%; }
+
+.chrome__sashikomi body {
+  margin: 0; }
+
+.chrome__sashikomi button:active {
+  position: relative;
+  top: 1px;
+  right: -1px; }
+
+.chrome__sashikomi button:focus {
+  outline: none; }
+
+/* =======================================
+  Layout
+==========================================*/
+.chrome__sashikomi--page .l-page-component-wrapper {
+  width: 100%; }
+
+.chrome__sashikomi--page .l-page-header {
+  background-color: #7D3C98;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 15px 25px; }
+
+.chrome__sashikomi--page .l-page-body {
+  width: 100%;
+  margin-bottom: 100px; }
+
+.chrome__sashikomi--page .l-page-body__inner {
+  margin: 20px auto;
+  width: 100%;
+  max-width: 800px; }
+
+/* =======================================
+  Object
+==========================================*/
+/*
+  Component
+--------------------------------------------*/
+.chrome__sashikomi--page .p-operation-btn {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  color: #477dca; }
+  .chrome__sashikomi--page .p-operation-btn:hover {
+    text-decoration: underline; }
+
+.chrome__sashikomi--page .p-memo, .chrome__sashikomi--ext .p-memo {
+  position: relative;
+  display: block !important;
+  box-sizing: border-box;
+  margin: 15px 0;
+  width: 100%;
+  font-size: 15px;
+  color: #444;
+  border-left: 4px solid #7D3C98;
+  background: #f8f8f8; }
+  .chrome__sashikomi--page .p-memo:hover .p-memo__btn-group, .chrome__sashikomi--ext .p-memo:hover .p-memo__btn-group {
+    display: block; }
+
+.chrome__sashikomi--page .p-memo__body, .chrome__sashikomi--ext .p-memo__body {
+  padding: 15px;
+  /* Tomorrow Night Eighties Theme */
+  /* Original theme - https://github.com/chriskempson/tomorrow-theme */
+  /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+  /* Tomorrow Comment */
+  /* Tomorrow Red */
+  /* Tomorrow Orange */
+  /* Tomorrow Yellow */
+  /* Tomorrow Green */
+  /* Tomorrow Blue */
+  /* Tomorrow Purple */ }
+  .chrome__sashikomi--page .p-memo__body .hljs-comment, .chrome__sashikomi--ext .p-memo__body .hljs-comment, .chrome__sashikomi--page .p-memo__body .hljs-quote, .chrome__sashikomi--ext .p-memo__body .hljs-quote {
+    color: #999999; }
+  .chrome__sashikomi--page .p-memo__body .hljs-variable, .chrome__sashikomi--ext .p-memo__body .hljs-variable, .chrome__sashikomi--page .p-memo__body .hljs-template-variable, .chrome__sashikomi--ext .p-memo__body .hljs-template-variable, .chrome__sashikomi--page .p-memo__body .hljs-tag, .chrome__sashikomi--ext .p-memo__body .hljs-tag, .chrome__sashikomi--page .p-memo__body .hljs-name, .chrome__sashikomi--ext .p-memo__body .hljs-name, .chrome__sashikomi--page .p-memo__body .hljs-selector-id, .chrome__sashikomi--ext .p-memo__body .hljs-selector-id, .chrome__sashikomi--page .p-memo__body .hljs-selector-class, .chrome__sashikomi--ext .p-memo__body .hljs-selector-class, .chrome__sashikomi--page .p-memo__body .hljs-regexp, .chrome__sashikomi--ext .p-memo__body .hljs-regexp, .chrome__sashikomi--page .p-memo__body .hljs-deletion, .chrome__sashikomi--ext .p-memo__body .hljs-deletion {
+    color: #f2777a; }
+  .chrome__sashikomi--page .p-memo__body .hljs-number, .chrome__sashikomi--ext .p-memo__body .hljs-number, .chrome__sashikomi--page .p-memo__body .hljs-built_in, .chrome__sashikomi--ext .p-memo__body .hljs-built_in, .chrome__sashikomi--page .p-memo__body .hljs-builtin-name, .chrome__sashikomi--ext .p-memo__body .hljs-builtin-name, .chrome__sashikomi--page .p-memo__body .hljs-literal, .chrome__sashikomi--ext .p-memo__body .hljs-literal, .chrome__sashikomi--page .p-memo__body .hljs-type, .chrome__sashikomi--ext .p-memo__body .hljs-type, .chrome__sashikomi--page .p-memo__body .hljs-params, .chrome__sashikomi--ext .p-memo__body .hljs-params, .chrome__sashikomi--page .p-memo__body .hljs-meta, .chrome__sashikomi--ext .p-memo__body .hljs-meta, .chrome__sashikomi--page .p-memo__body .hljs-link, .chrome__sashikomi--ext .p-memo__body .hljs-link {
+    color: #f99157; }
+  .chrome__sashikomi--page .p-memo__body .hljs-attribute, .chrome__sashikomi--ext .p-memo__body .hljs-attribute {
+    color: #ffcc66; }
+  .chrome__sashikomi--page .p-memo__body .hljs-string, .chrome__sashikomi--ext .p-memo__body .hljs-string, .chrome__sashikomi--page .p-memo__body .hljs-symbol, .chrome__sashikomi--ext .p-memo__body .hljs-symbol, .chrome__sashikomi--page .p-memo__body .hljs-bullet, .chrome__sashikomi--ext .p-memo__body .hljs-bullet, .chrome__sashikomi--page .p-memo__body .hljs-addition, .chrome__sashikomi--ext .p-memo__body .hljs-addition {
+    color: #99cc99; }
+  .chrome__sashikomi--page .p-memo__body .hljs-title, .chrome__sashikomi--ext .p-memo__body .hljs-title, .chrome__sashikomi--page .p-memo__body .hljs-section, .chrome__sashikomi--ext .p-memo__body .hljs-section {
+    color: #6699cc; }
+  .chrome__sashikomi--page .p-memo__body .hljs-keyword, .chrome__sashikomi--ext .p-memo__body .hljs-keyword, .chrome__sashikomi--page .p-memo__body .hljs-selector-tag, .chrome__sashikomi--ext .p-memo__body .hljs-selector-tag {
+    color: #cc99cc; }
+  .chrome__sashikomi--page .p-memo__body .hljs, .chrome__sashikomi--ext .p-memo__body .hljs {
+    display: block;
+    overflow-x: auto;
+    background: #2d2d2d;
+    color: #cccccc;
+    padding: 0.5em; }
+  .chrome__sashikomi--page .p-memo__body .hljs-emphasis, .chrome__sashikomi--ext .p-memo__body .hljs-emphasis {
+    font-style: italic; }
+  .chrome__sashikomi--page .p-memo__body .hljs-strong, .chrome__sashikomi--ext .p-memo__body .hljs-strong {
+    font-weight: bold; }
+
+.chrome__sashikomi--page .p-memo__btn-group, .chrome__sashikomi--ext .p-editor__btn-group, .chrome__sashikomi--ext .p-memo__btn-group {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  overflow: hidden;
+  width: 100%; }
+  .chrome__sashikomi--page .p-memo__btn-group button, .chrome__sashikomi--ext .p-editor__btn-group button, .chrome__sashikomi--ext .p-memo__btn-group button {
+    cursor: pointer;
+    display: block;
+    float: right;
+    background: rgba(125, 60, 152, 0.2);
+    border: 0;
+    padding: 5px 15px;
+    color: #fff;
+    font-size: 14px; }
+    .chrome__sashikomi--page .p-memo__btn-group button:hover, .chrome__sashikomi--ext .p-editor__btn-group button:hover, .chrome__sashikomi--ext .p-memo__btn-group button:hover {
+      background-color: #7D3C98; }
+  .chrome__sashikomi--page .p-memo__btn-group button + button, .chrome__sashikomi--ext .p-editor__btn-group button + button, .chrome__sashikomi--ext .p-memo__btn-group button + button {
+    border-right: 1px solid #f8f8f8; }
+
+/*
+  Project
+--------------------------------------------*/
+/* Page Style
+----------------------------------*/
+.chrome__sashikomi--page .p-header__title {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  font-size: 1.6em;
+  font-weight: normal;
+  text-align: center;
+  word-break: break-all; }
+
+.chrome__sashikomi--page .p-operation-container {
+  margin: 40px 0 20px;
+  overflow: hidden; }
+
+.chrome__sashikomi--page .p-operation-btn {
+  float: right;
+  padding: 0 10px; }
+
+.chrome__sashikomi--page .p-memo {
+  border-left: 4px solid #F5B041 !important;
+  margin: 20px 0 !important; }
+
+.chrome__sashikomi--page .p-memo__btn-group button {
+  background: rgba(245, 176, 65, 0.2) !important; }
+  .chrome__sashikomi--page .p-memo__btn-group button:hover {
+    background: #F5B041 !important; }
+
+/* Extension Style
+----------------------------------*/
+/* MemoContainerComponent */
+.chrome__sashikomi--ext {
+  display: block !important;
+  margin: 15px 0;
+  width: 100%;
+  min-width: 200px;
+  max-width: 1000px;
+  color: #444;
+  /* EditorComponent */
+  /* MemoComponent */ }
+  .chrome__sashikomi--ext .p-editor {
+    position: relative;
+    border: 1px solid #7D3C98;
+    border-left: 4px solid #7D3C98;
+    overflow: hidden;
+    padding: 0;
+    margin: 0; }
+    .chrome__sashikomi--ext .p-editor:hover .p-editor__btn-group {
+      display: block; }
+  .chrome__sashikomi--ext .p-editor__body textarea {
+    font-family: "\30D2\30E9\30AE\30CE\89D2\30B4   Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", sans-serif;
+    display: block !important;
+    font-size: 15px;
+    line-height: 1.6;
+    border: none;
+    width: 100%;
+    height: 300px;
+    box-sizing: border-box;
+    resize: vertical;
+    overflow: auto;
+    padding: 15px; }
+    .chrome__sashikomi--ext .p-editor__body textarea:focus {
+      outline: none; }
+
+.chrome__sashikomi .p-memo__body {
+  font-family: "\30D2\30E9\30AE\30CE\89D2\30B4   Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "\FF2D\FF33   \FF30\30B4\30B7\30C3\30AF", sans-serif !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important; }
+  .chrome__sashikomi .p-memo__body > *:first-child {
+    margin-top: 0 !important; }
+  .chrome__sashikomi .p-memo__body > *:last-child {
+    margin-bottom: 0 !important; }
+  .chrome__sashikomi .p-memo__body a {
+    color: #4183C4; }
+  .chrome__sashikomi .p-memo__body a.absent {
+    color: #cc0000; }
+  .chrome__sashikomi .p-memo__body a.anchor {
+    display: block;
+    padding-left: 30px;
+    margin-left: -30px;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0; }
+  .chrome__sashikomi .p-memo__body h1, .chrome__sashikomi .p-memo__body h2, .chrome__sashikomi .p-memo__body h3, .chrome__sashikomi .p-memo__body h4, .chrome__sashikomi .p-memo__body h5, .chrome__sashikomi .p-memo__body h6 {
+    margin: 20px 0 10px !important;
+    padding: 0 !important;
+    font-weight: bold !important;
+    -webkit-font-smoothing: antialiased !important;
+    position: relative !important; }
+  .chrome__sashikomi .p-memo__body h1 tt, .chrome__sashikomi .p-memo__body h1 code {
+    font-size: inherit; }
+  .chrome__sashikomi .p-memo__body h2 tt, .chrome__sashikomi .p-memo__body h2 code {
+    font-size: inherit; }
+  .chrome__sashikomi .p-memo__body h3 tt, .chrome__sashikomi .p-memo__body h3 code {
+    font-size: inherit; }
+  .chrome__sashikomi .p-memo__body h4 tt, .chrome__sashikomi .p-memo__body h4 code {
+    font-size: inherit; }
+  .chrome__sashikomi .p-memo__body h5 tt, .chrome__sashikomi .p-memo__body h5 code {
+    font-size: inherit; }
+  .chrome__sashikomi .p-memo__body h6 tt, .chrome__sashikomi .p-memo__body h6 code {
+    font-size: inherit; }
+  .chrome__sashikomi .p-memo__body h1 {
+    font-size: 18px !important;
+    border-bottom: 1px solid #e4e4e4 !important;
+    color: #333 !important; }
+  .chrome__sashikomi .p-memo__body h2 {
+    font-size: 18px !important;
+    color: #333 !important; }
+  .chrome__sashikomi .p-memo__body h3 {
+    font-size: 16px !important;
+    border-bottom: 1px dashed #ccc !important;
+    color: #333 !important; }
+  .chrome__sashikomi .p-memo__body h4 {
+    font-size: 16px !important;
+    color: #333 !important; }
+  .chrome__sashikomi .p-memo__body h5 {
+    font-size: 14px !important;
+    color: #333 !important; }
+  .chrome__sashikomi .p-memo__body h6 {
+    color: #777777 !important;
+    font-size: 14px !important; }
+  .chrome__sashikomi .p-memo__body p, .chrome__sashikomi .p-memo__body blockquote, .chrome__sashikomi .p-memo__body ul, .chrome__sashikomi .p-memo__body ol, .chrome__sashikomi .p-memo__body dl, .chrome__sashikomi .p-memo__body li, .chrome__sashikomi .p-memo__body table, .chrome__sashikomi .p-memo__body pre {
+    margin: 15px 0 !important; }
+  .chrome__sashikomi .p-memo__body hr {
+    border: 0 !important;
+    height: 0 !important;
+    border-top: 1px solid #bbb !important;
+    border-bottom: 1px solid #fff !important; }
+  .chrome__sashikomi .p-memo__body a:first-child h1, .chrome__sashikomi .p-memo__body a:first-child h2, .chrome__sashikomi .p-memo__body a:first-child h3, .chrome__sashikomi .p-memo__body a:first-child h4, .chrome__sashikomi .p-memo__body a:first-child h5, .chrome__sashikomi .p-memo__body a:first-child h6 {
+    margin-top: 0 !important;
+    padding-top: 0 !important; }
+  .chrome__sashikomi .p-memo__body h1 p, .chrome__sashikomi .p-memo__body h2 p, .chrome__sashikomi .p-memo__body h3 p, .chrome__sashikomi .p-memo__body h4 p, .chrome__sashikomi .p-memo__body h5 p, .chrome__sashikomi .p-memo__body h6 p {
+    margin-top: 0 !important; }
+  .chrome__sashikomi .p-memo__body ul, .chrome__sashikomi .p-memo__body ol, .chrome__sashikomi .p-memo__body li {
+    margin: 0 !important; }
+  .chrome__sashikomi .p-memo__body ul, .chrome__sashikomi .p-memo__body ol {
+    padding-left: 30px !important; }
+  .chrome__sashikomi .p-memo__body ul :first-child, .chrome__sashikomi .p-memo__body ol :first-child {
+    margin-top: 0 !important; }
+  .chrome__sashikomi .p-memo__body dl {
+    padding: 0 !important; }
+  .chrome__sashikomi .p-memo__body dl dt {
+    font-size: 14px;
+    font-weight: bold;
+    font-style: italic;
+    padding: 0;
+    margin: 15px 0 5px; }
+  .chrome__sashikomi .p-memo__body dl dt:first-child {
+    padding: 0; }
+  .chrome__sashikomi .p-memo__body dl dt > :first-child {
+    margin-top: 0; }
+  .chrome__sashikomi .p-memo__body dl dt > :last-child {
+    margin-bottom: 0; }
+  .chrome__sashikomi .p-memo__body dl dd {
+    margin: 0 0 15px;
+    padding: 0 15px; }
+  .chrome__sashikomi .p-memo__body dl dd > :first-child {
+    margin-top: 0; }
+  .chrome__sashikomi .p-memo__body dl dd > :last-child {
+    margin-bottom: 0; }
+  .chrome__sashikomi .p-memo__body blockquote {
+    border-left: 4px solid #dddddd !important;
+    padding: 0 15px !important;
+    color: #777777 !important; }
+  .chrome__sashikomi .p-memo__body blockquote > :first-child {
+    margin-top: 0 !important; }
+  .chrome__sashikomi .p-memo__body blockquote > :last-child {
+    margin-bottom: 0 !important; }
+  .chrome__sashikomi .p-memo__body table {
+    padding: 0;
+    border-collapse: collapse; }
+  .chrome__sashikomi .p-memo__body table tr {
+    border-top: 1px solid #cccccc;
+    background-color: white;
+    margin: 0;
+    padding: 0; }
+  .chrome__sashikomi .p-memo__body table tr:nth-child(2n) {
+    background-color: #f8f8f8; }
+  .chrome__sashikomi .p-memo__body table tr th {
+    font-weight: bold;
+    border: 1px solid #cccccc;
+    margin: 0;
+    padding: 6px 13px; }
+  .chrome__sashikomi .p-memo__body table tr td {
+    border: 1px solid #cccccc;
+    margin: 0;
+    padding: 6px 13px; }
+  .chrome__sashikomi .p-memo__body table tr th :first-child, .chrome__sashikomi .p-memo__body table tr td :first-child {
+    margin-top: 0; }
+  .chrome__sashikomi .p-memo__body table tr th :last-child, .chrome__sashikomi .p-memo__body table tr td :last-child {
+    margin-bottom: 0; }
+  .chrome__sashikomi .p-memo__body img {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    display: block !important; }
+  .chrome__sashikomi .p-memo__body span.frame {
+    display: block;
+    overflow: hidden; }
+  .chrome__sashikomi .p-memo__body span.frame > span {
+    border: 1px solid #dddddd;
+    display: block;
+    float: left;
+    overflow: hidden;
+    margin: 13px 0 0;
+    padding: 7px;
+    width: auto; }
+  .chrome__sashikomi .p-memo__body span.frame span img {
+    display: block;
+    float: left; }
+  .chrome__sashikomi .p-memo__body span.frame span span {
+    clear: both;
+    color: #333333;
+    display: block;
+    padding: 5px 0 0; }
+  .chrome__sashikomi .p-memo__body span.align-center {
+    display: block;
+    overflow: hidden;
+    clear: both; }
+  .chrome__sashikomi .p-memo__body span.align-center > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: center; }
+  .chrome__sashikomi .p-memo__body span.align-center span img {
+    margin: 0 auto;
+    text-align: center; }
+  .chrome__sashikomi .p-memo__body span.align-right {
+    display: block;
+    overflow: hidden;
+    clear: both; }
+  .chrome__sashikomi .p-memo__body span.align-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px 0 0;
+    text-align: right; }
+  .chrome__sashikomi .p-memo__body span.align-right span img {
+    margin: 0;
+    text-align: right; }
+  .chrome__sashikomi .p-memo__body span.float-left {
+    display: block;
+    margin-right: 13px;
+    overflow: hidden;
+    float: left; }
+  .chrome__sashikomi .p-memo__body span.float-left span {
+    margin: 13px 0 0; }
+  .chrome__sashikomi .p-memo__body span.float-right {
+    display: block;
+    margin-left: 13px;
+    overflow: hidden;
+    float: right; }
+  .chrome__sashikomi .p-memo__body span.float-right > span {
+    display: block;
+    overflow: hidden;
+    margin: 13px auto 0;
+    text-align: right; }
+  .chrome__sashikomi .p-memo__body code, .chrome__sashikomi .p-memo__body tt {
+    margin: 0 2px !important;
+    padding: 0 5px !important;
+    white-space: nowrap !important;
+    border: 1px solid #eaeaea !important;
+    background-color: #f8f8f8 !important;
+    border-radius: 3px !important; }
+  .chrome__sashikomi .p-memo__body pre code {
+    margin: 0 !important;
+    padding: 0 !important;
+    white-space: pre !important;
+    border: none !important;
+    background: transparent !important; }
+  .chrome__sashikomi .p-memo__body .highlight pre {
+    background-color: #444 !important;
+    border: 1px solid #cccccc !important;
+    font-size: 13px !important;
+    line-height: 19px !important;
+    overflow: auto !important;
+    padding: 6px 10px !important;
+    border-radius: 3px !important; }
+  .chrome__sashikomi .p-memo__body pre {
+    background-color: #2D2D2D !important;
+    border: 1px solid #cccccc !important;
+    font-size: 13px !important;
+    line-height: 19px !important;
+    overflow: auto !important;
+    padding: 6px 10px !important;
+    border-radius: 3px !important; }
+  .chrome__sashikomi .p-memo__body pre code, .chrome__sashikomi .p-memo__body pre tt {
+    color: #f8f8f8;
+    background-color: transparent;
+    border: none; }
+  .chrome__sashikomi .p-memo__body sup {
+    font-size: 0.83px;
+    vertical-align: super;
+    line-height: 0; }
+  .chrome__sashikomi .p-memo__body code {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding: 0 2px;
+    border: solid 1px #CCC;
+    background-color: #f6f6f6;
+    font-size: .9em;
+    font-family: "Monaco", monospace, "Courier", "Inconsolata", "Bitstream Vera Sans Mono"; }
+  .chrome__sashikomi .p-memo__body .code-frame {
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    margin: 1em 0;
+    border: solid 1px #CCC;
+    background-color: #f6f6f6;
+    line-height: 0; }
+  .chrome__sashikomi .p-memo__body .code-frame .code-lang {
+    -webkit-border-bottom-right-radius: 3px;
+    -moz-border-radius-bottomright: 3px;
+    border-bottom-right-radius: 3px;
+    color: #4A4A4A;
+    display: inline-block;
+    padding: 3px 6px;
+    margin: 0;
+    line-height: .85em;
+    background-color: #e6e6e6;
+    font-size: .85em;
+    font-weight: 400;
+    border-right: solid 1px #CCC;
+    border-bottom: solid 1px #CCC; }
+  .chrome__sashikomi .p-memo__body .code-frame pre {
+    overflow: auto;
+    border: none;
+    padding: .5em 1em;
+    margin: 0;
+    background-color: transparent; }
+  .chrome__sashikomi .p-memo__body .code-frame pre code {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    line-height: 1.44em;
+    font-size: 0.9em;
+    font-family: "Monaco", monospace, "Courier", "Inconsolata", "Bitstream Vera Sans Mono"; }
+  .chrome__sashikomi .p-memo__body * {
+    -webkit-print-color-adjust: exact; }
+  @media print {
+    .chrome__sashikomi .p-memo__body table, .chrome__sashikomi .p-memo__body pre {
+      page-break-inside: avoid; }
+    .chrome__sashikomi .p-memo__body pre {
+      word-wrap: break-word; } }
+
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IiIsImZpbGUiOiJpbmplY3QuYnVuZGxlLmNzcyIsInNvdXJjZVJvb3QiOiIifQ==*/

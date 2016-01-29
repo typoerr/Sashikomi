@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom'
 import MemoContainer from './components/MemoContainer'
 import cssPath from 'css-path'
 import _ from '../../util'
+import ErrorPage from './components/ErrorPage'
 
 chrome.runtime.onMessage.addListener(function (req) {
   switch (req.type) {
@@ -81,3 +82,10 @@ function insertComponent(memos = []) {
     chrome.runtime.sendMessage({ type: 'HAS_INSERTION_ERRORS', data: error })
   }
 }
+
+
+if (location.href.match(/chrome-extension:\/\//))
+  ReactDOM.render(
+    <ErrorPage/>,
+    document.getElementById('InsertionErrorContainer')
+  );

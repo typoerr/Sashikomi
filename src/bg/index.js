@@ -5,14 +5,16 @@ import * as store from './store'
 * Tab Action
 * ========================================*/
 chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
-  store.getMemosByUrl(tab.url)
-    .then(data => {
-      if (data.length) {
-        chrome.tabs.sendMessage(tabId, { type: 'TAB_ON_UPDATED', data: data });
-        chrome.pageAction.show(tabId);
-      }
-    })
-    .catch(err => console.log(err))
+  if (changeInfo.status === 'complete') {
+    store.getMemosByUrl(tab.url)
+      .then(data => {
+        if (data.length) {
+          chrome.tabs.sendMessage(tabId, { type: 'TAB_ON_UPDATED', data: data });
+          chrome.pageAction.show(tabId);
+        }
+      })
+      .catch(err => console.log(err))
+  }
 });
 
 
@@ -41,3 +43,21 @@ chrome.pageAction.onClicked.addListener(tab => {
     }
   });
 });
+
+
+// dbg
+//store.save({
+//  url: 'http://localhost:8080/demo/',
+//  targetElmPath: '.foo',
+//  contentText: 'sample 1'
+//});
+//store.save({
+//  url: 'http://localhost:8080/demo/',
+//  targetElmPath: '.foo',
+//  contentText: 'sample 2'
+//});
+//store.save({
+//  url: 'http://localhost:8080/demo/',
+//  targetElmPath: '.foo',
+//  contentText: 'sample 3'
+//});

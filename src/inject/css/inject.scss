@@ -17,13 +17,13 @@
 
   button {
     &:active {
-      position : relative;
-      top      : 1px;
-      right    : -1px;
+      position : relative !important;
+      top      : 1px !important;
+      right    : -1px !important;
     }
 
     &:focus {
-      outline : none;
+      outline : none !important;
     }
   }
 }
@@ -87,22 +87,22 @@
   z-index  : 1;
 
   button {
-    cursor     : pointer;
-    display    : block;
-    float      : right;
-    background : $accent-color--rgba;
-    border     : 0;
-    padding    : 5px 15px;
-    color      : $white;
-    font-size  : 14px;
+    cursor     : pointer !important;
+    display    : block !important;
+    float      : right !important;
+    background : $accent-color--rgba !important;
+    border     : 0 !important;
+    padding    : 5px 15px !important;
+    color      : $white !important;
+    font-size  : 14px !important;
 
     &:hover {
-      background-color : $accent-color;
+      background-color : $accent-color !important;
     }
   }
 
   button + button {
-    border-right : 1px solid $dark-white;
+    border-right : 1px solid $dark-white !important;
   }
 }
 

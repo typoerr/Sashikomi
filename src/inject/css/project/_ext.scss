@@ -21,7 +21,7 @@
 
     &:hover {
       .p-editor__btn-group {
-        display : block;
+        display : block !important;
       }
 
     }
@@ -35,18 +35,21 @@
     textarea {
       font-family : "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro W3", メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif;
       display     : block !important;
-      font-size   : 15px;
-      line-height : 1.6;
-      border      : none;
-      width       : 100%;
-      height      : 300px;
-      box-sizing  : border-box;
-      resize      : vertical;
-      overflow    : auto;
-      padding     : 15px;
+      font-size   : 15px !important;
+      font-weight : normal !important;
+      line-height : 1.6 !important;
+      border      : none !important;
+      width       : 100% !important;
+      height      : 300px !important;
+      box-sizing  : border-box !important;
+      resize      : vertical !important;
+      overflow    : auto !important;
+      padding     : 15px !important;
+      box-shadow  : 2px 2px 4px rgba(143, 183, 222, 0.6), -2px -2px 4px rgba(143, 183, 222, 0.6), inset 0 1px 2px rgba(0, 0, 0, 0.2) !important;
+
 
       &:focus {
-        outline : none;
+        outline : none !important;
       }
     }
   }

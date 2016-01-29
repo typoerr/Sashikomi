@@ -46,21 +46,3 @@ chrome.pageAction.onClicked.addListener(tab => {
     }
   });
 });
-
-
-// dbg
-//store.save({
-//  url: 'http://localhost:8080/demo/',
-//  targetElmPath: '.foo',
-//  contentText: 'sample 1'
-//});
-//store.save({
-//  url: 'http://localhost:8080/demo/',
-//  targetElmPath: '.foo',
-//  contentText: 'sample 2'
-//});
-//store.save({
-//  url: 'http://localhost:8080/demo/',
-//  targetElmPath: '.foo',
-//  contentText: 'sample 3'
-//});

@@ -14,7 +14,7 @@
   }
 
   function i() {
-    var e = window.getSelection(), t = (0, p["default"])(e.getRangeAt(0).endContainer.parentNode), n = document.querySelector(t), r = document.createElement("div"), i = _["default"].uuid();
+    var e = window.getSelection(), t = (0, _["default"])(e.getRangeAt(0).endContainer.parentNode), n = document.querySelector(t), r = document.createElement("div"), i = f["default"].uuid();
     r.setAttribute("id", i), n.appendChild(r), c["default"].render(s["default"].createElement(u["default"], {
       url: location.href,
       targetElmPath: t,
@@ -25,7 +25,7 @@
   function a() {
     var e = arguments.length <= 0 || void 0 === arguments[0] ? [] : arguments[0], t = [];
     e.forEach(function (e) {
-      var n = document.querySelector(e.targetElmPath), r = document.createElement("div"), i = _["default"].uuid();
+      var n = document.querySelector(e.targetElmPath), r = document.createElement("div"), i = f["default"].uuid();
       try {
         r.setAttribute("id", i), n.appendChild(r), c["default"].render(s["default"].createElement(u["default"], {
           id: e.id,
@@ -40,7 +40,7 @@
     }), t.length && chrome.runtime.sendMessage({ type: "HAS_INSERTION_ERRORS", data: t })
   }
 
-  var o = n(1), s = r(o), l = n(1), c = r(l), d = n(24), u = r(d), m = n(25), p = r(m), g = n(3), _ = r(g), b = n(23), f = r(b);
+  var o = n(1), s = r(o), l = n(1), c = r(l), d = n(24), u = r(d), m = n(23), p = r(m), g = n(25), _ = r(g), b = n(3), f = r(b);
   n(28), chrome.runtime.onMessage.addListener(function (e) {
     switch (e.type) {
       case"CONTEXT_MENU":
@@ -52,7 +52,7 @@
       default:
         console.log("Error: Unknown request. : ", e)
     }
-  }), location.href.match(/chrome-extension:\/\//) && c["default"].render(s["default"].createElement(f["default"], null), document.getElementById("InsertionErrorContainer"))
+  }), location.href.match(/chrome-extension:\/\//) && c["default"].render(s["default"].createElement(p["default"], null), document.getElementById("InsertionErrorContainer"))
 }, function (e, t) {/*!
 	 * react-lite.js v0.0.18
 	 * (c) 2016 Jade Gu

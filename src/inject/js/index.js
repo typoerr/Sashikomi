@@ -3,9 +3,9 @@ require('../css/inject.scss');
 import React from 'react'
 import ReactDOM from 'react-dom'
 import MemoContainer from './components/MemoContainer'
+import ErrorPage from './components/ErrorPage'
 import cssPath from 'css-path'
 import _ from '../../util'
-import ErrorPage from './components/ErrorPage'
 
 /*===============================================
 * Message Listener

@@ -79,6 +79,12 @@
   p, blockquote, ul, ol, dl, li, table, pre {
     margin : 15px 0 !important; }
 
+  p {
+    text-align      : left !important;
+    font-weight     : normal !important;
+    text-decoration : none;
+  }
+
   hr {
     border        : 0 !important;
     height        : 0 !important;

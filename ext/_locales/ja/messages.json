@@ -1,0 +1,11 @@
+{
+  "alert_delete": {
+    "message": "Sashikomi: Memoを1件削除します"
+  },
+  "alert_cancel": {
+    "message": "Sashikomi: 変更内容が破棄されます。"
+  },
+  "alert_deleteAll": {
+    "message": "挿入errorがあったmemoをすべて削除します"
+  }
+}

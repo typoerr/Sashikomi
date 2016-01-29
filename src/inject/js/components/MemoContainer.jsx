@@ -56,7 +56,8 @@ export default class MemoContainer extends Base {
 
 
   handleDelete() {
-    if (confirm("Sashikomi: Memoを1件削除します")) {
+    let msg = chrome.i18n.getMessage('alert_delete');
+    if (confirm(msg)) {
 
       let data = Object.assign({}, this.state);
 

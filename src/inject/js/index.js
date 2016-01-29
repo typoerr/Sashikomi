@@ -7,6 +7,9 @@ import cssPath from 'css-path'
 import _ from '../../util'
 import ErrorPage from './components/ErrorPage'
 
+/*===============================================
+* Message Listener
+* ==============================================*/
 chrome.runtime.onMessage.addListener(function (req) {
   switch (req.type) {
     case "CONTEXT_MENU":
@@ -84,8 +87,12 @@ function insertComponent(memos = []) {
 }
 
 
-if (location.href.match(/chrome-extension:\/\//))
+/*===============================================
+* InsertionErrorPage
+* ==============================================*/
+if (location.href.match(/chrome-extension:\/\//)) {
   ReactDOM.render(
     <ErrorPage/>,
     document.getElementById('InsertionErrorContainer')
   );
+}

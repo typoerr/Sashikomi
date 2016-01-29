@@ -42,7 +42,8 @@ export default class ErrorPage extends Base {
   }
 
   handleDeleteAll() {
-    if (confirm('挿入errorがあったmemoをすべて削除します')) {
+    let msg = chrome.i18n.getMessage('alert_deleteAll');
+    if (confirm(msg)) {
       this.state.data.forEach(memo => this.handleDelete(memo))
     }
   }

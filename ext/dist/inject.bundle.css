@@ -459,7 +459,8 @@
   top: 0;
   right: 0;
   overflow: hidden;
-  width: 100%; }
+  width: 100%;
+  z-index: 1; }
   .chrome__sashikomi--page .p-memo__btn-group button, .chrome__sashikomi--ext .p-editor__btn-group button, .chrome__sashikomi--ext .p-memo__btn-group button {
     cursor: pointer;
     display: block;
@@ -602,6 +603,10 @@
     font-size: 14px !important; }
   .chrome__sashikomi .p-memo__body p, .chrome__sashikomi .p-memo__body blockquote, .chrome__sashikomi .p-memo__body ul, .chrome__sashikomi .p-memo__body ol, .chrome__sashikomi .p-memo__body dl, .chrome__sashikomi .p-memo__body li, .chrome__sashikomi .p-memo__body table, .chrome__sashikomi .p-memo__body pre {
     margin: 15px 0 !important; }
+  .chrome__sashikomi .p-memo__body p {
+    text-align: left !important;
+    font-weight: normal !important;
+    text-decoration: none; }
   .chrome__sashikomi .p-memo__body hr {
     border: 0 !important;
     height: 0 !important;

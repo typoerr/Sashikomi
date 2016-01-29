@@ -22,7 +22,8 @@ export default class Editor extends Base {
 
   handleCancel() {
     if (this.state.hasChanged) {
-      confirm('Sashikomi: 変更内容が破棄されます。') && this.props.onClose();
+      let msg = chrome.i18n.getMessage('alert_cancel');
+      confirm(msg) && this.props.onClose();
     } else {
       this.props.onClose()
     }

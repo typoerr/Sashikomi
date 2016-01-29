@@ -10,8 +10,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 module.exports = {
   entry: {
     background: "./src/bg/index.js",
-    inject: "./src/inject/js/index.js",
-    insertion_error: "./src/inject/js/insertion_error.index.js"
+    inject: "./src/inject/js/index.js"
   },
   output: {
     path: "./ext/dist",

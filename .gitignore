@@ -1,3 +1,4 @@
+/screenshot
 /ext.pem
 /ext.crx
 node_modules/
@@ -5,3 +6,4 @@ node_modules/
 /index.html
 /sample.md
 /sample2.md
+/ext.zip

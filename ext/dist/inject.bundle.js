@@ -1507,7 +1507,7 @@
     function t(e) {
       i(this, t);
       var n = a(this, Object.getPrototypeOf(t).call(this, e));
-      return n._bind("handleClose", "handleDelete", "rawMarkup", "buttons"), n
+      return n._bind("handleClose", "handleDelete", "rawMarkup", "Buttons"), n
     }
 
     return o(t, e), s(t, [{
@@ -1528,14 +1528,14 @@
         return { __html: e }
       }
     }, {
-      key: "buttons", value: function () {
+      key: "Buttons", value: function () {
         return "function" == typeof this.props.onClose ? c["default"].createElement("span", null, c["default"].createElement(p["default"], {
           onClick: this.handleClose
         }, "EDIT"), c["default"].createElement(p["default"], { onClick: this.handleDelete }, "DELETE")) : c["default"].createElement(p["default"], { onClick: this.handleDelete }, "DELETE")
       }
     }, {
       key: "render", value: function () {
-        return c["default"].createElement("div", { className: "p-memo" }, c["default"].createElement("div", { className: "p-memo__btn-group" }, this.buttons()), c["default"].createElement("div", {
+        return c["default"].createElement("div", { className: "p-memo" }, c["default"].createElement("div", { className: "p-memo__btn-group" }, this.Buttons()), c["default"].createElement("div", {
           className: "p-memo__body",
           dangerouslySetInnerHTML: this.rawMarkup()
         }))
@@ -1593,7 +1593,7 @@
       i(this, t);
       var n = a(this, Object.getPrototypeOf(t).call(this, e));
       return n.state = {
-        inputContent: n.props.content,
+        inputContent: n.props.contentText,
         hasChanged: !1
       }, n._bind("handleChange", "handleCancel", "handleSubmit", "handleKeyDown"), n
     }
@@ -1633,7 +1633,7 @@
     }]), t
   }(m["default"]);
   t["default"] = _, _.propTypes = {
-    content: c["default"].PropTypes.string,
+    contentText: c["default"].PropTypes.string,
     onClose: c["default"].PropTypes.func.isRequired,
     onSubmit: c["default"].PropTypes.func.isRequired
   }
@@ -1830,7 +1830,7 @@
     }, {
       key: "rendererChild", value: function () {
         return this.state.isEditing ? c["default"].createElement(f["default"], {
-          content: this.state.contentText,
+          contentText: this.state.contentText,
           onClose: this.handleToggleChild,
           onSubmit: this.handleSubmit
         }) : c["default"].createElement(_["default"], {

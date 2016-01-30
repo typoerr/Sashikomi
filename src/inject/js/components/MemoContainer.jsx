@@ -84,7 +84,7 @@ export default class MemoContainer extends Base {
     if (this.state.isEditing) {
       return (
         <Editor
-          content={this.state.contentText}
+          contentText={this.state.contentText}
           onClose={this.handleToggleChild}
           onSubmit={this.handleSubmit}
         />

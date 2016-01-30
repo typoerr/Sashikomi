@@ -24,6 +24,7 @@
   h1 {
     font-size     : 18px !important;
     border-bottom : 1px solid #e4e4e4 !important;
+    padding       : 2px !important;
     color         : #333 !important;
   }
 
@@ -123,7 +124,7 @@
     margin           : 0 2px !important;
     padding          : 0 5px !important;
     white-space      : nowrap !important;
-    border           : 1px solid #eaeaea !important;
+    border           : none !important;
     border-radius    : 3px !important;
     background-color : #2D2D2D !important;
     color            : #f8f8f8 !important;
@@ -133,7 +134,7 @@
 
   pre {
     background-color : #2D2D2D !important;
-    border           : 1px solid #cccccc !important;
+    border           : none !important;
     font-size        : 13px !important;
     line-height      : 19px !important;
     overflow         : auto !important;
@@ -146,7 +147,6 @@
     padding     : 0 !important;
     white-space : pre !important;
     border      : none !important;
-    background  : transparent !important;
     color       : #f8f8f8 !important;
   }
 

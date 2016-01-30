@@ -73,7 +73,7 @@
 
 %c-memo__body {
   padding : 15px;
-  @import "./tomorrow-night-eighties";
+  @import "project/tomorrow-night-eighties";
 }
 
 
@@ -112,4 +112,4 @@
 --------------------------------------------*/
 @import 'project/page';
 @import "project/ext";
-@import "markdown";
+@import "project/markdown";

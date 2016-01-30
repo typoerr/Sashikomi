@@ -1,0 +1,154 @@
+.chrome__sashikomi .p-memo__body {
+  font-family : "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro W3",
+  メイリオ, Meiryo, "ＭＳ Ｐゴシック", sans-serif !important;
+  font-size   : 15px !important;
+  line-height : 1.6 !important;
+
+  > *:first-child {
+    margin-top : 0 !important; }
+
+  > *:last-child {
+    margin-bottom : 0 !important; }
+
+  a {
+    color : #4183C4;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin                 : 20px 0 10px !important;
+    padding                : 0 !important;
+    font-weight            : bold !important;
+    -webkit-font-smoothing : antialiased !important;
+    position               : relative !important; }
+
+  h1 {
+    font-size     : 18px !important;
+    border-bottom : 1px solid #e4e4e4 !important;
+    color         : #333 !important;
+  }
+
+  h2 {
+    font-size : 18px !important;
+    color     : #333 !important; }
+
+  h3 {
+    font-size     : 16px !important;
+    border-bottom : 1px dashed #ccc !important;
+    color         : #333 !important; }
+
+  h4 {
+    font-size : 16px !important;
+    color     : #333 !important; }
+
+  h5 {
+    font-size : 14px !important;
+    color     : #333 !important; }
+
+  h6 {
+    color     : #777777 !important;
+    font-size : 14px !important; }
+
+  p, blockquote, ul, ol, dl, li, table, pre {
+    margin : 15px 0 !important; }
+
+  p {
+    text-align      : left !important;
+    font-weight     : normal !important;
+    text-decoration : none;
+  }
+
+  hr {
+    border        : 0 !important;
+    height        : 0 !important;
+    border-top    : 1px solid #bbb !important;
+    border-bottom : 1px solid #fff !important;
+  }
+
+  a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+    margin-top  : 0 !important;
+    padding-top : 0 !important; }
+
+  h1 p, h2 p, h3 p, h4 p, h5 p, h6 p {
+    margin-top : 0 !important; }
+
+  ul, ol, li {
+    margin : 0 !important;
+  }
+
+  ul, ol {
+    padding-left : 30px !important; }
+
+  ul :first-child, ol :first-child {
+    margin-top : 0 !important; }
+
+  blockquote {
+    border-left : 4px solid #dddddd !important;
+    padding     : 0 15px !important;
+    color       : #777777 !important; }
+  blockquote > :first-child {
+    margin-top : 0 !important; }
+  blockquote > :last-child {
+    margin-bottom : 0 !important; }
+
+  table {
+    padding : 0; border-collapse : collapse; }
+  table tr {
+    border-top       : 1px solid #cccccc;
+    background-color : white;
+    margin           : 0;
+    padding          : 0; }
+  table tr:nth-child(2n) {
+    background-color : #f8f8f8; }
+  table tr th {
+    font-weight : bold;
+    border      : 1px solid #cccccc;
+    margin      : 0;
+    padding     : 6px 13px; }
+  table tr td {
+    border  : 1px solid #cccccc;
+    margin  : 0;
+    padding : 6px 13px; }
+  table tr th :first-child, table tr td :first-child {
+    margin-top : 0; }
+  table tr th :last-child, table tr td :last-child {
+    margin-bottom : 0; }
+
+  img {
+    max-width : 100% !important;
+    margin    : 0 auto !important;
+    display   : block !important;
+  }
+
+  code {
+    margin           : 0 2px !important;
+    padding          : 0 5px !important;
+    white-space      : nowrap !important;
+    border           : 1px solid #eaeaea !important;
+    border-radius    : 3px !important;
+    background-color : #2D2D2D !important;
+    color            : #f8f8f8 !important;
+    font-size        : .9em !important;
+    font-family      : "Monaco", monospace, "Courier", "Inconsolata", "Bitstream Vera Sans Mono";
+  }
+
+  pre {
+    background-color : #2D2D2D !important;
+    border           : 1px solid #cccccc !important;
+    font-size        : 13px !important;
+    line-height      : 19px !important;
+    overflow         : auto !important;
+    padding          : 6px 10px !important;
+    border-radius    : 3px !important;
+  }
+
+  pre code {
+    margin      : 0 !important;
+    padding     : 0 !important;
+    white-space : pre !important;
+    border      : none !important;
+    background  : transparent !important;
+    color       : #f8f8f8 !important;
+  }
+
+
+}

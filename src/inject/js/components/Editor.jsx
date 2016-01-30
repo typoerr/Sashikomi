@@ -7,7 +7,7 @@ export default class Editor extends Base {
   constructor(props) {
     super(props);
     this.state = {
-      inputContent: this.props.content,
+      inputContent: this.props.contentText,
       hasChanged: false
     };
 
@@ -15,7 +15,7 @@ export default class Editor extends Base {
   }
 
   componentDidMount() {
-    // react-liteを使った場合にeditorのrenderが2回目以降からautoFocusが何故か当たらないため
+    // react-liteを使った場合に2回目以降のrenderからautoFocusが何故か当たらないため
     // 直接DOMを参照してfocusを当ててる
     this.refs._textarea.focus();
   }
@@ -76,7 +76,7 @@ export default class Editor extends Base {
 }
 
 Editor.propTypes = {
-  content: React.PropTypes.string,
+  contentText: React.PropTypes.string,
   onClose: React.PropTypes.func.isRequired,
   onSubmit: React.PropTypes.func.isRequired
 };

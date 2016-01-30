@@ -10,7 +10,7 @@ export default class Memo extends Base {
       'handleClose',
       'handleDelete',
       'rawMarkup',
-      'buttons'
+      'Buttons'
     );
   }
 
@@ -36,7 +36,7 @@ export default class Memo extends Base {
     return { __html: md };
   }
 
-  buttons() {
+  Buttons() {
     if (typeof this.props.onClose === "function") {
       return (
         <span>
@@ -56,7 +56,7 @@ export default class Memo extends Base {
     return (
       <div className="p-memo">
         <div className="p-memo__btn-group">
-          {this.buttons()}
+          {this.Buttons()}
         </div>
 
         <div className="p-memo__body"

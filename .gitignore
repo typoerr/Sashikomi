@@ -4,4 +4,7 @@ node_modules/
 *.log
 /index.html
 /sample.md
+/ext.zip
+/ext/dist
 /sample2.md
+/screenshot

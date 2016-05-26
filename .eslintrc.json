@@ -5,6 +5,11 @@
         "commonjs": true,
         "es6": true
     },
+    "globals": {
+        "chrome": false,
+        "module": false,
+        "process": false
+    },
     "installedESLint": true,
     "plugins": [
         "react"
@@ -18,7 +23,9 @@
             "error",
             "unix"
         ],
-        "quotes": ["off"],
+        "quotes": [
+            "off"
+        ],
         "semi": [
             "error",
             "always"

@@ -1,5 +1,5 @@
-import Dexie from 'dexie'
-import _ from '../util'
+import Dexie from 'dexie';
+import util from '../util';
 
 /* -----------------------------------
   Schema
@@ -17,10 +17,10 @@ import _ from '../util'
 * Setup
 * ------------------------------------*/
 export const db = (() => {
-  let db = new Dexie('SashikomiDB');
-  db.version(1).stores({ memos: "++id, url" });
-  db.open();
-  return db
+  const dexie = new Dexie('SashikomiDB');
+  dexie.version(1).stores({ memos: "++id, url" });
+  dexie.open();
+  return dexie;
 })();
 
 /*
@@ -37,11 +37,8 @@ store.save(new_memo)
   .catch(err => console.log(err));
 * */
 export function save(obj) {
-  let data = _.pick(obj, ['id', 'url', 'targetElmPath', 'contentText']);
-  return db.transaction('rw', db.memos, () => {
-    return db.memos.put(data)
-      .then(id => db.memos.get(id))
-  })
+  const data = util.pick(obj, ['id', 'url', 'targetElmPath', 'contentText']);
+  return db.transaction('rw', db.memos, () => db.memos.put(data).then(id => db.memos.get(id)));
 }
 
 
@@ -59,10 +56,8 @@ delete(obj)
   .catch(err => console.log(err));
 * */
 export function remove(obj) {
-  let id = obj.id || -1;
-  return db.transaction('rw', db.memos, () => {
-    return db.memos.delete(id)
-  })
+  const id = obj.id || -1;
+  return db.transaction('rw', db.memos, () => db.memos.delete(id));
 }
 
 
@@ -81,9 +76,7 @@ getMemosByUrl('http//:example.co.jp')
   .catch(err => console.log(err));
 * */
 export function getMemosByUrl(url) {
-  return db.transaction('rw', db.memos, () => {
-    return db.memos.where('url').equals(url).toArray()
-  })
+  return db.transaction('rw', db.memos, () => db.memos.where('url').equals(url).toArray());
 }
 
 /*
@@ -92,13 +85,13 @@ export function getMemosByUrl(url) {
 * 配列オブジェクトを受け取り1件毎にinsertionErrorフラグを立てる
 * */
 export function addInsertionErrorFlag(memos = []) {
-  let _memos = memos.map(memo => {
-    let _data = _.pick(memo, ['id', 'url', 'targetElmPath', 'contentText']);
-    return Object.assign({}, _data, { insertionError: true });
+  const invalidMemos = memos.map(memo => {
+    const data = util.pick(memo, ['id', 'url', 'targetElmPath', 'contentText']);
+    return Object.assign({}, data, { insertionError: true });
   });
 
-  db.transaction('rw', db.memos, () => _memos.forEach(memo => db.memos.put(memo)))
-    .catch(err => console.log(err))
+  db.transaction('rw', db.memos, () => invalidMemos.forEach(memo => db.memos.put(memo)))
+    .catch(err => console.log(err));
 }
 
 /*
@@ -109,10 +102,6 @@ export function addInsertionErrorFlag(memos = []) {
 * */
 export function getInsertionErrorData(url) {
   return getMemosByUrl(url)
-    .then(memos => {
-      return memos.filter(memo => {
-        if (memo.insertionError) return memo
-      })
-    })
-    .catch(e => console.log(e))
+    .then(memos => memos.filter(memo => memo.insertionError))
+    .catch(e => console.log(e));
 }

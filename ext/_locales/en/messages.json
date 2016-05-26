@@ -6,6 +6,9 @@
     "message": "Sashikomi: Destroy changes"
   },
   "alert_deleteAll": {
-    "message": "Delete all memos that has insertion errors"
+    "message": "Sashikomi: Delete all memos that has insertion errors"
+  },
+  "alert_insert_warn": {
+    "message": "Sashikomi: Can't insert memo to this element. Already inserted."
   }
 }

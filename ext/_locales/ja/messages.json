@@ -6,6 +6,9 @@
     "message": "Sashikomi: 変更内容が破棄されます。"
   },
   "alert_deleteAll": {
-    "message": "挿入errorがあったmemoをすべて削除します"
+    "message": "Sashikomi: 挿入errorがあったmemoをすべて削除します"
+  },
+  "alert_insert_warn": {
+    "message": "Sashikomi: この要素にMemoが挿入されているため、新規Memoを挿入できません。"
   }
 }

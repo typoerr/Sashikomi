@@ -1,3 +1,5 @@
+// TODO: insert処理で重複している処理がたくさんあるので、きれいにまとめたい
+
 require('../css/inject.scss');
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -18,36 +20,50 @@ function insertNewMemo() {
   const selection = window.getSelection();
   let targetElmPath = cssPath(selection.getRangeAt(0).endContainer.parentNode);
   const targetElm = document.querySelector(targetElmPath);
-  const containerElm = document.createElement('div');
-  let containerElmId = util.uuid();
-  const url = util.removeUrlHash(location.href);
 
-  containerElm.setAttribute('id', containerElmId);
-  targetElm.appendChild(containerElm);
+  if (targetElm.dataset.sashikomi) {
+    const msg = chrome.i18n.getMessage('alert_insert_warn');
+    window.alert(msg);
+  } else {
+    const containerElm = document.createElement('div');
+    let containerElmId = util.uuid();
+    const url = util.removeUrlHash(location.href);
 
-  ReactDOM.render(
-    <MemoContainer
-      url={url}
-      targetElmPath={targetElmPath}
-      containerElmId={containerElmId}
-    />,
-    document.getElementById(containerElmId)
-  );
+    containerElm.setAttribute('id', containerElmId);
+    targetElm.dataset.sashikomi = 'true';
+    targetElm.parentNode.insertBefore(containerElm, targetElm.nextSibling);
+    // targetElm.appendChild(containerElm);
+
+    ReactDOM.render(
+      <MemoContainer
+        url={url}
+        targetElmPath={targetElmPath}
+        containerElmId={containerElmId}
+        />,
+      document.getElementById(containerElmId)
+    );
+  }
 }
 
 
-// TODO: すでにComponentが存在しているか判定して重複を避ける処理
 function insertComponent(memos = []) {
   const insertionErrors = [];
 
-  memos.forEach(memo => {
+  for (const memo of memos) {
     const targetElm = document.querySelector(memo.targetElmPath);
-    const containerElm = document.createElement('div');
-    let containerElmId = util.uuid();
+
+    // targetElmにdata属性を付けて存在を判断
+    if (targetElm.dataset.sashikomi) continue;
 
     try {
+      const containerElm = document.createElement('div');
+      let containerElmId = util.uuid();
       containerElm.setAttribute('id', containerElmId);
-      targetElm.appendChild(containerElm);
+
+      // 要素の子要素に追加するか兄弟要素にするか、しばらく使ってから判断したい
+      targetElm.dataset.sashikomi = 'true';
+      targetElm.parentNode.insertBefore(containerElm, targetElm.nextSibling);
+      // targetElm.appendChild(containerElm);
 
       ReactDOM.render(
         <MemoContainer
@@ -56,13 +72,13 @@ function insertComponent(memos = []) {
           targetElmPath={memo.targetElmPath}
           containerElmId={containerElmId}
           contentText={memo.contentText}
-        />,
-        document.getElementById(containerElmId)
+          />,
+        containerElm
       );
     } catch (e) {
       insertionErrors.push(memo);
     }
-  });
+  }
 
   if (insertionErrors.length) {
     chrome.runtime.sendMessage({ type: 'HAS_INSERTION_ERRORS', data: insertionErrors });
@@ -74,14 +90,14 @@ function insertComponent(memos = []) {
 * ==============================================*/
 chrome.runtime.onMessage.addListener(req => {
   switch (req.type) {
-  case "CONTEXT_MENU":
-    insertNewMemo();
-    break;
-  case "TAB_ON_UPDATED":
-    insertComponent(req.data);
-    break;
-  default:
-    console.log("Error: Unknown request. : ", req);
+    case "CONTEXT_MENU":
+      insertNewMemo();
+      break;
+    case "TAB_ON_UPDATED":
+      insertComponent(req.data);
+      break;
+    default:
+      console.log("Error: Unknown request. : ", req);
   }
 });
 

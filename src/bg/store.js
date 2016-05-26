@@ -69,14 +69,21 @@ export function remove(obj) {
 * 存在しないURLの場合も空の配列が返る
 * dataの有無判定をせず、content_scriptに配列を投げ、
 * content_script側で配列分だけrenderするように使う
-
+* hash fragmentの対応として既存データを壊さないようにするためにorで両方検索する
 ex)
 getMemosByUrl('http//:example.co.jp')
   .then(memos => {console.log(memos)})
   .catch(err => console.log(err));
 * */
 export function getMemosByUrl(url) {
-  return db.transaction('rw', db.memos, () => db.memos.where('url').equals(url).toArray());
+  return db.transaction('rw', db.memos, () => {
+    const urlWithoutHash = util.removeUrlHash(url);
+    return db.memos.where('url')
+      .equals(url)
+      .or('url')
+      .equals(urlWithoutHash)
+      .toArray();
+  });
 }
 
 /*

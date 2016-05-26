@@ -17,4 +17,9 @@ export default {
     }
     return uuid;
   },
+
+  removeUrlHash: (url) => {
+    const reg = /#.+$/;
+    return url.replace(reg, '');
+  },
 };

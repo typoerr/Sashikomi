@@ -20,13 +20,14 @@ function insertNewMemo() {
   const targetElm = document.querySelector(targetElmPath);
   const containerElm = document.createElement('div');
   let containerElmId = util.uuid();
+  const url = util.removeUrlHash(location.href);
 
   containerElm.setAttribute('id', containerElmId);
   targetElm.appendChild(containerElm);
 
   ReactDOM.render(
     <MemoContainer
-      url={location.href}
+      url={url}
       targetElmPath={targetElmPath}
       containerElmId={containerElmId}
     />,
@@ -35,6 +36,7 @@ function insertNewMemo() {
 }
 
 
+// TODO: すでにComponentが存在しているか判定して重複を避ける処理
 function insertComponent(memos = []) {
   const insertionErrors = [];
 

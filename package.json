@@ -1,13 +1,14 @@
 {
   "name": "sashikomi",
   "version": "1.0.0",
-  "description": "",
+  "description": "chrome extention",
   "scripts": {
-    "build": "webpack --progress --config ./webpack.dev.config.js",
-    "watch": "webpack --watch --progress --config ./webpack.dev.config.js",
+    "build": "webpack",
+    "watch": "webpack --watch",
     "server": "lite-server --verbose",
-    "dev": "concurrent \"npm run watch\" \"npm run server\"",
-    "release": "webpack -p --progress --config ./webpack.production.config.js"
+    "start": "npm run watch & npm run server",
+    "clean": "rimraf ./ext/dist",
+    "prod": "webpack -p --progress"
   },
   "devDependencies": {
     "babel-core": "^6.3.17",
@@ -40,6 +41,7 @@
     "marked": "^0.3.5",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "react-lite": "0.15.13"
+    "react-lite": "0.15.13",
+    "rimraf": "^2.5.2"
   }
 }

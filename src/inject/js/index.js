@@ -1,27 +1,10 @@
 require('../css/inject.scss');
-
-import React from 'react'
-import ReactDOM from 'react-dom'
-import MemoContainer from './components/MemoContainer'
-import cssPath from 'css-path'
-import _ from '../../util'
-import ErrorPage from './components/ErrorPage'
-
-/*===============================================
-* Message Listener
-* ==============================================*/
-chrome.runtime.onMessage.addListener(function (req) {
-  switch (req.type) {
-    case "CONTEXT_MENU":
-      insertNewMemo();
-      break;
-    case "TAB_ON_UPDATED":
-      insertComponent(req.data);
-      break;
-    default:
-      console.log("Error: Unknown request. : ", req);
-  }
-});
+import React from 'react';
+import ReactDOM from 'react-dom';
+import MemoContainer from './components/MemoContainer';
+import cssPath from 'css-path';
+import util from '../../util';
+import ErrorPage from './components/ErrorPage';
 
 function insertNewMemo() {
   /* Componentを挿入(Editor)
@@ -32,11 +15,11 @@ function insertNewMemo() {
    * containerElmをPageに挿入
    * containerElmIdを頼りにReactComponentを挿入
   * */
-  let selection = window.getSelection();
+  const selection = window.getSelection();
   let targetElmPath = cssPath(selection.getRangeAt(0).endContainer.parentNode);
-  let targetElm = document.querySelector(targetElmPath);
-  let containerElm = document.createElement('div');
-  let containerElmId = _.uuid();
+  const targetElm = document.querySelector(targetElmPath);
+  const containerElm = document.createElement('div');
+  let containerElmId = util.uuid();
 
   containerElm.setAttribute('id', containerElmId);
   targetElm.appendChild(containerElm);
@@ -53,13 +36,12 @@ function insertNewMemo() {
 
 
 function insertComponent(memos = []) {
-  let insertionErrors = [];
+  const insertionErrors = [];
 
   memos.forEach(memo => {
-
-    let targetElm = document.querySelector(memo.targetElmPath);
-    let containerElm = document.createElement('div');
-    let containerElmId = _.uuid();
+    const targetElm = document.querySelector(memo.targetElmPath);
+    const containerElm = document.createElement('div');
+    let containerElmId = util.uuid();
 
     try {
       containerElm.setAttribute('id', containerElmId);
@@ -75,24 +57,40 @@ function insertComponent(memos = []) {
         />,
         document.getElementById(containerElmId)
       );
-
     } catch (e) {
-      insertionErrors.push(memo)
+      insertionErrors.push(memo);
     }
   });
 
   if (insertionErrors.length) {
-    chrome.runtime.sendMessage({ type: 'HAS_INSERTION_ERRORS', data: insertionErrors })
+    chrome.runtime.sendMessage({ type: 'HAS_INSERTION_ERRORS', data: insertionErrors });
   }
 }
 
+/* ===============================================
+* Message Listener
+* ==============================================*/
+chrome.runtime.onMessage.addListener(req => {
+  switch (req.type) {
+  case "CONTEXT_MENU":
+    insertNewMemo();
+    break;
+  case "TAB_ON_UPDATED":
+    insertComponent(req.data);
+    break;
+  default:
+    console.log("Error: Unknown request. : ", req);
+  }
+});
 
-/*===============================================
+
+/* ===============================================
 * InsertionErrorPage
 * ==============================================*/
 if (location.href.match(/chrome-extension:\/\//)) {
   ReactDOM.render(
-    <ErrorPage/>,
+    <ErrorPage />,
     document.getElementById('InsertionErrorContainer')
   );
 }
+

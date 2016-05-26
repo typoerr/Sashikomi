@@ -8,3 +8,5 @@ node_modules/
 /ext/dist
 /sample2.md
 /screenshot
+typings
+typings.json

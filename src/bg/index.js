@@ -1,12 +1,14 @@
-import messageListener from './message_listener';
+require('./message_listener');
 import * as store from './store';
+import util from './../util.js';
 
 /* ========================================
 * Tab Action
 * ========================================*/
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.status === 'complete') {
-    store.getMemosByUrl(tab.url)
+    const url = util.removeUrlHash(tab.url);
+    store.getMemosByUrl(url)
       .then(data => {
         if (data.length) {
           chrome.tabs.sendMessage(tabId, { type: 'TAB_ON_UPDATED', data });

@@ -49,6 +49,7 @@ export default class Editor extends Component {
         </div>
         <div className="EditorBody">
           <textarea
+            autoFocus="true"
             value={this.state.inputText}
             onChange={this.handleChange.bind(this) }
             onKeyDown={this.handleKeyDown.bind(this) }

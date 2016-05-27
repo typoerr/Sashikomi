@@ -51,9 +51,8 @@ function insertComponent(memos = []) {
 
   for (const memo of memos) {
     const targetElm = document.querySelector(memo.targetElmPath);
-
     // targetElmにdata属性を付けて存在を判断
-    if (targetElm.dataset.sashikomi) continue;
+    if (targetElm && targetElm.dataset.sashikomi) continue;
 
     try {
       const containerElm = document.createElement('div');

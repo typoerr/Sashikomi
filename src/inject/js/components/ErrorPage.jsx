@@ -37,12 +37,11 @@ export default class ErrorPage extends Component {
     }
   }
 
-  // viewerにonEidtButtonClickプロパティを渡していないのでerrorが出る
   renderContentList() {
     return this.state.data.map(memo =>
       <Viewer
         key={memo.id}
-        onDeleteButtonClick={this.handleDelete(memo)}
+        onDeleteButtonClick={this.handleDelete.bind(this, memo)}
         markdown={memo.contentText}
         />
     );
@@ -64,7 +63,7 @@ export default class ErrorPage extends Component {
                   ? <button
                     type="button"
                     className="p-operation-btn"
-                    onClick={this.handleDeleteAll}
+                    onClick={this.handleDeleteAll.bind(this)}
                     >
                     delete all
                   </button>

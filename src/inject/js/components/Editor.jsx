@@ -1,39 +1,28 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Base from './Base'
-import Button from './Button'
+import React, { Component, PropTypes } from 'react';
 
-export default class Editor extends Base {
+export default class Editor extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      inputContent: this.props.contentText,
-      hasChanged: false
+      inputText: this.props.value || '',
+      hasChanged: false,
     };
-
-    this._bind('handleChange', 'handleCancel', 'handleSubmit', 'handleKeyDown');
-  }
-
-  componentDidMount() {
-    // react-liteを使った場合に2回目以降のrenderからautoFocusが何故か当たらないため
-    // 直接DOMを参照してfocusを当ててる
-    this.refs._textarea.focus();
   }
 
   handleCancel() {
     if (this.state.hasChanged) {
-      let msg = chrome.i18n.getMessage('alert_cancel');
-      confirm(msg) && this.props.onClose();
+      const msg = chrome.i18n.getMessage('alert_cancel');
+      confirm(msg) && this.props.onCancel();
     } else {
-      this.props.onClose()
+      this.props.onCancel();
     }
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.inputContent.trim()) {
-      this.props.onSubmit(this.state.inputContent);
-      this.props.onClose()
+    if (this.state.inputText.trim()) {
+      this.props.onSubmit(this.state.inputText);
+      this.props.onCancel();
     }
   }
 
@@ -44,39 +33,34 @@ export default class Editor extends Base {
     }
   }
 
-
   handleChange(e) {
     this.setState({
-      inputContent: e.target.value,
-      hasChanged: true
-    })
+      inputText: e.target.value,
+      hasChanged: true,
+    });
   }
 
   render() {
-
     return (
-      <div className="p-editor">
-
-        <div className="p-editor__btn-group">
-          <Button onClick={this.handleSubmit}>SUBMIT</Button>
-          <Button onClick={this.handleCancel}>CANCEL</Button>
+      <div className="Editor">
+        <div className="BtnGroup">
+          <button onClick={this.handleSubmit.bind(this) }>Submit</button>
+          <button onClick={this.handleCancel.bind(this) }>Cancel</button>
         </div>
-
-        <div className="p-editor__body">
+        <div className="EditorBody">
           <textarea
-            ref="_textarea"
-            value={this.state.inputContent}
-            onChange={this.handleChange}
-            onKeyDown={this.handleKeyDown}
-          />
+            value={this.state.inputText}
+            onChange={this.handleChange.bind(this) }
+            onKeyDown={this.handleKeyDown.bind(this) }
+            />
         </div>
       </div>
-    )
+    );
   }
 }
 
 Editor.propTypes = {
-  contentText: React.PropTypes.string,
-  onClose: React.PropTypes.func.isRequired,
-  onSubmit: React.PropTypes.func.isRequired
+  value: PropTypes.string,
+  onCancel: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
 };

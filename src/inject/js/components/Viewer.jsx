@@ -5,8 +5,8 @@ import highlightJS from 'highlight.js';
 
 const ViewerPropTypes = {
   markdown: PropTypes.string,
-  onEditButtonClick: PropTypes.func.isRequired,
-  onDeleteButtonClick: PropTypes.func.isRequired,
+  onEditButtonClick: PropTypes.func,
+  onDeleteButtonClick: PropTypes.func,
 };
 
 export default class Viewer extends Component {
@@ -21,13 +21,45 @@ export default class Viewer extends Component {
     return { __html: md };
   }
 
+  renderButtons() {
+    const { onEditButtonClick, onDeleteButtonClick } = this.props;
+    let editButton = '';
+    let deleteButton = '';
+
+    if (!!onEditButtonClick) {
+      editButton = (
+        <button
+          type="button"
+          onClick={this.props.onEditButtonClick.bind(this) }
+          >
+          Edit
+        </button>
+      );
+    }
+
+    if (!!onDeleteButtonClick) {
+      deleteButton = (
+        <button
+          type="button"
+          onClick={this.props.onDeleteButtonClick.bind(this) }
+          >
+          Delete
+        </button>
+      );
+    }
+
+    return (
+      <div className="BtnGroup">
+        {editButton}
+        {deleteButton}
+      </div>
+    );
+  }
+
   render() {
     return (
       <div className="Viewer">
-        <div className="BtnGroup">
-          <button type="button" onClick={this.props.onEditButtonClick.bind(this)}>Edit</button>
-          <button type="button" onClick={this.props.onDeleteButtonClick.bind(this)}>Delete</button>
-        </div>
+        {this.renderButtons()}
         <div
           className="Viewer__body"
           dangerouslySetInnerHTML={this.rawMarkup() }>

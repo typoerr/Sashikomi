@@ -7,9 +7,6 @@ export default class MemoContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: this.props.id,
-      url: this.props.url,
-      targetElmPath: this.props.targetElmPath,
       contentText: this.props.contentText || "",
       isEditing: false,
     };
@@ -33,12 +30,11 @@ export default class MemoContainer extends Component {
   }
 
   handleSubmit(text) {
-    const data = Object.assign({}, this.state, { contentText: text });
-    this.setState(data);
-
+    const data = Object.assign({}, this.props, { contentText: text });
     chrome.runtime.sendMessage({ type: 'PUT', data },
       (res) => {
-        if (res.status === 'success') this.setState(res.data);
+        const { contentText } = res.data;
+        if (res.status === 'success') this.setState({ contentText, isEditing: false });
       }
     );
   }
@@ -46,7 +42,7 @@ export default class MemoContainer extends Component {
   handleDelete() {
     const msg = chrome.i18n.getMessage('alert_delete');
     if (confirm(msg)) {
-      const data = Object.assign({}, this.state);
+      const data = Object.assign({}, this.props);
       chrome.runtime.sendMessage({ type: 'DELETE', data },
         (res) => {
           if (res.status === 'success') this.removeComponent();

@@ -22,7 +22,6 @@ export default class Editor extends Component {
     e.preventDefault();
     if (this.state.inputText.trim()) {
       this.props.onSubmit(this.state.inputText);
-      this.props.onCancel();
     }
   }
 

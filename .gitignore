@@ -2,7 +2,8 @@
 /ext.crx
 node_modules/
 *.log
-/index.html
+*.html
+
 /sample.md
 /ext.zip
 /ext/dist

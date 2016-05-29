@@ -59,24 +59,24 @@ export default (() => {
 
   chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
     switch (req.type) {
-    case "PUT":
-      putMemo(req, sendResponse);
-      validatePageAction(sender);
-      break;
-    case "DELETE":
-      deleteMemo(req, sendResponse);
-      validatePageAction(sender);
-      break;
-    case "HAS_INSERTION_ERRORS":
-      changePageActionToErrorIcon(req, sender);
-      addFlag(req);
-      break;
-    case "GET_INSERTION_ERRORS":
-      getInsertionErrors(sendResponse);
-      break;
-    default:
-      console.log("Error: Unknown request.");
-      console.log(req);
+      case "PUT":
+        putMemo(req, sendResponse);
+        validatePageAction(sender);
+        break;
+      case "DELETE":
+        deleteMemo(req, sendResponse);
+        validatePageAction(sender);
+        break;
+      case "HAS_INSERTION_ERRORS":
+        changePageActionToErrorIcon(req, sender);
+        addFlag(req);
+        break;
+      case "GET_INSERTION_ERRORS":
+        getInsertionErrors(sendResponse);
+        break;
+      default:
+        console.log("Error: Unknown request.");
+        console.log(req);
     }
 
     return true;

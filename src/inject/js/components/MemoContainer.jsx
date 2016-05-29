@@ -1,120 +1,90 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Base from './Base'
-import Memo from './Memo'
-import Editor from './Editor'
+import React, { Component, PropTypes } from 'react';
+import ReactDOM from 'react-dom';
+import Editor from './Editor.jsx';
+import Viewer from './Viewer.jsx';
 
-export default class MemoContainer extends Base {
+export default class MemoContainer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: this.props.id,
-      url: this.props.url,
-      targetElmPath: this.props.targetElmPath,
       contentText: this.props.contentText || "",
-      isEditing: false
+      isEditing: false,
     };
-
-    this._bind(
-      'rendererChild',
-      'handleToggleChild',
-      'handleSubmit',
-      'handleDelete'
-    );
   }
 
   componentWillMount() {
     if (!this.state.contentText.trim()) {
-      this.setState({ isEditing: true })
+      this.setState({ isEditing: true });
     }
   }
 
+  // これは必要あるか？
   componentDidUpdate() {
     if (!this.state.isEditing && !this.state.contentText.trim()) {
       this.removeComponent();
     }
   }
 
-  handleToggleChild() {
-    this.setState({ isEditing: !this.state.isEditing })
+  handleToggleView() {
+    this.setState({ isEditing: !this.state.isEditing });
   }
 
   handleSubmit(text) {
-    let data = Object.assign({}, this.state, { contentText: text });
-    this.setState(data);
-
-    chrome.runtime.sendMessage({ type: 'PUT', data: data },
+    const data = Object.assign({}, this.props, { contentText: text });
+    chrome.runtime.sendMessage({ type: 'PUT', data },
       (res) => {
-        if (res.status === 'error') {
-          console.log(res.errorMessage);
-        } else if (res.status === 'success') {
-          this.setState(res.data)
-        }
+        const { contentText } = res.data;
+        if (res.status === 'success') this.setState({ contentText, isEditing: false });
       }
     );
   }
 
-
   handleDelete() {
-    let msg = chrome.i18n.getMessage('alert_delete');
+    const msg = chrome.i18n.getMessage('alert_delete');
     if (confirm(msg)) {
-
-      let data = Object.assign({}, this.state);
-
-      chrome.runtime.sendMessage({ type: 'DELETE', data: data },
+      const data = Object.assign({}, this.props);
+      chrome.runtime.sendMessage({ type: 'DELETE', data },
         (res) => {
-          if (res.status === 'error') {
-            console.log(res.errorMessage);
-          } else if (res.status === 'success') {
-            this.removeComponent();
-          }
+          if (res.status === 'success') this.removeComponent();
         }
       );
     }
   }
 
   removeComponent() {
-    let elm = document.getElementById(this.props.containerElmId);
+    const elm = document.getElementById(this.props.containerElmId);
     ReactDOM.unmountComponentAtNode(elm);
     elm.parentNode.removeChild(elm);
   }
 
 
-  rendererChild() {
-    if (this.state.isEditing) {
-      return (
-        <Editor
-          contentText={this.state.contentText}
-          onClose={this.handleToggleChild}
-          onSubmit={this.handleSubmit}
-        />
-      )
-    } else {
-      return (
-        <Memo
-          contentText={this.state.contentText}
-          onClose={this.handleToggleChild}
-          onDelete={this.handleDelete}
-        />
-      )
-    }
-  }
-
   render() {
     return (
-      <div className='chrome__sashikomi'>
-        <div className='chrome__sashikomi--ext'>
-          {this.rendererChild()}
+      <div className="ch_sahiskomi">
+        <div className="ch_sashikomi--ext">
+          {
+            this.state.isEditing
+              ? <Editor
+                value={this.state.contentText}
+                onCancel={this.handleToggleView.bind(this) }
+                onSubmit={this.handleSubmit.bind(this) }
+                />
+              : <Viewer
+                markdown={this.state.contentText}
+                onEditButtonClick={this.handleToggleView.bind(this) }
+                onDeleteButtonClick={this.handleDelete.bind(this) }
+                />
+          }
         </div>
       </div>
-    )
+    );
   }
 }
 
 MemoContainer.propTypes = {
-  id: React.PropTypes.number,
-  url: React.PropTypes.string.isRequired,
-  contentText: React.PropTypes.string,
-  targetElmPath: React.PropTypes.string.isRequired,
-  containerElmId: React.PropTypes.string.isRequired
+  id: PropTypes.number,
+  url: PropTypes.string.isRequired,
+  contentText: PropTypes.string,
+  targetElmPath: PropTypes.string.isRequired,
+  containerElmId: PropTypes.string.isRequired,
 };

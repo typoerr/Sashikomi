@@ -1,5 +1,6 @@
 import Dexie from 'dexie';
 import util from '../util';
+import _ from 'lodash/pick';
 
 /* -----------------------------------
   Schema
@@ -37,7 +38,7 @@ store.save(new_memo)
   .catch(err => console.log(err));
 * */
 export function save(obj) {
-  const data = util.pick(obj, ['id', 'url', 'targetElmPath', 'contentText']);
+  const data = _.pick(obj, ['id', 'url', 'targetElmPath', 'contentText']);
   return db.transaction('rw', db.memos, () => db.memos.put(data).then(id => db.memos.get(id)));
 }
 
@@ -93,7 +94,7 @@ export function getMemosByUrl(url) {
 * */
 export function addInsertionErrorFlag(memos = []) {
   const invalidMemos = memos.map(memo => {
-    const data = util.pick(memo, ['id', 'url', 'targetElmPath', 'contentText']);
+    const data = _.pick(memo, ['id', 'url', 'targetElmPath', 'contentText']);
     return Object.assign({}, data, { insertionError: true });
   });
 

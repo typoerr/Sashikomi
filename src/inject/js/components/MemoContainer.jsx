@@ -60,8 +60,8 @@ export default class MemoContainer extends Component {
 
   render() {
     return (
-      <div className="chrome__sashikomi">
-        <div className="chrome__sashikomi--ext">
+      <div className="ch_sahiskomi">
+        <div className="ch_sashikomi--ext">
           {
             this.state.isEditing
               ? <Editor

@@ -2,11 +2,10 @@
 /ext.crx
 node_modules/
 *.log
-/index.html
-/sample.md
+/*.html
+/*.md
 /ext.zip
 /ext/dist
-/sample2.md
 /screenshot
 typings
 typings.json

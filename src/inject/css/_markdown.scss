@@ -1,0 +1,191 @@
+/* ==========================================
+Markdown Styles
+==========================================*/
+.Viewer_body {
+  /* typography
+  -------------------------------------*/
+  font-weight: 400;
+  font-size: 15px !important;
+  font-family: $base-font-family !important;
+  line-height: 1.6 !important;
+
+  p, a, li {
+    font-weight: 400;
+    font-size: 15px !important;
+    font-family: $base-font-family;
+    line-height: 1.6 !important;
+  }
+
+  a
+
+
+  /* heading
+  -------------------------------*/
+  h1, h2, h3, h4, h5, h6 {
+    border: none;
+    font-weight: 400 !important;
+  }
+
+  h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    font-weight: 400 !important;
+    font-size: inherit !important;
+  }
+
+  h1 {
+    padding: 3px;
+    border-bottom: 1px solid #e4e4e4;
+    font-weight: 400;
+    font-size: 20px !important;
+  }
+
+  h2 {
+    font-size: 20px !important;
+  }
+
+  h3 {
+    padding-bottom: 3px;
+    border-bottom: 1px dashed #ccc;
+    font-size: 18px !important;
+  }
+
+  h4 {
+    font-size: 15px !important;
+  }
+
+  h5 {
+    font-size: 12px !important;
+  }
+
+  h6 {
+    font-size: 10px !important;
+  }
+
+
+  /* list
+  --------------------------------------*/
+  ul {
+    list-style-type: disc;
+  }
+
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul, ol, li {
+    margin: 0;
+  }
+
+  li > p {
+    margin-bottom: 0;
+  }
+
+  ul, ol {
+    padding-left: 30px;
+  }
+
+  ul :first-child, ol :first-child {
+    margin-top: 0;
+  }
+
+  /* image
+  -------------------------------------*/
+  img {
+    display: block ;
+    max-width: 100%;
+  }
+
+  /* pre code
+--------------------------------------*/
+  code {
+    margin: 0 2px;
+    padding: 2px 5px;
+    border-radius: 3px;
+    background-color: $code-background-color;
+    color: $code-color;
+    white-space: nowrap;
+    font-size: .9em;
+    font-family: "Monaco", monospace, "Courier", "Inconsolata", "Bitstream Vera Sans Mono";
+  }
+
+  pre {
+    overflow: auto;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 3px;
+    background-color: $code-background-color;
+    color: $code-color;
+    font-size: .9em;
+    line-height: 1.6;
+  }
+
+  pre code {
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    white-space: pre;
+  }
+
+
+  /* table
+  --------------------------------*/
+  table {
+    padding: 0;
+    border-collapse: collapse;
+  }
+  table tr {
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #ccc;
+    background-color: white;
+  }
+  table tr:nth-child(2n) {
+    background-color: #f8f8f8;
+  }
+  table tr th {
+    margin: 0;
+    padding: 6px 13px;
+    border: 1px solid #ccc;
+    font-weight: bold;
+  }
+  table tr td {
+    margin: 0;
+    padding: 6px 13px;
+    border: 1px solid #ccc;
+  }
+  table tr th :first-child, table tr td :first-child {
+    margin-top: 0;
+  }
+  table tr th :last-child, table tr td :last-child {
+    margin-bottom: 0;
+  }
+
+  /* block quote
+  ------------------------------*/
+  blockquote {
+    margin: 15px 20px;
+    padding: 0 15px;
+    border-left: 4px solid #ddd;
+    color: #777;
+  }
+  blockquote > :first-child {
+    margin-top: 0;
+  }
+  blockquote > :last-child {
+    margin-bottom: 0;
+  }
+
+  /* Spece
+---------------------------------- */
+  h1, h2, h3, h4, h5, h6, pre, p {
+    margin: 20px 0 !important;
+  }
+
+  > *:first-child {
+    margin-top: 0 !important;
+  }
+
+  > *:last-child {
+    margin-bottom: 0 !important;
+  }
+}

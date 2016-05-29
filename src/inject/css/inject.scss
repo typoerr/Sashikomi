@@ -1,4 +1,3 @@
-// TODO: markdownのstyle
 // TODO: pageのstyle
 
 /* =====================================
@@ -8,28 +7,24 @@
 $base-font-family: "helvetica neue", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, sans-serif;
 $sahikomi-color: #7d3c98;
 $default-font-color: #444;
+$default-link-color: #20a8d4;
+$default-link-hover-color: #1487ad;
 $dark-white: #ddd;
 $default-background-color: #f6f6f6;
+$code-color: #f2f2f2;
+$code-background-color: #273b42;
+
 
 
 .ch_sahiskomi {
-  @import 'base/reset.scss';
-  html {
-    font-size: 62.5%;
-  }
+  margin: 20px 0;
 
-  body {
-    font-weight: 400;
-    font-size: 30px;
-    font-family: $base-font-family;
-    line-height: 1.7;
-  }
+  @import 'base/reset.scss';
 
   button, input[type="button"], .button {
     border: none;
-    background: none;
     border-radius: 0;
-
+    background: none;
   }
 
   div {
@@ -37,7 +32,11 @@ $default-background-color: #f6f6f6;
   }
 
   a {
+    color: $default-link-color !important;
     text-decoration: none;
+    &:hover {
+      color: $default-link-hover-color !important;
+    }
   }
 }
 
@@ -50,6 +49,10 @@ $default-background-color: #f6f6f6;
 # Module
 ======================================= */
 .ch_sahiskomi {
+  /* highlight */
+  @import 'vendor/tomorrow-night-eighties';
+
+  /* button */
   .btn-group {
     display: flex;
 
@@ -80,6 +83,7 @@ $default-background-color: #f6f6f6;
 # Component
 ======================================= */
 .ch_sahiskomi {
+  @import 'markdown';
   .Sashikomi {
     position: relative;
     overflow: hidden;
@@ -88,7 +92,7 @@ $default-background-color: #f6f6f6;
     color: $default-font-color;
     font-weight: 400;
     font-size: 16px;
-    font-family: $base-font-family;
+    font-family: $base-font-family !important;
     line-height: 1.7;
 
     &:hover {

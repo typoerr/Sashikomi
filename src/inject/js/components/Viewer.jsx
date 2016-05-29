@@ -65,7 +65,7 @@ export default class Viewer extends Component {
           {this.renderButtons() }
         </div>
         <div
-          className="Viewer__body"
+          className="Viewer_body"
           dangerouslySetInnerHTML={this.rawMarkup() }>
         </div>
       </div>

@@ -19,7 +19,7 @@ $code-background-color: #273b42;
 .ch_sahiskomi {
   margin: 20px 0;
 
-  @import 'base/reset.scss';
+  @import 'base/reset';
 
   button, input[type="button"], .button {
     border: none;

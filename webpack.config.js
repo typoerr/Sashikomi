@@ -1,8 +1,10 @@
 const webpack = require('webpack');
-var WebpackNotifierPlugin = require('webpack-notifier');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
+const WebpackNotifierPlugin = require('webpack-notifier');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const path = require('path');
 const basePath = path.join(__dirname, 'src');
+
+const extractSass = new ExtractTextPlugin("inject.bundle.css");
 
 const common = {
   context: basePath,
@@ -47,7 +49,7 @@ const common = {
   },
   plugins: [
     new WebpackNotifierPlugin({ title: 'Webpack' }),
-    new ExtractTextPlugin("inject.bundle.css"),
+    extractSass,
   ],
 };
 
@@ -73,6 +75,7 @@ const prod = {
     new webpack.optimize.DedupePlugin(),
     // ファイルを細かく分析し、まとめられるところはできるだけまとめてコードを圧縮する
     new webpack.optimize.AggressiveMergingPlugin(),
+    extractSass,
   ],
 };
 

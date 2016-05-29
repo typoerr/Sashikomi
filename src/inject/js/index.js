@@ -1,12 +1,12 @@
 // TODO: insert処理で重複している処理がたくさんあるので、きれいにまとめたい
 
-require('../css/inject.scss');
+require('./../css/inject.scss');
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MemoContainer from './components/MemoContainer';
+import MemoContainer from './components/MemoContainer.jsx';
 import cssPath from 'css-path';
 import util from '../../util';
-import ErrorPage from './components/ErrorPage';
+import ErrorPage from './components/ErrorPage.jsx';
 
 function insertNewMemo() {
   /* Componentを挿入(Editor)

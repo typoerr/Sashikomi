@@ -1,115 +1,134 @@
-/* =======================================
-  Foundation
-==========================================*/
-/* variable
--------------------------------------------*/
-@import "base/variables";
-/* base
---------------------------------------------*/
-@import "base/normalize";
-@import "base/typography";
+// TODO: markdownのstyle
+// TODO: pageのstyle
+
+/* =====================================
+# Base
+======================================= */
+/* variables */
+$base-font-family: "helvetica neue", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, sans-serif;
+$sahikomi-color: #7d3c98;
+$default-font-color: #444;
+$dark-white: #ddd;
+$default-background-color: #f6f6f6;
 
 
-.chrome__sashikomi {
+.ch_sahiskomi {
+  @import 'base/reset.scss';
+  html {
+    font-size: 62.5%;
+  }
+
   body {
-    margin : 0;
+    font-weight: 400;
+    font-size: 30px;
+    font-family: $base-font-family;
+    line-height: 1.7;
   }
 
-  button {
-    &:active {
-      position : relative;
-      top      : 1px;
-      right    : -1px;
-    }
+  button, input[type="button"], .button {
+    border: none;
+    background: none;
+    border-radius: 0;
 
-    &:focus {
-      outline : none;
-    }
   }
-}
 
+  div {
+    box-sizing: border-box;
+  }
 
-/* =======================================
-  Layout
-==========================================*/
-@import "layout";
-
-/* =======================================
-  Object
-==========================================*/
-/*
-  Component
---------------------------------------------*/
-%c-btn--link {
-  background : none;
-  border     : none;
-  margin     : 0;
-  padding    : 0;
-  color      : $link-color;
-  &:hover {
-    text-decoration : underline;
+  a {
+    text-decoration: none;
   }
 }
 
 
-%c-memo {
-  position    : relative;
-  display     : block !important;
-  box-sizing  : border-box;
-  margin      : 15px 0;
-  width       : 100%;
-  font-size   : 15px;
-  color       : $default-font-color;
-  border-left : 4px solid $accent-color;
-  background  : $dark-white;
+/* =====================================
+# Layout
+======================================= */
 
-  &:hover {
-    .p-memo__btn-group {
-      display : block;
+/* =====================================
+# Module
+======================================= */
+.ch_sahiskomi {
+  .btn-group {
+    display: flex;
+
+    justify-content: flex-end;
+    .button + .button {
+      margin-left: 1px;
+    }
+  }
+
+  .button {
+    display: block;
+    float: left;
+    padding: 5px 10px;
+    border: none;
+    background: $sahikomi-color;
+    color: #fff;
+    font-size: 12px;
+    opacity: .5;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
     }
   }
 }
 
 
-%c-memo__body {
-  padding : 15px;
-  @import "project/tomorrow-night-eighties";
-}
-
-
-%c-btn-group {
-  display  : none;
-  position : absolute;
-  top      : 0;
-  right    : 0;
-  overflow : hidden;
-  width    : 100%;
-  z-index  : 1;
-
-  button {
-    cursor     : pointer;
-    display    : block;
-    float      : right;
-    background : $accent-color--rgba;
-    border     : 0;
-    padding    : 5px 15px;
-    color      : $white;
-    font-size  : 14px;
+/* =====================================
+# Component
+======================================= */
+.ch_sahiskomi {
+  .Sashikomi {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border-left: 5px solid $sahikomi-color;
+    color: $default-font-color;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: $base-font-family;
+    line-height: 1.7;
 
     &:hover {
-      background-color : $accent-color;
+      .Sashikomi_header {
+        display: block;
+      }
     }
   }
 
-  button + button {
-    border-right : 1px solid $dark-white;
+  .Sashikomi_header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    overflow: hidden;
+    max-width: 200px;
+  }
+
+  .Viewer {
+    padding: 12px;
+    background: $default-background-color;
+    font-size: inherit;
+  }
+
+  .Editor {
+    border-top: 1px solid $dark-white;
+    border-right: 1px solid $dark-white;
+    border-bottom: 1px solid $dark-white;
+  }
+
+
+  .Editor_body {
+    .textarea {
+      padding: 15px;
+      min-height: 200px;
+      width: 100%;
+      outline: none;
+      border: none;
+      box-shadow: none;
+      font-size: inherit;
+    }
   }
 }
-
-
-/*
-  Project
---------------------------------------------*/
-@import 'project/page';
-@import "project/ext";
-@import "project/markdown";

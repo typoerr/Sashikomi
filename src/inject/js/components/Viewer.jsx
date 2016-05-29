@@ -30,6 +30,7 @@ export default class Viewer extends Component {
       editButton = (
         <button
           type="button"
+          className="button"
           onClick={this.props.onEditButtonClick.bind(this) }
           >
           Edit
@@ -41,6 +42,7 @@ export default class Viewer extends Component {
       deleteButton = (
         <button
           type="button"
+          className="button"
           onClick={this.props.onDeleteButtonClick.bind(this) }
           >
           Delete
@@ -49,7 +51,7 @@ export default class Viewer extends Component {
     }
 
     return (
-      <div className="BtnGroup">
+      <div className="btn-group">
         {editButton}
         {deleteButton}
       </div>
@@ -58,8 +60,10 @@ export default class Viewer extends Component {
 
   render() {
     return (
-      <div className="Viewer">
-        {this.renderButtons()}
+      <div className="Sashikomi Viewer">
+        <div className="Sashikomi_header">
+          {this.renderButtons() }
+        </div>
         <div
           className="Viewer__body"
           dangerouslySetInnerHTML={this.rawMarkup() }>

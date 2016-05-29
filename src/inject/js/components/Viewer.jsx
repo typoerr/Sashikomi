@@ -1,4 +1,3 @@
-// TODO: iframe
 import React, { Component, PropTypes } from 'react';
 import marked from 'marked';
 import highlightJS from 'highlight.js';

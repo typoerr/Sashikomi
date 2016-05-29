@@ -1,115 +1,208 @@
-/* =======================================
-  Foundation
-==========================================*/
-/* variable
--------------------------------------------*/
-@import "base/variables";
-/* base
---------------------------------------------*/
-@import "base/normalize";
-@import "base/typography";
+/* =====================================
+# Base
+======================================= */
+/* variables */
+$base-font-family: "helvetica neue", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, sans-serif;
+$sashikomi-color: #7d3c98;
+$default-font-color: #444;
+$default-link-color: #20a8d4;
+$default-link-hover-color: #1487ad;
+$dark-white: #ddd;
+$default-background-color: #f6f6f6;
+$code-color: #f2f2f2;
+$code-background-color: #273b42;
 
 
-.chrome__sashikomi {
-  body {
-    margin : 0;
-  }
-
-  button {
-    &:active {
-      position : relative !important;
-      top      : 1px !important;
-      right    : -1px !important;
-    }
-
-    &:focus {
-      outline : none !important;
-    }
-  }
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $base-font-family;
 }
 
+.ch_sashikomi, .ch_sashikomi--page {
+  @import 'base/reset';
 
-/* =======================================
-  Layout
-==========================================*/
-@import "layout";
-
-/* =======================================
-  Object
-==========================================*/
-/*
-  Component
---------------------------------------------*/
-%c-btn--link {
-  background : none;
-  border     : none;
-  margin     : 0;
-  padding    : 0;
-  color      : $link-color;
-  &:hover {
-    text-decoration : underline;
+  button, input[type="button"], .button {
+    border: none;
+    border-radius: 0;
+    background: none;
   }
-}
 
+  div {
+    box-sizing: border-box;
+  }
 
-%c-memo {
-  position    : relative;
-  display     : block !important;
-  box-sizing  : border-box;
-  margin      : 15px 0;
-  width       : 100%;
-  font-size   : 15px;
-  color       : $default-font-color;
-  border-left : 4px solid $accent-color;
-  background  : $dark-white;
-
-  &:hover {
-    .p-memo__btn-group {
-      display : block;
+  a {
+    color: $default-link-color !important;
+    text-decoration: none;
+    &:hover {
+      color: $default-link-hover-color !important;
     }
   }
 }
 
-
-%c-memo__body {
-  padding : 15px;
-  @import "project/tomorrow-night-eighties";
+.ch_sashikomi--ext {
+  margin: 20px 0 !important;
 }
 
 
-%c-btn-group {
-  display  : none;
-  position : absolute;
-  top      : 0;
-  right    : 0;
-  overflow : hidden;
-  width    : 100%;
-  z-index  : 1;
+/* =====================================
+# Layout
+======================================= */
 
-  button {
-    cursor     : pointer !important;
-    display    : block !important;
-    float      : right !important;
-    background : $accent-color--rgba !important;
-    border     : 0 !important;
-    padding    : 5px 15px !important;
-    color      : $white !important;
-    font-size  : 14px !important;
+/* =====================================
+# Module
+======================================= */
+.ch_sashikomi {
+  /* highlight */
+  @import 'vendor/tomorrow-night-eighties';
+
+  /* button */
+  .btn-group {
+    display: flex;
+
+    justify-content: flex-end;
+    .button + .button {
+      margin-left: 1px;
+    }
+  }
+
+  .button {
+    display: block;
+    float: left;
+    padding: 5px 10px;
+    border: none;
+    background: $sashikomi-color;
+    color: #fff;
+    font-size: 12px;
+    opacity: .5;
+    cursor: pointer;
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .button-lg {
+    padding: 10px 15px;
+    font-size: 18px;
+  }
+}
+
+
+/* =====================================
+# Component
+======================================= */
+.ch_sashikomi {
+  @import 'markdown';
+  .Sashikomi {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    border-left: 5px solid $sashikomi-color;
+    color: $default-font-color;
+    font-weight: 400;
+    font-size: 16px;
+    font-family: $base-font-family !important;
+    line-height: 1.7;
 
     &:hover {
-      background-color : $accent-color !important;
+      .Sashikomi_header {
+        display: block;
+      }
     }
   }
 
-  button + button {
-    border-right : 1px solid $dark-white !important;
+  .Sashikomi_header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+    overflow: hidden;
+    max-width: 200px;
+  }
+
+  .Viewer {
+    padding: 12px;
+    background: $default-background-color;
+    font-size: inherit;
+  }
+
+  .Editor {
+    border-top: 1px solid $dark-white;
+    border-right: 1px solid $dark-white;
+    border-bottom: 1px solid $dark-white;
+  }
+
+
+  .Editor_body {
+    .textarea {
+      padding: 15px;
+      min-height: 200px;
+      width: 100%;
+      outline: none;
+      border: none;
+      box-shadow: none;
+      font-size: inherit;
+    }
+  }
+}
+
+/* error page */
+.ch_sashikomi {
+  .page-header {
+    display: flex;
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .page-header.heading {
+    padding: 20px;
+    background: $sashikomi-color;
+    color: #fff;
+    font-size: 24px;
+  }
+
+  .page-body {
+    display: flex !important;
+
+    justify-content: center;
+  }
+
+  .page-body_inner {
+    width: 700px;
+  }
+
+  .page-nav {
+    display: flex;
+    margin: 20px 0;
+
+    justify-content: flex-end;
+
+    .button-lg {
+      background: transparent !important;
+      color: $sashikomi-color;
+      opacity: 1;
+
+      &:hover {
+        opacity: .6;
+      }
+    }
+  }
+}
+
+.ch_sashikomi--page {
+  .Sashikomi {
+    border-left: 5px solid #FDCA79 !important;
+  }
+
+  .Viewer {
+    margin: 20px 0 !important;
+  }
+
+  .button {
+    background: #FDCA79 !important;
   }
 }
 
 
-/*
-  Project
---------------------------------------------*/
-@import 'project/page';
-@import "project/ext";
-@import "project/markdown";

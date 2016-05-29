@@ -1,0 +1,63 @@
+{
+    "extends": "airbnb",
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es6": true
+    },
+    "globals": {
+        "chrome": false,
+        "module": false,
+        "process": false
+    },
+    "installedESLint": true,
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            2,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "off"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-console": 1,
+        "no-unused-vars": 1,
+        "no-var": 0,
+        "no-unused-expressions": [
+            2,
+            {
+                "allowShortCircuit": true,
+                "allowTernary": true
+            }
+        ],
+        "one-var-declaration-per-line": 0,
+        "one-var": [
+            "error",
+            {
+                "const": "never"
+            }
+        ],
+        "no-param-reassign": [
+            "error",
+            {
+                "props": false
+            }
+        ],
+        "react/jsx-closing-bracket-location": 0,
+        "react/jsx-no-bind": 0,
+        "react/jsx-curly-spacing": 0
+    }
+}

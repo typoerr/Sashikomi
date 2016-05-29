@@ -3,7 +3,10 @@
 /ext.crx
 node_modules/
 *.log
-/index.html
-/sample.md
-/sample2.md
+/*.html
+/*.md
 /ext.zip
+/ext/dist
+/screenshot
+typings
+typings.json

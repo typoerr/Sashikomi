@@ -1,17 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import Base from './Base'
-import Memo from  './Memo'
+import React, { Component } from 'react';
+import Viewer from './Viewer.jsx';
 
-export default class ErrorPage extends Base {
+export default class ErrorPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
       url: "",
-      data: []
+      data: [],
     };
-
-    this._bind('handleDelete', 'handleDeleteAll', 'ContentList', 'DeleteAllButton');
   }
 
   componentWillMount() {
@@ -24,72 +20,61 @@ export default class ErrorPage extends Base {
   }
 
   handleDelete(memo) {
-    let _memo = Object.assign({}, memo);
-
-    chrome.runtime.sendMessage({ type: 'DELETE', data: _memo },
+    chrome.runtime.sendMessage({ type: 'DELETE', data: memo },
       (res) => {
-        if (res.status === 'error') {
-          console.log(res.errorMessage);
-        } else if (res.status === 'success') {
-          let idx = this.state.data.findIndex(elm => elm.id === _memo.id);
-          let _data = this.state.data.concat();
-
-          _data.splice(idx, 1);
-          this.setState({ data: _data });
+        if (res.status === 'success') {
+          const data = this.state.data.filter(x => x.id !== memo.id);
+          this.setState({ data });
         }
       }
     );
   }
 
   handleDeleteAll() {
-    let msg = chrome.i18n.getMessage('alert_deleteAll');
+    const msg = chrome.i18n.getMessage('alert_deleteAll');
     if (confirm(msg)) {
-      this.state.data.forEach(memo => this.handleDelete(memo))
+      this.state.data.forEach(memo => this.handleDelete(memo));
     }
   }
 
-  DeleteAllButton() {
-    if (this.state.data.length) {
-      return (
-        <button type="button" className="p-operation-btn" onClick={this.handleDeleteAll}>
-          delete all
-        </button>
-      )
-    }
-  }
-
-  ContentList() {
-    return this.state.data.map(memo => {
-      return (
-        <Memo
-          key={memo.id}
-          id={memo.id}
-          onDelete={this.handleDelete}
-          contentText={memo.contentText}
+  renderContentList() {
+    return this.state.data.map(memo =>
+      <Viewer
+        key={memo.id}
+        onDeleteButtonClick={this.handleDelete.bind(this, memo) }
+        markdown={memo.contentText}
         />
-      )
-    });
+    );
   }
 
 
   render() {
     return (
-      <div className="l-page-component-wrapper">
-        <header className="l-page-header">
-          <h1 className="p-header__title">{this.state.url}</h1>
+      <div className="ch_sashikomi ch_sashikomi--page">
+        <header className="page-header">
+          <h1 className="page-header heading">{this.state.url}</h1>
         </header>
 
-        <section className="l-page-body">
-          <div className="l-page-body__inner">
-            <div className="p-operation-container">
-              {this.DeleteAllButton()}
+        <section className="page-body">
+          <div className="page-body_inner">
+            <div className="page-nav">
+              {
+                this.state.data.length
+                  ? <button
+                    type="button"
+                    className="button button-lg"
+                    onClick={this.handleDeleteAll.bind(this) }
+                    >
+                    delete all
+                  </button>
+                  : ''
+              }
             </div>
 
-            {this.ContentList()}
+            {this.renderContentList() }
           </div>
-
         </section>
       </div>
-    )
+    );
   }
 }

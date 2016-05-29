@@ -41,13 +41,17 @@ export default class Editor extends Component {
 
   render() {
     return (
-      <div className="Editor">
-        <div className="BtnGroup">
-          <button onClick={this.handleSubmit.bind(this) }>Submit</button>
-          <button onClick={this.handleCancel.bind(this) }>Cancel</button>
+      <div className="Sashikomi Editor">
+        <div className="Sashikomi_header">
+          <div className="btn-group">
+            <button className="button" onClick={this.handleSubmit.bind(this) }>Submit</button>
+            <button className="button"onClick={this.handleCancel.bind(this) }>Cancel</button>
+          </div>
         </div>
-        <div className="EditorBody">
+
+        <div className="Editor_body">
           <textarea
+            className="textarea"
             autoFocus="true"
             value={this.state.inputText}
             onChange={this.handleChange.bind(this) }

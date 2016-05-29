@@ -42,7 +42,7 @@ body {
 }
 
 .ch_sashikomi--ext {
-  margin: 20px 0;
+  margin: 20px 0 !important;
 }
 
 
@@ -194,6 +194,10 @@ body {
 .ch_sashikomi--page {
   .Sashikomi {
     border-left: 5px solid #FDCA79 !important;
+  }
+
+  .Viewer {
+    margin: 20px 0 !important;
   }
 
   .button {

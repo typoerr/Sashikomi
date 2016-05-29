@@ -1,38 +1,17 @@
-// TODO: insert処理で重複している処理がたくさんあるので、きれいにまとめたい
-
 require('./../css/inject.scss');
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MemoContainer from './components/MemoContainer.jsx';
-import cssPath from 'css-path';
-import util from '../../util';
 import ErrorPage from './components/ErrorPage.jsx';
+import SashikomiDOM from './../sashikomi-dom.js';
 
 function insertNewMemo() {
-  /* Componentを挿入(Editor)
-  ------------------------------
-   * selectされているDOMのCSS Pathを取得(targetElm)
-   * 取得したDOMの子要素(containerElm)を生成
-   * containerElmにuniqueなid(containerElmId)を付与
-   * containerElmをPageに挿入
-   * containerElmIdを頼りにReactComponentを挿入
-  * */
-  const selection = window.getSelection();
-  let targetElmPath = cssPath(selection.getRangeAt(0).endContainer.parentNode);
-  const targetElm = document.querySelector(targetElmPath);
-
-  if (targetElm.dataset.sashikomi) {
-    const msg = chrome.i18n.getMessage('alert_insert_warn');
-    window.alert(msg);
+  const sashikomi = new SashikomiDOM();
+  if (sashikomi.exists()) {
+    window.alert(sashikomi.alertMessage);
   } else {
-    const containerElm = document.createElement('div');
-    let containerElmId = util.uuid();
-    const url = util.removeUrlHash(location.href);
-
-    containerElm.setAttribute('id', containerElmId);
-    targetElm.dataset.sashikomi = 'true';
-    targetElm.parentNode.insertBefore(containerElm, targetElm.nextSibling);
-    // targetElm.appendChild(containerElm);
+    sashikomi.insert();
+    const { url, targetElmPath, containerElmId, containerElm } = sashikomi;
 
     ReactDOM.render(
       <MemoContainer
@@ -40,7 +19,7 @@ function insertNewMemo() {
         targetElmPath={targetElmPath}
         containerElmId={containerElmId}
         />,
-      document.getElementById(containerElmId)
+      containerElm
     );
   }
 }
@@ -50,19 +29,11 @@ function insertComponent(memos = []) {
   const insertionErrors = [];
 
   for (const memo of memos) {
-    const targetElm = document.querySelector(memo.targetElmPath);
-    // targetElmにdata属性を付けて存在を判断
-    if (targetElm && targetElm.dataset.sashikomi) continue;
-
     try {
-      const containerElm = document.createElement('div');
-      let containerElmId = util.uuid();
-      containerElm.setAttribute('id', containerElmId);
-
-      // 要素の子要素に追加するか兄弟要素にするか、しばらく使ってから判断したい
-      targetElm.dataset.sashikomi = 'true';
-      targetElm.parentNode.insertBefore(containerElm, targetElm.nextSibling);
-      // targetElm.appendChild(containerElm);
+      const sashikomi = new SashikomiDOM(memo);
+      if (sashikomi.exists()) continue;
+      sashikomi.insert();
+      const { containerElmId, containerElm } = sashikomi;
 
       ReactDOM.render(
         <MemoContainer

@@ -5,7 +5,7 @@
 ======================================= */
 /* variables */
 $base-font-family: "helvetica neue", "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, sans-serif;
-$sahikomi-color: #7d3c98;
+$sashikomi-color: #7d3c98;
 $default-font-color: #444;
 $default-link-color: #20a8d4;
 $default-link-hover-color: #1487ad;
@@ -15,10 +15,13 @@ $code-color: #f2f2f2;
 $code-background-color: #273b42;
 
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: $base-font-family;
+}
 
-.ch_sahiskomi {
-  margin: 20px 0;
-
+.ch_sashikomi, .ch_sashikomi--page {
   @import 'base/reset';
 
   button, input[type="button"], .button {
@@ -40,6 +43,10 @@ $code-background-color: #273b42;
   }
 }
 
+.ch_sashikomi--ext {
+  margin: 20px 0;
+}
+
 
 /* =====================================
 # Layout
@@ -48,7 +55,7 @@ $code-background-color: #273b42;
 /* =====================================
 # Module
 ======================================= */
-.ch_sahiskomi {
+.ch_sashikomi {
   /* highlight */
   @import 'vendor/tomorrow-night-eighties';
 
@@ -67,7 +74,7 @@ $code-background-color: #273b42;
     float: left;
     padding: 5px 10px;
     border: none;
-    background: $sahikomi-color;
+    background: $sashikomi-color;
     color: #fff;
     font-size: 12px;
     opacity: .5;
@@ -76,19 +83,24 @@ $code-background-color: #273b42;
       opacity: 1;
     }
   }
+
+  .button-lg {
+    padding: 10px 15px;
+    font-size: 18px;
+  }
 }
 
 
 /* =====================================
 # Component
 ======================================= */
-.ch_sahiskomi {
+.ch_sashikomi {
   @import 'markdown';
   .Sashikomi {
     position: relative;
     overflow: hidden;
     width: 100%;
-    border-left: 5px solid $sahikomi-color;
+    border-left: 5px solid $sashikomi-color;
     color: $default-font-color;
     font-weight: 400;
     font-size: 16px;
@@ -136,3 +148,59 @@ $code-background-color: #273b42;
     }
   }
 }
+
+/* error page */
+.ch_sashikomi {
+  .page-header {
+    display: flex;
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .page-header.heading {
+    padding: 20px;
+    background: $sashikomi-color;
+    color: #fff;
+    font-size: 24px;
+  }
+
+  .page-body {
+    display: flex !important;
+
+    justify-content: center;
+  }
+
+  .page-body_inner {
+    width: 700px;
+  }
+
+  .page-nav {
+    display: flex;
+    margin: 20px 0;
+
+    justify-content: flex-end;
+
+    .button-lg {
+      background: transparent !important;
+      color: $sashikomi-color;
+      opacity: 1;
+
+      &:hover {
+        opacity: .6;
+      }
+    }
+  }
+}
+
+.ch_sashikomi--page {
+  .Sashikomi {
+    border-left: 5px solid #FDCA79 !important;
+  }
+
+  .button {
+    background: #FDCA79 !important;
+  }
+}
+
+

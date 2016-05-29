@@ -41,7 +41,7 @@ export default class ErrorPage extends Component {
     return this.state.data.map(memo =>
       <Viewer
         key={memo.id}
-        onDeleteButtonClick={this.handleDelete.bind(this, memo)}
+        onDeleteButtonClick={this.handleDelete.bind(this, memo) }
         markdown={memo.contentText}
         />
     );
@@ -50,20 +50,20 @@ export default class ErrorPage extends Component {
 
   render() {
     return (
-      <div className="l-page-component-wrapper">
-        <header className="l-page-header">
-          <h1 className="p-header__title">{this.state.url}</h1>
+      <div className="ch_sashikomi ch_sashikomi--page">
+        <header className="page-header">
+          <h1 className="page-header heading">{this.state.url}</h1>
         </header>
 
-        <section className="l-page-body">
-          <div className="l-page-body__inner">
-            <div className="p-operation-container">
+        <section className="page-body">
+          <div className="page-body_inner">
+            <div className="page-nav">
               {
                 this.state.data.length
                   ? <button
                     type="button"
-                    className="p-operation-btn"
-                    onClick={this.handleDeleteAll.bind(this)}
+                    className="button button-lg"
+                    onClick={this.handleDeleteAll.bind(this) }
                     >
                     delete all
                   </button>
@@ -73,7 +73,6 @@ export default class ErrorPage extends Component {
 
             {this.renderContentList() }
           </div>
-
         </section>
       </div>
     );

@@ -60,7 +60,7 @@ export default class MemoContainer extends Component {
 
   render() {
     return (
-      <div className="ch_sahiskomi">
+      <div className="ch_sashikomi">
         <div className="ch_sashikomi--ext">
           {
             this.state.isEditing
